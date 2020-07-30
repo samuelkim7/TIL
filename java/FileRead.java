@@ -1,56 +1,56 @@
-//Modal Ã¢¿¡¼­ ÆÄÀÏÀ» ¼±ÅÃÇÏ°í, ¼±ÅÃµÈ ÆÄÀÏÀÇ ³»¿ëÀ» TextArea¿¡ Ãâ·Â
-//ÆÄÀÏ ¼±ÅÃ°ú ÆÄÀÏ¸íÀ» °¡Á®¿À±â À§ÇØ FileDialog »ç¿ë
-//ÆÄÀÏ ³»¿ëÀ» ÀĞ¾î¿À´Â readFileÀÌ¶ó´Â Method Á¤ÀÇ
+//Modal ì°½ì—ì„œ íŒŒì¼ì„ ì„ íƒí•˜ê³ , ì„ íƒëœ íŒŒì¼ì˜ ë‚´ìš©ì„ TextAreaì— ì¶œë ¥
+//íŒŒì¼ ì„ íƒê³¼ íŒŒì¼ëª…ì„ ê°€ì ¸ì˜¤ê¸° ìœ„í•´ FileDialog ì‚¬ìš©
+//íŒŒì¼ ë‚´ìš©ì„ ì½ì–´ì˜¤ëŠ” readFileì´ë¼ëŠ” Method ì •ì˜
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 class A extends Frame implements ActionListener{
-MenuItem item1,item2;
-Menu m;
-MenuBar mb;
-TextArea ta;
-A(){
-item1=new MenuItem("¿­±â");
-item2=new MenuItem("ÀúÀå");
-m=new Menu("ÆÄÀÏ");
-m.add(item1);
-m.add(item2);
-mb=new MenuBar();
-mb.add(m);
-setMenuBar(mb);
-ta=new TextArea();
-add(ta);
+  MenuItem item1,item2;
+  Menu m;
+  MenuBar mb;
+  TextArea ta;
+  A(){
+    item1=new MenuItem("ì—´ê¸°");
+    item2=new MenuItem("ì €ì¥");
+    m=new Menu("íŒŒì¼");
+    m.add(item1);
+    m.add(item2);
+    mb=new MenuBar();
+    mb.add(m);
+    setMenuBar(mb);
+    ta=new TextArea();
+    add(ta);
+    item1.addActionListener(this);
+  }
 
-item1.addActionListener(this);
-}
-public void actionPerformed(ActionEvent e){
-FileDialog fd=new FileDialog(this);
-fd.setVisible(true);
-readFile(fd.getDirectory()+fd.getFile());
+  public void actionPerformed(ActionEvent e){
+    FileDialog fd=new FileDialog(this);
+    fd.setVisible(true);
+    readFile(fd.getDirectory()+fd.getFile());                // ì„ íƒëœ fileì˜ ë””ë ‰í† ë¦¬ì™€ íŒŒì¼ëª… ì½ì–´ì˜´
+  }
+
+  void readFile(String fn){
+  try(
+    FileInputStream fis=new FileInputStream(fn);
+     ){
+    int size = fis.available();                              // ì½ì„ ìˆ˜ ìˆëŠ” ë‚´ìš©ì˜ ê¸¸ì´ë¥¼ ê°€ì ¸ì˜´
+    byte[] buffer = new byte[size];                         
+    fis.read(buffer);                                        // byte ë°°ì—´ ì†ì— íŒŒì¼ì˜ ë‚´ìš©ì„ ì½ì–´ì˜´                           
+    ta.append(new String(buffer));
+
+    }catch(FileNotFoundException e1){
+      System.out.println("í•´ë‹¹íŒŒì¼ ì—†ì–´ìš”~");
+    }catch(IOException e2){
+      System.out.println("ì½ë‹¤ê°€ ì˜¤ë¥˜ë°œìƒ~");
+    }
+  }
 }
 
-void readFile(String fn){
-try(
-FileInputStream fis=new FileInputStream(fn);
-){
-int size = fis.available();
-byte[] buffer = new byte[size];
-fis.read(buffer);
-{
-ta.append(new String(buffer));
-}
-}catch(FileNotFoundException e1){
-System.out.println("ÇØ´çÆÄÀÏ ¾ø¾î¿ä~");
-}catch(IOException e2){
-System.out.println("ÀĞ´Ù°¡ ¿À·ù¹ß»ı~");
-}
-}
-}
 class B{
-public static void main(String args[]){
-A f=new A();
-f.setBounds(100,100,500,500);
-f.setVisible(true);
+  public static void main(String args[]){
+  A f=new A();
+  f.setBounds(100,100,500,500);
+  f.setVisible(true);
 }
 }
