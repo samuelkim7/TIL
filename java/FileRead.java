@@ -1,3 +1,7 @@
+//Modal 창에서 파일을 선택하고, 선택된 파일의 내용을 TextArea에 출력
+//파일 선택과 파일명을 가져오기 위해 FileDialog 사용
+//파일 내용을 읽어오는 readFile이라는 Method 정의
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
