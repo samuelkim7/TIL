@@ -1,0 +1,17 @@
+### Binary
+
+####What is CS?
+- "Solving Problem"
+- Input -> [     ] -> Output
+
+####Computer language
+- Binary: 0 1
+- Computer does not use ten digits. but just two digits
+- This binary numbers can represent large numbers.
+
+####bit
+- "Binary digit"
+- The only resource for computer - electricity
+- on or off = 1 or 0
+- 8 bits = 1 byte
+- Transistor : a tiny switch in the computer. This represent values 0 or 1 (off or on) to store information.
