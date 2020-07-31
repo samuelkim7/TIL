@@ -1,15 +1,16 @@
-### Binary
+## Binary
 
-####What is CS?
+
+#### What is CS?
 - "Solving Problem"
 - Input -> [     ] -> Output
 
-####Computer language
+#### Computer language
 - Binary: 0 1
 - Computer does not use ten digits. but just two digits
 - This binary numbers can represent large numbers.
 
-####bit
+#### bit
 - "Binary digit"
 - The only resource for computer - electricity
 - on or off = 1 or 0
