@@ -87,3 +87,63 @@ for i in ans:
 
     baekjoon
     1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+
+
+```python
+cases = int(input())
+
+for i in range(cases):
+    n, str = input().split()
+    for s in str:
+        print(int(n)*s, end='')
+    print()
+```
+
+    2
+    5 aa
+    aaaaaaaaaa
+    3 abc
+    aaabbbccc
+    
+
+
+```python
+Str = input().upper()
+cnt = [0]*26
+for i in range(len(Str)):
+    cnt[ord(str[i])-65] += 1
+max_num = max(count)
+print(max_num)
+if cnt.count(max_num) >= 2:
+    print('?')
+else:
+    print(chr(cnt.index(max_num) + ord('A')))
+print(ord('A'))
+```
+
+### [백준] 숫자의 개수
+자연수 A,B,C에 대해 AXBXC의 값에서 0부터 9까지의 숫자가 몇 번씩 쓰였는지 출력
+
+
+```python
+#풀이1 : count list 이용. O(n)
+multiplied = 1
+for i in range(3):
+    n = int(input())
+    multiplied *= n
+
+count = [0]*10
+for s in str(multiplied):
+    count[int(s)] += 1
+
+for i in count:
+    print(i)
+```
+
+
+```python
+#풀이2 : str.count() 함수 사용. O(n^2). 하지만 여기서는 개수가 정해져있으므로 빠르게 수행됨
+mult = int(input()) * int(input()) * int(input())
+for i in range(10):
+    print(str(mult).count(str(i)))
+```
