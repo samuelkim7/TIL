@@ -34,6 +34,6 @@
 
 ## Algorithms
 
-- "Process of Solving Problems"
+- "set of instructions to solve problems"
 - Time matters for efficiency.
 - has functions, conditions, Boolean expressions, loops.
