@@ -1,0 +1,14 @@
+*한국의 연도 별 메달 개수
+
+hive> select year, sum(total) from olympic 
+	where country="South Korea" 
+	group by year 
+	order by year;
+
+200073
+20027
+200452
+200619
+200878
+201018
+201261

@@ -1,0 +1,207 @@
+*선수별 금메달 개수 (금메달 개수로 내림차순 정렬, 200명만 출력)
+
+hive> select athelete, sum(gold) as g from olympic
+	group by athelete
+	order by g desc
+	limit 200;
+
+Michael Phelps18
+Chris Hoy6
+Usain Bolt6
+Ole Einar Bjørndalen5
+Valentina Vezzali5
+Ryan Lochte5
+Georgeta Damian-Andrunache5
+Anastasiya Davydova5
+Zou Kai5
+Aaron Peirsol5
+Ian Thorpe5
+Wang Meng4
+Kosuke Kitajima4
+Inge de Bruijn4
+Libby Lenton-Trickett4
+Allyson Felix4
+Anastasiya Yermakova4
+Matt Grevers4
+Yang Wei4
+Sanya Richards-Ross4
+Simon Ammann4
+Katrin Wagner-Augustin4
+Yana Klochkova4
+Serena Williams4
+Venus Williams4
+Janica Kostelic4
+Li Xiaopeng4
+Dana Vollmer4
+Jason Lezak4
+Wang Nan4
+Missy Franklin4
+Ben Ainslie4
+Kevin Kuske4
+Guo Jingjing4
+Chen Ruolin4
+André Lange4
+Wu Minxia4
+Bradley Wiggins4
+Lenny Krayzelburg4
+Leontien Zijlaard-van Moorsel4
+Viorica Susanu4
+Zhang Yining4
+Jodie Henry3
+Heather Mitts3
+Botond Storcz3
+Saori Yoshida3
+Mariya Gromova3
+Rebecca Soni3
+Petria Thomas3
+Elvira Khasyanova3
+An Hyeon-Su3
+Hayley Wickenheiser3
+Diana Taurasi3
+Caroline Ouellette3
+Ian Crocker3
+Michael Greis3
+Svetlana Romashina3
+Park Seong-Hyeon3
+Samppa Lajunen3
+Tony Estanguet3
+Grant Hackett3
+Lisa Leslie3
+Nathan Adrian3
+Becky Kellar3
+Kenenisa Bekele3
+Christie Pearce-Rampone3
+Marit Bjørgen3
+Tibor Benedek3
+Colleen Sostorics3
+Wang Hao3
+Robert Korzeniowski3
+Thomas Morgenstern3
+Jenny Thompson3
+Jeremy Wariner3
+Natalie Coughlin3
+Kim St-Pierre3
+Steph Rice3
+Artur Taymazov3
+Natasa Douchev-Janics3
+Gary Hall Jr.3
+Olga Brusnikina3
+Veronica Campbell-Brown3
+Péter Biros3
+Jason Kenny3
+Zoltán Szécsi3
+Felix Gottwald3
+Nataliya Ishchenko3
+Anky van Grunsven3
+Katie Smith3
+Jayna Hefford3
+Birgit Fischer-Schmidt3
+Peter Hochschorner3
+Katalin Kovács3
+Jin Seon-Yu3
+Cherie Piper3
+Misty May-Treanor3
+Kerri Walsh3
+Pavol Hochschorner3
+Jin Jong-O3
+Zoltán Kammerer3
+Ma Lin3
+Brendan Hansen3
+Sue Bird3
+Angelo Taylor3
+Kjetil André Aamodt3
+Tamás Kásás3
+Allison Schmitt3
+Gergo Kiss3
+Chen Yibing3
+Catalina Ponor3
+Doina Ignat3
+Kaori Icho3
+Tamika Catchings3
+Shannon Boxx3
+Jennifer Botterill3
+Leisel Jones3
+Yun Mi-Jin3
+Mariya Kiselyova3
+Tirunesh Dibaba3
+Tamás Molnár3
+Claudia Pechstein3
+Pieter van den Hoogenband3
+Anni Friesinger-Postma3
+Heather O'Reilly3
+Kati Wilhelm3
+Ranomi Kromowidjojo3
+Bertrand Gille2
+Isabell Werth2
+Oussama Mellouli2
+Eirik Verås Larsen2
+LaShawn Merritt2
+Monica Rosu2
+Cassie Campbell2
+Alain Bernard2
+Geraint Thomas2
+Claudia Künzel-Nystad2
+Caryn Davies2
+Lee Seong-Jin2
+Benjamin Weß2
+Georgina Evers-Swindell2
+Sun Yang2
+Domenico Fioravanti2
+Vicki Pendleton2
+Simona Amânar2
+Benjamin Raich2
+Yang Yang (A)2
+Caroline Lind2
+Caroline Evers-Swindell2
+Andrus Veerpalu2
+François-Louis Tremblay2
+Yelena Posevina2
+Deng Linlin2
+Zhang Jike2
+Kirsty Coventry2
+Wolfgang Linger2
+Max Weinhold2
+Yang Wenjun2
+Daniela Anschütz-Thoms2
+Tadahiro Nomura2
+Karina Aznavuryan2
+Max Müller2
+Mijaín López2
+Andrey Moiseyev2
+Carmelo Anthony2
+Sarah Vaillancourt2
+Li Na2
+Lauren Cheney2
+Ireen Wüst2
+Mavlet Batyrov2
+Emily Seebohm2
+Karin Mortensen2
+Andrew Triggs Hodge2
+Lin Dan2
+Beezie Madden2
+Frode Estil2
+Becky Adlington2
+Luc Abalo2
+Christopher Zeller2
+Kari Mette Johansen2
+DeeDee Trotter2
+Kari Aalvik Grimsbø2
+Tonje Nøstvold2
+Roman Hagara2
+Mark Gangloff2
+Abby Wambach2
+Fabrice Jeannet2
+Kerstin Kowalski-El-Qalqili2
+Svetlana Ishmuratova2
+Daniel Narcisse2
+Andreas Thorkildsen2
+Ingrid Klimke2
+Philipp Zeller2
+Philipp Schoch2
+Maurice Greene2
+Wu Jingyu2
+Karen Brødsgaard2
+Andreas Linger2
+Mo Farah2
+Olga Zaytseva2
+Andreas Kofler2
