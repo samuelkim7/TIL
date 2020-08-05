@@ -1,5 +1,6 @@
 ### dataset
 - 실제 올림픽 데이터를 참조하여 만들어진 sample dataset
+- 
 
 ### hive
 - 하둡 완전 분산 모드에 하이브 (1.2.2) 설치 완료
@@ -8,10 +9,10 @@
 
 
 #### 테이블 생성
-hive> create table olympic (athelete STRING,age INT,country STRING,year STRING,closing STRING,sport STRING,gold INT,silver INT,bronze INT,total INT)
-        row format delimited
-        fields terminated by ‘\t’
-        stored as textfile;
+hive> create table olympic (athelete STRING, age INT, country STRING, year STRING, closing STRING, sport STRING, gold INT, silver INT, bronze INT, total INT) ()()
+        row format delimited ()()
+        fields terminated by ‘\t’ ()()
+        stored as textfile; ()()
 
 #### 데이터 로딩
 hive> load data local inpath ‘/root/hive/olympic_data.csv’ into table olympic;
