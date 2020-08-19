@@ -1,3 +1,10 @@
+<style>
+  body {
+  font-family: Helvetica;
+  font-size: 16pt;
+  }
+</style>
+
 ## 운영체제(OS)의 역할
 1. 시스템 자원 관리자
 - 시스템 자원 (하드웨어): CPU, Memory, I/O devices, 저장매체
