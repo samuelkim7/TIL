@@ -1,6 +1,6 @@
 ## 운영체제의 구조
 
-![운영체제](https://user-images.githubusercontent.com/65876994/90761748-d3ca5c80-e31e-11ea-9975-84c176715e6b.PNG)
+![운영체제](https://user-images.githubusercontent.com/65876994/90761748-d3ca5c80-e31e-11ea-9975-84c176715e6b.PNG = 150x200)
 
 - 운영체제는 응용 프로그램이 요청하는 메모리를 허가/분배하고, CPU 시간을 제공
 - 또한 IO Devices 사용을 허가/제공
