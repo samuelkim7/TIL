@@ -23,7 +23,7 @@ ls
 - Special variables
   - $0: Filename of the current script
   - $n: These variables correspond to the arguments with which a script was invoked.
-  - $*: All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
+  - $@: All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
   - $$: The process number of the current shell
  
 $ vi test.sh
