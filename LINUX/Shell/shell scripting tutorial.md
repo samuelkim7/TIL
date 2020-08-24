@@ -60,3 +60,27 @@ First Index: Sam
 Second Index: Kim
 ```
 #### Operators
+- Bourne shell didn't originally have any mechanism to perform simple arithmetic operations but it uses external programs, either awk or **expr**.
+- basic format: `expr `
+- There must be spaces between operators and expressions. 2+2 is not correct. It should be 2 + 2.
+- Multiplication: \*
+```shell
+Live Demo
+#!/bin/sh
+val=`expr 2 + 2`
+echo "Total value : $val"
+```
+```shell
+Total value : 4
+```
+- Relational Operators
+ - -eq: ==
+ - -ne: !=
+ - -gt: >
+ - -lt: <
+ - -ge: >=
+ - -le: <=
+-File Test Operators
+ - -f file: Checks if file is an ordinary file as opposed to a directory or special file.
+ - -x file: Checks if file is executable.
+ - -e file: Checks if file exists
