@@ -21,10 +21,10 @@ ls
 - Defining variable: variable_name=variable_value
 - Accessing Values: $variable_value
 - Special variables
- - $0: Filename of the current script
- - $n: These variables correspond to the arguments with which a script was invoked.
- - $*: All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
- - $$: The process number of the current shell
+  - $0: Filename of the current script
+  - $n: These variables correspond to the arguments with which a script was invoked.
+  - $*: All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
+  - $$: The process number of the current shell
  
 $ vi test.sh
 ```shell
@@ -74,13 +74,13 @@ echo "Total value : $val"
 Total value : 4
 ```
 - Relational Operators
- - -eq: ==
- - -ne: !=
- - -gt: >
- - -lt: <
- - -ge: >=
- - -le: <=
--File Test Operators
- - -f file: Checks if file is an ordinary file as opposed to a directory or special file.
- - -x file: Checks if file is executable.
- - -e file: Checks if file exists
+  - -eq: ==
+  - -ne: !=
+  - -gt: >
+  - -lt: <
+  - -ge: >=
+  - -le: <=
+- File Test Operators
+  - -f file: Checks if file is an ordinary file as opposed to a directory or special file.
+  - -x file: Checks if file is executable.
+  - -e file: Checks if file exists
