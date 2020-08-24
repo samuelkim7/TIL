@@ -84,3 +84,5 @@ Total value : 4
   - -f file: Checks if file is an ordinary file as opposed to a directory or special file.
   - -x file: Checks if file is executable.
   - -e file: Checks if file exists
+
+quoted from https://www.tutorialspoint.com/unix/shell_scripting.htm
