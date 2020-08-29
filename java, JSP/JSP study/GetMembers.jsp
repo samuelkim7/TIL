@@ -12,11 +12,11 @@ $(document).ready(function(){
 });
 function Func1(){
 	$.ajax({
-		url:"t3.jsp",
+		url:"MemberList.jsp",
 		dataType:"json",
-		success:function(data){
+		success:function(data){                    // MemberList의 data를 가져옴
 			var htmlStr="<ol>";
-			for(var index in data.list){
+			for(var index in data.list){       // 각 회원명을 클릭시 Func2 실행되도록 설정
 			htmlStr+="<li><a href=javasciprt:void(0); onclick=Func2("+index+");>"+data.list[index].id+"</a></li>"
 			}
 			htmlStr+="</ol>";
@@ -29,9 +29,9 @@ function Func1(){
 }
 function Func2(index){
 	$.ajax({
-		url:"t3.jsp",
+		url:"MemberList.jsp",
 		dataType:"json",
-		success:function(data){
+		success:function(data){         // 각 id에 해당하는 
 			var str = "<p>";
 			str = "pw: " + data.list[index].pw +"<br>" 
 			      + "addr: " + data.list[index].addr + "<br>"
