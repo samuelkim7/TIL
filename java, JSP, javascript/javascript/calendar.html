@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta charset="´utf-8´" />
+    <meta http-equiv="´X-UA-Compatible´" content="´IE"="edge´" />
+    <title>Page Title</title>
+    <style type="text/css">
+        td {
+            border: 1px solid navy;
+            text-align: center;
+        }
+    </style>
+    <script>
+        var Cal = "";
+
+        window.onload = function() {
+            btn.onclick = showCal;
+        };
+
+        function showCal() {
+            Cal = "";
+            var year = sel1.value;
+            var month = sel2.value;
+
+            Calhead(year, month);
+            Calbody(year, month);
+        }
+
+        function Calhead(year, month) {
+            var days = ["일", "월", "화", "수", "목", "금", "토"];
+            Cal +=
+                "<tr><td colspan=7>" + year + "년 " + month + "월" + "</td></tr>";
+            Cal += "<tr>";
+            for (var index in days) {
+                Cal += "<td>" + days[index] + "</td>";
+            }
+            Cal += "</tr>";
+        }
+
+        function Calbody(year, month) {
+            var tableTag = document.querySelector("#tb");
+            var firstDate = new Date(year, month - 1, 1);
+            var lastDate = new Date(year, month, 0);
+            var firstDay = firstDate.getDay();
+            var lastDay = lastDate.getDay();
+            var num = 1;
+
+            Cal += "<tr>";
+            for (var i = 0; i < 7; i++) {
+                if (i < firstDay) Cal += "<td></td>";
+                else Cal += "<td>" + num++ + "</td>";
+            }
+            Cal += "</tr><tr>";
+            var cnt = 0;
+            for (var i = 8 - firstDay; i <= lastDate.getDate(); i++) {
+                if (cnt == 7) {
+                    Cal += "</tr><tr>";
+                    cnt = 0;
+                }
+                Cal += "<td>" + i + "</td>";
+                cnt++;
+            }
+            for (var i = cnt; i < 7; i++) Cal += "<td></td>";
+            Cal += "</tr>";
+
+            tableTag.innerHTML = Cal;
+        }
+    </script>
+</head>
+
+<body>
+    <select id="sel1">
+      <script>
+        for (var i = 2000; i < 2101; i++) {
+          document.write("<option>" + i + "</option>");
+        }
+      </script></select
+    >년
+    <select id="sel2">
+      <script>
+        for (var i = 1; i < 13; i++) {
+          document.write("<option>" + i + "</option>");
+        }
+      </script></select
+    >월 <input type="button" value="달력 보기" id="btn" />
+    <div id="container">
+      <table id="tb"></table>
+    </div>
+  </body>
+</html>
