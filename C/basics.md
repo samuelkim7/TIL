@@ -1,0 +1,91 @@
+*JAVA와 다른 부분들 위주로 정리*
+
+### C 언어 프로그램
+- 전통적인 프로그램은 전처리기 - 컴파일러 - 링커를 거쳐 실행파일로 만들어짐
+#### Hello World 예제
+```C
+#include <stdio.h>
+
+int main(void) {
+  prinf("Hello World!");
+  system("pause");
+  return 0;
+}
+```
+- #include <stdio.h>: 표준 입출력 library 불러옴
+- system(): 운영체제의 기본적인 기능을 사용하는 함수
+
+### 변수
+- 정적 변수: java의 멤버 변수. 선언만 될 경우 0으로 초기화됨
+- 정수에서 음수의 표현: 2의 보수 방식 사용 (1의 보수 + 1)
+- 실수: 부호, 지수, 유효숫자를 이용하여 표현
+
+### 입출력
+#### scanf()
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+	int a;
+	scanf("%d", &a);
+	printf("The number is %d.\n", a);
+	system("pause");
+	return 0;
+}
+```
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+	double a;
+	scanf("%lf", &a);
+	printf("%.2f\n", a);
+	system("pause");
+	return 0;
+}
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+	int a, b, c;
+	scanf("%1d%1d%1d", &a, &b, &c);
+	printf("%d %d %d\n", a, b, c);
+	system("pause");
+	return 0;
+}
+- %d: 정수형 데이터의 입출력을 위한 형식 지정자
+- %lf, %f: double의 경우 입력시 %lf, 출력시 %f 사용. %.2f는 소수점 지정
+- %1d: 연속된 숫자를 한 자리씩 끊어서 입력받음
+- &: 변수의 주소를 의미하는 주소 연산자. 메모리 주소에 접근하여 데이터를 수정하게 함
+
+### 연산자
+#### 사칙연산
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+	int a, b;
+	scanf("%d %d%", &a, &b);
+	printf("%d + %d = %d\n", a, b, a + b);
+	printf("%d - %d = %d\n", a, b, a - b);
+	printf("%d %% %d = %d\n", a, b, a % b);
+	system("pause");
+	return 0;
+```
+#### 관계연산자
+  - False: 0 출력 / True: 1 출력
+#### 삼항연산자
+```C
+#include <stdio.h>
+
+int main(void) {
+	int a = 7, b = 7;
+	printf("%d\n", (a == b) ? 100 : -100);
+	system("pause");
+	return 0;
+}
+```
