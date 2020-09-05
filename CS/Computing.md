@@ -1,3 +1,5 @@
+*CS50 2019 (Harvard) - David Malan*
+
 ## Binary
 
 #### What is CS?
