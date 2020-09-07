@@ -45,8 +45,8 @@
 - 단일 writer로 파일을 한번 씀. 파일의 끝에 덧붙이는 것은 가능하지만 임의 위치에 있는 내용을 수정할 수는 없음
 - 데이터 무결성
   - 모든 데이터를 쓰는 과정에서 내부적으로 체크섬을 계산하고, 읽는 과정에서 기본적으로 체크섬을 검증함
-  - 만약 클라이언트가 블록을 읽는 과정에서 체크섬에러를 검출하면 이를 네임노드에 보고함 -> 네임노드는 해당 블록의 정상 복제본을 다른 데이터노드에 복제하여 복제 계수를 원래 수준으로 복구하고 손상된 복제본을 삭제함  
-*checksum: A checksum is a sequence of numbers and letters used to check data for errors. If you know the checksum of an original file, you can use a checksum utility to confirm your copy is identical.*
+  - cf) *checksum: A checksum is a sequence of numbers and letters used to check data for errors. If you know the checksum of an original file, you can use a checksum utility to confirm your copy is identical.*
+  - 만약 클라이언트가 블록을 읽는 과정에서 체크섬에러를 검출하면 이를 네임노드에 보고함 -> 네임노드는 해당 블록의 정상 복제본을 다른 데이터노드에 복제하여 복제 계수를 원래 수준으로 복구하고 손상된 복제본을 삭제함
 
 ### 블록
 - hdfs 파일은 블록으로 나누어지며 각 블록은 독립적으로 저장된다.
