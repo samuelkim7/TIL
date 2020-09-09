@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style type="text/css">
+td { border:1px solid navy;
+     height: 20px;
+     font-size: 0.7em;
+     text-align: right;
+}
+table { border-collapse: collapse;
+        width: 100px;   
+ }
+</style>
+<script>
+window.onload=function(){
+    createTable(5);
+}
+function createTable(r){
+    var tableTag=document.createElement("table");
+    for(var a=0; a<r; a++){
+        var trTag = document.createElement("tr");
+        var tdTag = document.createElement("td");
+        tdTag.innerHTML= "&#9660" + "&nbsp" + "&nbsp";
+        tdTag.onclick = clickFunc1;
+        trTag.appendChild(tdTag);
+        tableTag.appendChild(trTag); 
+    }
+    var divTag=document.getElementById("container");
+    divTag.appendChild(tableTag);
+}
+function clickFunc1(){
+    var tableTag = this.parentNode.parentNode;
+    var trTag = this.parentNode;
+    var newTr = document.createElement("tr");
+    var newTd = document.createElement("td");
+    var button = document.createElement("button");
+    button.innerHTML = "&#10005";
+    button.style.float="right";
+    button.onclick = clickFunc2;
+    newTd.appendChild(button);
+    newTr.appendChild(newTd);
+    tableTag.insertBefore(newTr, trTag.nextSibling);
+}
+function clickFunc2(){
+    var trTag = this.parentNode.parentNode;
+    var tdTag = this.parentNode;
+    trTag.removeChild(tdTag);
+}
+</script>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>
