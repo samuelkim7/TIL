@@ -1,0 +1,3 @@
+- Dependency Injection -> MVC
+- AOP -> 트랜잭션
+- Servlet Filter -> 인증과 권한
