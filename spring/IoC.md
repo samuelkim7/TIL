@@ -50,6 +50,7 @@ class OwnerControllerTest {
 - Setter를 만들고 annotation을 추가
 
 ### IntelliJ 단축키
+sout+Tab: System.out.println();
 Alt+Enter: 에러에 대한 제안 사항 확인
 F2: 다음 에러로 이동
 Alt+1 / Esc: Navigator와 Editor 사이를 이동
