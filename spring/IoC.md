@@ -1,7 +1,3 @@
-- Dependency Injection -> MVC
-- AOP -> 트랜잭션
-- Servlet Filter -> 인증과 권한
-
 ### Inversion of Control
 - 일반적인 제어권: "내가 사용할 의존성은 내가 만듦"
 - IoC: "내가 사용할 의존성을 누군가 알아서 주겠지"
@@ -46,6 +42,12 @@ class OwnerControllerTest {
 - 꺼내 쓰는 방법
   - @Autowired 또는 @Inject
   - 또는 ApplicationContext에서 getBean()으로 직접 꺼내서 씀
+
+### 의존성 주입 (@Autowired / @Inject)
+- Field에 annotation 추가
+- 생성자에 annotation 추가 (Spring 4.3부터는 annotation 없이도 자동 주입)
+  - 의존성이 있어야만 해당 클래스를 객체로 생성하도록 강제하는 장점이 있음
+- Setter를 만들고 annotation을 추가
 
 ### IntelliJ 단축키
 Ctrl+Alt+V: 반환 값을 변수로 받는 syntax 생성
