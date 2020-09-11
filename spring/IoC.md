@@ -1,5 +1,5 @@
 ### Inversion of Control
-- 일반적인 제어권: "내가 사용할 의존성은 내가 만듦"
+- 일반적인 의존성 제어권: "내가 사용할 의존성은 내가 만듦"
 - IoC: "내가 사용할 의존성을 누군가 알아서 주겠지"
 - 의존성을 직접 객체 생성하지 않고, 생성자에서 매개변수로 받아서 사용
 
@@ -25,8 +25,8 @@ class OwnerControllerTest {
 - [참고 링크](https://martinfowler.com/articles/injection.html)
 
 ### IoC 컨테이너
+- Spring이 사용하는 dependency 컨테이너: XML이나 Annotation 명세를 따라 Spring이 bean 객체를 생성하고 구조적으로 조립한 뒤 자동으로 DI를 수행
 - 구현 interface: BeanFactory (그 하위 interface인 Application Context를 주로 사용)
-- 주요 기능: bean을 만들고 엮어주며 제공해준다.
 - 저장된 bean을 특정 생성자가 매개변수로 받아서 의존성으로 사용할 시 자동으로 제공해준다.  
   (즉 applicationContext.getBean(해당 bean의 class type)을 통해 수동으로 꺼낼 필요가 없음)
 - IoC 컨테이너 내에 저장된 bean끼리만 의존성 주입이 가능하다.
