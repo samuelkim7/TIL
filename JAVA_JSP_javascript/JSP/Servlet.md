@@ -1,10 +1,3 @@
-### 웹 서버
-- 이전에는 클라이언트와 서버 프로그램을 각각 만들고, 둘 간의 데이터 전송을 위해 socket, RPC 등을 사용 -> 전송 상의 문제, 클라이언트 프로그램의 업데이트 문제가 야기됨
-- HTTP(웹)이 부상하면서 웹에 서버 클라이언트 프로그램을 올려서 사용하게됨
-- 클라이언트의 페이지 요청에 대해 미리 만들어진 정적인 페이지를 전송하던 기존의 웹 방식 -> DB 연동을 통한 동적인 페이지 생성 및 전달 방식 구현
-- 클라이언트는 동적으로 생성된 웹 문서만을 받아서 표시하기 때문에 웹브라우져만 있으면 됨 -> 웹개발자는 주로 서버 개발에만 집중하게 됨
-- javascript의 등장으로 웹 프론트엔드 개발이 부상하게 됨
-
 ### Servlet의 개념
 - "필요에 따라 사용될 수 있도록 각각 조각나 있는 Server Application"
 - 항상 extends HttpServlet
@@ -32,7 +25,7 @@
 - 브라우져가 읽는 type 형식 지정: response.setContentType("text/html; charset=UTF-8") -> response Headers에 type이 포함되어서 전송됨
 
 ### Annotation을 이용한 mapping
-- Servlet 3.0부터 가능해짐. web.xml에서 
+- Servlet 3.0부터 가능해짐. web.xml에 mapping 정보를 입력하지 않고, servlet의 method 위에 @ 형식으로 
 
 ### Get 요청
 - 클라이언트가 어떤 웹 문서를 달라고 요청하는 것. 요청시 추가적인 옵션을 붙이는 것이 Query String임
