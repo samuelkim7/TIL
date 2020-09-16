@@ -14,6 +14,10 @@
   - disk block: 실제 데이터를 가진 블록 (1~4KB)
 - 각 파일은 고유의 inode 값과 매칭됨. 파일 시스템에서는 inode를 기반으로 파일 액세스
 - inode 기반 meta data: 파일 권한, 소유자 정보, 파일 사이즈, 생성 시간, 저장 위치 등
+- 예) 특정 파일의 내용 읽기 수행: 해당 파일의 inode 정보 얻음 -> inode block에 접근 -> 해당 disk block들의 주소 얻음 -> 실제 disk block에서 데이터를 읽어옴
+
+<img src=https://user-images.githubusercontent.com/65876994/93342081-dbbbe480-f869-11ea-9c4b-7243722db849.PNG>
+
 
 #### 디렉토리 엔트리 (dentry)
 - 각 디렉토리의 정보가 담긴 dentry가 존재함
