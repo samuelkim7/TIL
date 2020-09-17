@@ -51,3 +51,20 @@
 - Docker: 운영체제 레벨에서 별도로 분리된 실행환경을 제공 (**커널 추상화**)
   - 리눅스 컨테이너 기술 기반. Windows나 macOS에서는 리눅스 가상 머신 설치 후 그 위에 Docker를 설치해야함
   - 여러 프로그램을 설치한 실행환경을 경량 이미지로 만들어서 통째로 백업 후 설치 및 실행 가능
+- cf) Java Virtual Machine: Java 컴파일러가 생성한 bytecode (운영체제 독립적) 를 실행함 (각 운영체제를 위한 JVM 존재)
+
+<hr></hr>
+
+### 실제 운영체제 사례
+- 리눅스: 리눅스 커널(운영체제) + 시스템 프로그램(쉘) + 응용 프로그램
+<img src=https://user-images.githubusercontent.com/65876994/93427399-ba560980-f8f8-11ea-8010-9a4e689deef7.PNG width=400 height=300>
+
+- 안드로이드 스마트폰: 리눅스 커널 + 안드로이드 Framework + Apps
+<img src=https://user-images.githubusercontent.com/65876994/93427402-bb873680-f8f8-11ea-87a5-b586b0b1b1a1.PNG width=500 height=400>
+
+<hr></hr>
+
+### 사물인터넷 (Internet of Things)
+- 각종 사물에 센서와 통신 기능을 내장하여 인터넷에 연결하는 기술
+- 소형 컴퓨터가 들어가며 OS 기능도 최소화됨 (가상메모리, 파일시스템, 멀티태스킹 등의 기능 X)
+
