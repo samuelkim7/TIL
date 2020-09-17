@@ -27,3 +27,9 @@
 - Network 등 다양한 기기도 동일한 파일시스템을 통해 관리 가능하게 함
 - 예) 각 기기별 read_spec/write_spec 코드 구현 (운영체제 내부)
 - cf) 유닉스: 모든 디바이스와 각각의 기능들을 파일처럼 다루며 가상 파일 시스템 인터페이스로 관리
+
+### 부팅
+- Boot 프로그램: 운영체제 커널을 저장매체에서 특정 주소의 물리 메모리로 복사하고 커널의 처음 실행위치로 PC를 가져다 놓는 프로그램
+- 컴퓨터를 키면, CPU가 ROM내의 특정 주소를 가리키고, ROM-BIOS가 BIOS 프로그램 코드를 RAM에 로드함 -> BIOS 프로그램은 저장매체의 MBR에 접근 -> bootstrap loader 프로그램을 RAM에 로드 -> 저장매체 내 main partition의 부트 섹터에 접근 -> boot code가 RAM에 로드 -> boot code 프로그램이 저장매체 내의 운영체제 커널 이미지를 RAM에 로드하고 실행함
+
+<img src=https://user-images.githubusercontent.com/65876994/93405442-f91f9b80-f8c7-11ea-94a9-9be75496c4b0.PNG width=600 height=300 >
