@@ -14,3 +14,5 @@
 - @Component 태그 사용
 - xml에 <context:component-scan base-package="" />를 포함시켜 주어야 함
 - 이 경우 <context:annotation-config /> 는 없어져도 무방함
+- @Value(""): 초기값 설정
+  - 멤버변수 위에 해당 태그를 위치시킴
