@@ -16,3 +16,25 @@
 - 이 경우 <context:annotation-config /> 는 없어져도 무방함
 - @Value(""): 초기값 설정
   - 멤버변수 위에 해당 태그를 위치시킴
+
+### xml 파일 없이 Annotation 방식으로 config 설정
+- Configuration 정보를 담은 class 파일 생성
+```java
+@ComponentScan("spring.di.ui")
+@Configuration
+public class SpringConfig {
+	
+	@Bean
+	public Exam exam() {
+		return new NewlecExam();
+	}
+}
+```
+```java
+public static void main(String[] args) {
+  ApplicationContext context = 
+		new AnnotationConfigApplicationContext(SpringConfig.class);
+    ExamConsole console = (ExamConsole)context.getBean("console");
+    console.print();
+}
+```
