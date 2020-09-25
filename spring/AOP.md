@@ -3,10 +3,14 @@
 - 사용자 관점의 주 업무 로직(Core Concern)에 더해지는 다른 관점 (개발자, 운영자)의 보조적인 업무와 관련된 로직(Cross-cutting Concern)을 따로 분리해내서 구현하는 방식     
   (로그 , 권한 체크, 인증, 예외 처리, 트랜잭션 처리 등에서 사용)
 - 업무 로직의 시작이나 종료 시점에 반복적으로 사용되는 부가 기능을 한 곳에서 코드로 구현하기 위함
-- cf) 기존의 OOP에서는 공통적으로 사용되는 기능을 하나의 클래스로 만들더라도 해당 기능이 필요한 모든 부분에서 클래스를 생성하고 메서드를 호출해야만 했음
-- AOP를 적용하면 비즈니스 로직을 구현한 코드에서 공통 기능 코드를 직접 호출하지 않음. 컴파일이나 실행 시점에 AOP가 적용되어 공통 기능 코드가 삽입됨
+- cf) 기존의 OOP에서는 공통 기능 코드를 구현한 후 해당 기능이 필요한 모든 부분에서 클래스를 생성하고 메서드를 호출해야만 했음
+- AOP를 적용하면 비즈니스 로직에서 공통 기능 코드를 직접 호출하지 않음. 컴파일이나 실행 시점에 공통 기능 코드가 삽입됨. 기존 로직의 변화 없이 원하는 시점에 코드를 삽입할 수 있음
 - Aspect: 공통적으로 적용될 기능을 의미함. 한 개 이상의 Pointcut과 Advice의 조합으로 만들어짐
-- Advice:
+- Advice: Aspect의 구현체로 Joinpoint에 삽입되어 동작함 (동작 시점에 따라 Before, After, Around로 나뉨)
+- Joinpoint: Advice를 적용하는 지점
+- Pointcut: Advice를 적용할 Joinpoint를 선별하는 기준을 정의 (execution, within, bean 명시자 등)
+- Target: Advice를 받을 대상
+- Weaving: Advice를 적용하는 것. 즉 공통 코드를 원하는 대상에 삽입하는 것
 
 #### 구현
 - AspectJ를 통해서 구현하기도 했으나 현재는 Proxy를 이용해서 주로 구현
@@ -84,5 +88,33 @@ public class LogAroundAdvice implements MethodInterceptor {
 		return result;
 	}
 	
+}
+```
+
+- execution Pointcut 사용 예시
+```java
+@Component
+@Aspect
+public class LoggerAspect {
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	@Around("execution(* board..controller.*Controller.*(..)) or "
+			+ "execution(* board..service.*Impl.*(..)) or "
+			+ "execution(* board..mapper.*Mapper.*(..))")
+	public Object logPrint(ProceedingJoinPoint joinPoint) throws Throwable {
+		String type = "";
+		String name = joinPoint.getSignature().getDeclaringTypeName();
+		if(name.indexOf("Controller") > -1) {
+			type = "Controller : ";
+		}
+		else if(name.indexOf("Service") > -1) {
+			type = "Service \t: ";
+		}
+		else if(name.indexOf("Mapper") > -1) {
+			type = "Mapper \t: ";
+		}
+		log.debug(type + name + "." + joinPoint.getSignature().getName() + "()");
+		return joinPoint.proceed();
+	}
 }
 ```
