@@ -71,12 +71,22 @@ cf) NoSQL
 - 배경: 패러다임 쉬프트 (한정된 복잡성 높은 데이터 -> 단순한 대량의 데이터)
 - 특징
   - 데이터 간의 관계를 정의하지 않음. 따라서 테이블 간의 join도 불가능함
-  - 분산형 구조. 데이터 상호 복제
+  - 대부분 분산형 구조로 구성. 데이터 상호 복제
   - 유동적인 테이블 스키마
-  - CAP 이론: Consistency, Availability, Partitioning 중 2가지만 만족 가능
-- Key/Value store: unique한 key가 하나의 value를 가짐
+  - CAP 이론: Consistency, Availability, Partitioning 중 2가지만 만족 가능. 따라서 트랜잭션 제공 X
+  - 확장성, 가용성, 높은 성능
+- 형태
+  - Key Value DB: unique한 key가 하나의 value를 가짐
+  - Wide Comlumnar Store: Column Family 데이터 모델 사용 (HBase, Cassandra, ScyllaDB 등)
+  - Document DB: JSON, XML과 같은 Collection 데이터 모델 사용 (MongoDB, CoughDB 등)
+  - Graph DB: Nodes, Relationship, Key-Value 데이터 모델 채택 (Neo4J, OreientDB 등)
 - NoSQL은 기존 RDBMS로 생각하면 아래의 두 기능만 제공함
   - Put: Insert into TABLE VALUES(KEY, value1, value2, value3, ... valuen)
   - Get: Select * from TABLE where KEY ="key"
   - 따라서 Order By, Join, Group By, Range Query, Index 등을 어떻게 구현할지 생각해야 함
 - 수행할 쿼리를 정의하고 이에 맞춰 테이블을 정의함. 따라서 데이터 모델링이 설계의 90%에 해당함
+
+#### HBase
+- HDFS에서 동작하는 Key-Value 구조 분산 데이터 베이스
+- Google의 Bigtable을 참고하여 JAVA로 개발됨
+
