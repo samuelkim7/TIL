@@ -1,7 +1,10 @@
 ### 개념
 - 데이터베이스의 상태를 변화시킬 때 더 이상 분리할 수 없는 작업의 단위
 - ACID 속성을 지님
-  - 원자성(Atomicity)
-  - 일관성(Consistency)
-  - 고립성(Isolation)
-  - 지속성(Durability)
+  - 원자성(Atomicity): 일련의 동작들을 하나의 작업 단위로 처리함. 동작 중 하나가 실패할 경우 이전의 동작들은 모두 처음 상태로 돌아감 (Rollback)
+  - 일관성(Consistency): 트랜잭션 성공시 데이터베이스의 모든 데이터가 일관적임 
+  - 고립성(Isolation): 동일한 데이터에 대한 동시 접근 제어를 통해 트랜잭션 처리 중 외부의 간섭을 막음
+  - 지속성(Durability): 트랜잭션 성공시 그 결과를 지속적으로 유지됨
+
+### 구현
+- @Transactional Annotation 사용 또는 AOP를 이용해서 설정
