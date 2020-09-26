@@ -8,7 +8,5 @@
 <body>
 	<p>공통 에러 페이지</p>
 	<p th:text="${exception}"></p>
-	<ul th:each="list : ${exception.getStrackTrace()}"
-		th:text="${list.toString()}"></ul>
 </body>
 </html>
