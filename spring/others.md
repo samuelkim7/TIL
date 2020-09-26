@@ -81,3 +81,5 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
   - 원하는 곳에만 적용하기 어려움
 
 ## 예외 처리
+### @ControllerAdvice Annotation 사용
+  - 
