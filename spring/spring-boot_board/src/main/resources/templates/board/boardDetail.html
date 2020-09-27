@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<h2>게시글 상세 화면</h2>
-	    <form id="frm" method="post">
+	    <form id="frm" name="frm" method="post" enctype="multipart/form-data">
 	    	<table class="board_detail">
 				<colgroup>
 					<col width="15%"/>
@@ -42,23 +42,33 @@
 				</tbody>
 			</table>
 			<input type="hidden" id="boardIdx" name="boardIdx" th:value="${board.boardIdx}">
+			<div class="file_list"><br>
+				<h3>첨부 파일 다운로드</h3><hr>
+				<h4>
+				<a th:each="list : ${board.fileList}" 
+					th:href="@{/board/downloadBoardFile.do(idx=${list.idx},
+														   boardIdx=${list.boardIdx})}"
+					th:text="|${list.originalFileName} (${list.fileSize} kb)|"></a>
+				</h4>
+			</div><br>
+			<h3>첨부 파일 추가</h3><hr>
+			<input type="file" id="files" name="files" multiple="multiple">
+			<h4 id="preview"></h4>
+			<div style="text-align:right">
+				<a href="#this" id="edit" class="btn">수정</a>
+				<a href="#this" id="delete" class="btn">삭제</a>
+				<a href="#this" id="list" class="btn">목록으로</a>
+			</div>
 		</form>
-		
-		<div class="file_list">
-			<a th:each="list : ${board.fileList}" 
-				th:href="@{/board/downloadBoardFile.do(idx=${list.idx},
-													   boardIdx=${list.boardIdx})}"
-				th:text="|${list.originalFileName} (${list.fileSize} kb)|"></a>
-		</div>
-		
-		<a href="#this" id="list" class="btn">목록으로</a>
-		<a href="#this" id="edit" class="btn">수정하기</a>
-		<a href="#this" id="delete" class="btn">삭제하기</a>
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/updatePreview.js}"></script>
 	<script type="text/javascript">
+		const inputFiles = document.getElementById("files");
 		$(document).ready(function(){
+			inputFiles.addEventListener('change', updatePreview);
+			
 			$("#list").on("click", function(){
 				location.href = "/board/openBoardList.do";
 			});

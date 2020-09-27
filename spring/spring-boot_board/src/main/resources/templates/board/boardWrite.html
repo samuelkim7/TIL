@@ -8,8 +8,7 @@
 <body>
 	<div class="container">
 	    <h2>게시글 등록</h2>
-	    <form id="frm" name="frm" method="post" action="/board/insertBoard.do"
-	    		enctype="multipart/form-data">
+	    <form id="frm" name="frm" method="post" enctype="multipart/form-data">
 	    	<table class="board_detail">
 	    		<tr>
 	    			<td>제목</td>
@@ -20,10 +19,34 @@
 		    			<textarea id="contents" name="contents"></textarea>
 	    			</td>
 	    		</tr>
-	    	</table>
-	    	<input type="file" id="files" name="files" multiple="multiple">
-	    	<input type="submit" id="submit" value="저장" class="btn">
+	    	</table><br>
+	    	<h3>첨부 파일 추가</h3><hr>
+	    	<input type="file" id="files" name="files" multiple="multiple"><br>
+	    	<h4 id="preview"></h4>
+	    	<div style="text-align:right">
+		    	<a href="#this" id="register" class="btn">등록</a>
+		    	<a href="#this" id="cancle" class="btn">취소</a>
+	    	</div>
 	    </form>
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/updatePreview.js}"></script>
+	<script type="text/javascript">
+		const inputFiles = document.getElementById("files");
+		$(document).ready(function(){
+			inputFiles.addEventListener('change', updatePreview);
+			
+			$("#register").on("click", function(){
+				var frm = $("#frm")[0];
+				frm.action = "/board/insertBoard.do";
+				frm.submit();
+			});
+			
+			$("#cancle").on("click", function(){
+				location.href = "/board/openBoardList.do";
+			});
+		});
+	</script>
 </body>
 </html>
