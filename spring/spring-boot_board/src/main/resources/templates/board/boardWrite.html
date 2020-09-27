@@ -31,11 +31,11 @@
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/updatePreview.js}"></script>
+    <script type="text/javascript" th:src="@{/js/uploadPreview.js}"></script>
 	<script type="text/javascript">
 		const inputFiles = document.getElementById("files");
 		$(document).ready(function(){
-			inputFiles.addEventListener('change', updatePreview);
+			inputFiles.addEventListener('change', uploadPreview);
 			
 			$("#register").on("click", function(){
 				var frm = $("#frm")[0];
