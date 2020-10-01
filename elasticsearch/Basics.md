@@ -6,7 +6,7 @@
 ```sh
 .\elasticsearch.bat
 ```
-- 또는 환경 변수 설정 후 cmd 창 열고 elastichsearch
+- 또는 환경 변수 설정 후 cmd 창 열고 > elasticsearch
 
 #### 새로운 node 실행 (각각 새 cmd 창에서)
 ```sh
