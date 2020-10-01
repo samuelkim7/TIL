@@ -50,3 +50,62 @@ GET /bank/_search
   "query": { "match": { "address": "mill lane" } }
 }
 ```
+3) boolean을 사용하여 추가적인 조건을 지닌 쿼리 검색
+```sh
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": { "match_all": {} },
+      "filter": {
+        "range": {
+          "balance": {
+            "gte": 20000,
+            "lte": 30000
+          }
+        }
+      }
+    }
+  }
+}
+```
+4) Aggregations: 특정 field로 그룹 지은 후 검색  
+   (state 명으로 그룹 지은 후 document 수에 따라 정렬)
+```sh
+GET /bank/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_state": {
+      "terms": {
+        "field": "state.keyword"
+      }
+    }
+  }
+}
+```
+5) Combined Aggregations  
+   (정렬 기준을 balance의 평균으로 정함)
+```sh
+GET /bank/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_state": {
+      "terms": {
+        "field": "state.keyword",
+        "order": {
+          "average_balance": "desc"
+        }
+      },
+      "aggs": {
+        "average_balance": {
+          "avg": {
+            "field": "balance"
+          }
+        }
+      }
+    }
+  }
+}
+```
