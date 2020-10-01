@@ -1,11 +1,14 @@
 *elasticsearch 공식 reference*에서 정리함 ([링크](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html))
 
-### 실행
-- elasticsearch의 bin folder 내에서
+### 실행 (window)
+- elasticsearch zip 파일 다운로드 후 압축해제 (Spring Data와의 연동을 고려하여 7.6.2 버전 설치)
+- elasticsearch 홈디렉토리의 bin folder 내에서
 ```sh
-elasticsearch.bat
+.\elasticsearch.bat
 ```
-- 새로운 node 실행 (각각 새 cmd 창에서)
+- 또는 환경 변수 설정 후 cmd 창 열고 elastichsearch
+
+#### 새로운 node 실행 (각각 새 cmd 창에서)
 ```sh
 .\elasticsearch.bat -E path.data=data2 -E path.logs=log2
 .\elasticsearch.bat -E path.data=data3 -E path.logs=log3
@@ -109,3 +112,5 @@ GET /bank/_search
   }
 }
 ```
+
+*진도: https://www.elastic.co/kr/training/logging-quick-start*
