@@ -1,6 +1,6 @@
 *elasticsearch 공식 reference*에서 정리함 ([링크](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html))
 
-### 실행 (window)
+## 실행 (window)
 - elasticsearch zip 파일 다운로드 후 압축해제 (Spring Data와의 연동을 고려하여 7.6.2 버전 설치)
 - elasticsearch 홈디렉토리의 bin folder 내에서
 ```sh
@@ -18,7 +18,7 @@
 curl -X GET "localhost:9200/_cat/health?v&pretty"
 ```
 
-### Indexing Documents
+## Indexing Documents
 1) document 생성 (Kibana console)
 ```sh
 PUT customer/_doc/1"
@@ -35,7 +35,7 @@ curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_bulk?prett
 curl "localhost:9200/_cat/indices?v"
 ```
 
-### Searching
+## Searching
 1) sorting한 후 모든 결과 출력
 ```sh
 GET /bank/_search
