@@ -13,7 +13,8 @@
 - Ctrl + Space: 기본 자동 완성
 - Ctrl + Shift + Space: 스마트 자동 완성
 - Ctrl + Shift + Enter: 기본 문법 완성
-- Alt + Enter: 에러에 대한 제안 사항 확인
+- Ctrl + i: Override method 자동 완성
+- Alt + Enter: 에러에 대한 제안 사항 확인 (import도 처리)
 - F2: 다음 에러로 이동
 - Alt + 1 / Esc: Navigator와 Editor 사이를 이동
 - Ctrl + B: 해당 변수가 선언된 곳으로 이동
