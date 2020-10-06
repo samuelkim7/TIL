@@ -23,3 +23,4 @@
 - Shift Shift: Search Everywhere
 - Ctrl + Alt + V: 반환 값을 변수로 받는 syntax 생성
 - Shift + Ctrl + T: 해당 class에 대한 Test class 생성
+- Ctrl + Alt + L: 코드 format
