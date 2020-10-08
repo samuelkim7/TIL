@@ -5,12 +5,17 @@
 - 업무 로직의 시작이나 종료 시점에 반복적으로 사용되는 부가 기능을 한 곳에서 코드로 구현하기 위함
 - cf) 기존의 OOP에서는 공통 기능 코드를 구현한 후 해당 기능이 필요한 모든 부분에서 클래스를 생성하고 메서드를 호출해야만 했음
 - AOP를 적용하면 비즈니스 로직에서 공통 기능 코드를 직접 호출하지 않음. 컴파일이나 실행 시점에 공통 기능 코드가 삽입됨. 기존 로직의 변화 없이 원하는 시점에 코드를 삽입할 수 있음
-- Aspect: 공통적으로 적용될 기능을 의미함. 한 개 이상의 Pointcut과 Advice의 조합으로 만들어짐
-- Advice: Aspect의 구현체로 Joinpoint에 삽입되어 동작함 (동작 시점에 따라 Before, After, Around로 나뉨)
-- Joinpoint: Advice를 적용하는 지점
-- Pointcut: Advice를 적용할 Joinpoint를 선별하는 기준을 정의 (execution, within, bean 명시자 등)
-- Target: Advice를 받을 대상
-- Weaving: Advice를 적용하는 것. 즉 공통 코드를 원하는 대상에 삽입하는 것
+- 장점
+  - 핵심 관심 사항을 깔끔하게 유지할 수 있다. 
+  - 변경이 필요하면 공통 기능 로직만 변경하면 된다. 
+  - 원하는 적용 대상을 선택할 수 있다.
+- 주요 개념들
+  - Aspect: 공통적으로 적용될 기능을 의미함. 한 개 이상의 Pointcut과 Advice의 조합으로 만들어짐
+  - Advice: Aspect의 구현체로 Joinpoint에 삽입되어 동작함 (동작 시점에 따라 Before, After, Around로 나뉨)
+  - Joinpoint: Advice를 적용하는 지점
+  - Pointcut: Advice를 적용할 Joinpoint를 선별하는 기준을 정의 (execution, within, bean 명시자 등)
+  - Target: Advice를 받을 대상
+  - Weaving: Advice를 적용하는 것. 즉 공통 코드를 원하는 대상에 삽입하는 것
 
 #### 구현
 - AspectJ를 통해서 구현하기도 했으나 현재는 Proxy를 이용해서 주로 구현
