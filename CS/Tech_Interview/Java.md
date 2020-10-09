@@ -1,18 +1,18 @@
 
 ## Java
-- [Java의 특징](#Java의-특징)
-- [객체 지향 프로그래밍](#객체-지향-프로그래밍)
-- [Java가 지닌 변수 종류](#Java가-지닌-변수-종류)
-- [Overloading과 Overriding](#Overloading과-Overriding)
-- [Interface와 Abstract Class](#Interface와-Abstract-Class)
-- [접근제어자](#접근제어자)
-- [final, static의 용도와 사용 이유](#final,-static의-용도와-사용-이유)
-- [왜 getter, setter 함수를 써야하는지?](#왜-getter,-setter-함수를-써야하는지?)
-- [Collections Framework에서 List, Set, Map 등의 특징](#Collections-Framework에서-List,-Set,-Map-등의-특징)
-- [Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?](#Exception-발생은-컴파일-과정에서-하는가-실행-과정에서-하는가?)
-- [Generic을 사용하는 이점](#Generic을-사용하는-이점)
-- [JVM의 5가지 메모리 구조](#JVM의-5가지-메모리-구조)
-- [Garbage Collection](#Garbage-Collection)
+- Java의 특징
+- 객체 지향 프로그래밍
+- Java가 지닌 변수 종류
+- Overloading과 Overriding
+- Interface와 Abstract Class
+- 접근제어자
+- final, static의 용도와 사용 이유
+- 왜 getter, setter 함수를 써야하는지?
+- Collections Framework에서 List, Set, Map 등의 특징
+- Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
+- Generic을 사용하는 이점
+- JVM의 5가지 메모리 구조
+- Garbage Collection
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
 <br><br><br>
@@ -22,7 +22,8 @@
 - WORA (Write once, run anywhere) : 자바가상머신(JVM)만 설치하면 컴퓨터의 운영체제에 상관없이 작동한다.
 - 원래는 컴파일러가 코드 분석 후 최적화와 기계코드로의 번역까지 모두 커버함. 그러나 자바에서는 컴파일러(JDK에 포함)가 중간코드인 바이트 코드를 만드는 일까지만 수행함. 그 이후 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 번역을 담당함
 - Garbage Collector를 통한 자동적인 메모리 관리
-- 멀티쓰레드(Multi-thread)를 지원함
+- 멀티쓰레드(Multi-thread)를 지원함  
+<a href="#top">TOP</a>
 
 ### 객체 지향 프로그래밍
 1) 정의: 데이터를 객체로 취급하여 프로그램에 반영한 것이며, 순차적으로 프로그램이 동작하는 기존의 방식과는 다르게 객체와 객체의 상호작용을 통해 프로그램이 동작하는 것을 말한다.  
@@ -32,7 +33,8 @@
 - 직관적인 코드 분석이 가능하다.
 - 개발 속도가 향상된다.
 - 상속을 통한 장점이 극대화된다.
-3) 객체(Object) : 데이터(변수)와 그 데이터에 관련되는 동작(함수)를 포함. 즉 절차, 방법, 기능 모두를 포함한 개념. 같은 성질, 구조, 형태를 갖는 객체를 class로 정의하고 class에 속하는 객체를 해당 class의 인스턴스라고 한다.
+3) 객체(Object) : 데이터(변수)와 그 데이터에 관련되는 동작(함수)를 포함. 즉 절차, 방법, 기능 모두를 포함한 개념. 같은 성질, 구조, 형태를 갖는 객체를 class로 정의하고 class에 속하는 객체를 해당 class의 인스턴스라고 한다.  
+<a href="#top">TOP</a>
 
 ### Java가 지닌 변수 종류
 0) 변수(Variable): 값을 저장할 수 있는 메모리 상의 공간
@@ -49,13 +51,16 @@
 - Boxing: 기본형 변수를 Wrapper Class의 객체로 변경하는 과정. AutoBoxing 가능 (JDK 1.5 이상)  
   ex) Integer num = new Integer(30);  /  Integer num = 61;
 - Unboxing: 각각의 객체를 기본형으로 변경하는 과정. AutoUnBoxing 가능 (JDK 1.5 이상)  
-  ex) int n = num.intValue();  /  int n = num;
+  ex) int n = num.intValue();  /  int n = num;  
+<a href="#top">TOP</a>
 
 ### Overloading과 Overriding
 1) Overloading: 같은 이름의 method를 여러 개 정의하는 것. 매개변수의 타입이 다르거나 개수가 달라야 한다. Return type과 접근제어자는 영향을 주지 않는다.
-2) Overriding: 상속에서 나온 개념. 상위 클래스의 메소드를 하위 클래스에서 재정의함. Return type과 매개변수의 타입 및 개수가 같아야 한다.
+2) Overriding: 상속에서 나온 개념. 상위 클래스의 메소드를 하위 클래스에서 재정의함. Return type과 매개변수의 타입 및 개수가 같아야 한다.  
+<a href="#top">TOP</a>
 
-### Interface와 Abstract Class
+### Interface와 Abstract Class  
+
 ### 접근제한자
 ### final, static의 용도와 사용 이유
 ### 왜 getter, setter 함수를 써야하는지?
