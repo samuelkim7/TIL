@@ -1,10 +1,10 @@
 
 ## Java
-- **Java의 특징**
-- **객체 지향 프로그래밍**
+- Java의 특징
+- 객체 지향 프로그래밍
 - Overloading과 Overriding
 - Java가 지닌 변수 종류
-- **Interface**와 Abstract Class
+- Interface와 Abstract Class
 - 접근제한자
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
@@ -12,23 +12,20 @@
 - Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
 - Generic을 사용하는 이점
 - JVM의 5가지 메모리 구조
-- **Garbage Collection**
+- Garbage Collection
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
   
 ### Spring
-- **Spring의 특징**
+- Spring의 특징
 - Spring, Spring MVC, Spring Boot
 - IoC
 - DI
 - AOP
 
-## Hadoop & Spark
-
 ## 자료구조 & 알고리즘
 - 스택 2개를 큐처럼 구현
 - 각 정렬의 시간복잡도 비교
-- 
 
 ## 언어 공통 및 기술 일반
 - TDD
@@ -48,3 +45,13 @@
 - DAO, DTO
 - call by value와 call by reference의 차이
   
+## Hadoop & Spark
+- Hadoop의 등장 배경
+- Hadoop의 특징
+- 맵리듀스
+- HDFS
+- YARN
+- HIVE
+- spark의 등장 배경
+- spark의 특징
+- spark의 기능들
