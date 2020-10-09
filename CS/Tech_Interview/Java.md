@@ -1,18 +1,18 @@
 
 ## Java
-- Java의 특징
-- 객체 지향 프로그래밍
-- Java가 지닌 변수 종류
-- Overloading과 Overriding
-- Interface와 Abstract Class
-- 접근제한자
-- final, static의 용도와 사용 이유
-- 왜 getter, setter 함수를 써야하는지?
-- Collections Framework에서 List, Set, Map 등의 특징
-- Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
-- Generic을 사용하는 이점
-- JVM의 5가지 메모리 구조
-- Garbage Collection
+- [Java의 특징](#Java의-특징)
+- [객체 지향 프로그래밍](#객체-지향-프로그래밍)
+- [Java가 지닌 변수 종류](#Java가-지닌-변수-종류)
+- [Overloading과 Overriding]
+- [Interface와 Abstract Class]
+- [접근제한자]
+- [final, static의 용도와 사용 이유]
+- [왜 getter, setter 함수를 써야하는지?]
+- [Collections Framework에서 List, Set, Map 등의 특징]
+- [Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?]
+- [Generic을 사용하는 이점]
+- [JVM의 5가지 메모리 구조]
+- [Garbage Collection]
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
 <br><br><br>
@@ -42,7 +42,7 @@
   ex) int -> Integer / char -> Character / float -> Float
 2) Reference type: 변수에 객체의 주소를 저장함. 힙에 할당됨
 - array, class, interface, enum  
-  cf) Wrapper Class: 특정 primitive type을 나타내는 Class. 기본형 타입의 값을 객체가 필요한 곳에 사용 가능.
+3) Wrapper Class: 특정 primitive type을 나타내는 Class. 기본형 타입의 값을 객체가 필요한 곳에 사용 가능.
 - Wrapper Class의 생성자는 저장할 기본형 타입 값을 받는다.  
   ex) Integer num = new Integer(30);
 - Wrapper 클래스는 산술연산을 위해 정의된 클래스가 아님. 따라서 인스턴스에 저장된 값은 변경이 불가능함. 값 변경을 위해선 다른 값을 저장하는 새로운 객체를 생성해야만 함.
@@ -52,6 +52,8 @@
   ex) int n = num.intValue();  /  int n = num;
 
 ### Overloading과 Overriding
+1) Overloading: 같은 이름의 method를 여러 개 정의하는 것. 매개변수의 타입이 다르거나 개수가 달라야 한다. Return type과 접근제어자는 영향을 주지 않는다.
+2) Overriding: 상속에서 나온 개념. 상위 클래스의 메소드를 하위 클래스에서 재정의함. Return type과 매개변수의 타입 및 개수가 같아야 한다.
 
 ### Interface와 Abstract Class
 ### 접근제한자
