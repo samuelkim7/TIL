@@ -1,5 +1,5 @@
 
-## Java
+## [Java](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/Java.md)
 - Java의 특징
 - 객체 지향 프로그래밍
 - Overloading과 Overriding
@@ -16,18 +16,18 @@
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
   
-## Spring
+## [Spring](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/Spring.md)
 - Spring의 특징
 - Spring, Spring MVC, Spring Boot
 - IoC
 - DI
 - AOP
 
-## 자료구조 & 알고리즘
+## [DataStructure & Algorithm](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/DataStructure_Algorithm.md)
 - 스택 2개를 큐처럼 구현
 - 각 정렬의 시간복잡도 비교
 
-## 언어 공통 및 기술 일반
+## [언어 공통 및 기술 일반](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/Common.md)
 - TDD
 - 웹 페이지 요청시 일어나는 일련의 과정
 - 로그를 왜 찍어야하며 어디에 저장하는 것이 좋은지
@@ -45,7 +45,7 @@
 - DAO, DTO
 - call by value와 call by reference의 차이
   
-## Hadoop & Spark
+## [Hadoop & Spark](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/Hadoop_Spark.md)
 - Hadoop의 등장 배경
 - Hadoop의 특징
 - 맵리듀스
@@ -56,7 +56,7 @@
 - spark의 특징
 - spark의 기능들
 
-## 운영체제
+## [운영체제](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/OS.md)
 - 운영체제의 역할
 - 시스템 콜
 - 프로세스 스케쥴링: 배치 처리 시스템/ 시분할 시스템/ 멀티 태스킹/ 멀티 프로그래밍
@@ -81,7 +81,7 @@
 - 부팅
 - 가상 머신
 
-## 데이터베이스
+## [데이터베이스](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/DB.md)
 - 기본 개념: 필드, 데이터베이스, 엔티티, 스키마, DBMS
 - Connection Pool
 - RDBMS
@@ -96,7 +96,7 @@
   - 기본적인 특징
   - 종류: HBase/ Cassandra/ MongoDB
 
-## 네트워크
+## [네트워크](https://github.com/MyeongwonKim/TIL/blob/master/CS/Tech_Interview/Network.md)
 - 기본 개념: IP/ DNS/ 라우터/ ARP
 - OSI 7계층을 왜 나누었는가
 - TCP/UDP
@@ -105,3 +105,8 @@
   - REST
   - http/https
 - Session과 Cookie
+
+## Reference
+#### [JaeYeopHan/Interview_Question_for_Beginner](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)
+#### [jobhope/TechnicalNote](https://github.com/jobhope/TechnicalNote)
+#### [WeareSoft/tech-interview](https://github.com/WeareSoft/tech-interview#9-spring)
