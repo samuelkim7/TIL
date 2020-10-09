@@ -65,12 +65,12 @@
   - 입출력 인터럽트: IO 처리 완료시 프로세스를 block -> ready 로 바꿔주는 인터럽트
 - 시스템 콜과 인터럽트: 프로그램 실행 중 시스템콜 인터럽트 명령 호출됨 -> (커널 모드) 0x80에 해당하는 시스템콜 함수 실행 -> (사용자 모드) 해당 프로세스의 다음 코드 진행
   
-### [프로세스](https://github.com/MyeongwonKim/TIL/blob/master/CS/OS/5)\%20Process.md)
+### 프로세스
 - 프로세스의 구조 및 실행
 - 컨텍스트 스위칭
 - IPC
   
-### [스레드](https://github.com/MyeongwonKim/TIL/blob/master/CS/OS/6)\%20Thread.md)
+### 스레드
 - 스레드의 개념 및 장단점
 - 멀티 프로세스 대신 멀티 스레드를 사용하는 이유
 - 스레드의 동기화 문제
