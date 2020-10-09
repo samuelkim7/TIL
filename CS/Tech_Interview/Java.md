@@ -23,7 +23,7 @@
 - 원래는 컴파일러가 코드 분석 후 최적화와 기계코드로의 번역까지 모두 커버함. 그러나 자바에서는 컴파일러(JDK에 포함)가 중간코드인 바이트 코드를 만드는 일까지만 수행함. 그 이후 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 번역을 담당함
 - Garbage Collector를 통한 자동적인 메모리 관리
 - 멀티쓰레드(Multi-thread)를 지원함  
-<a href="#top">TOP</a>
+<div style="text-align:right"><a href="#top">TOP</a></div>
 
 ### 객체 지향 프로그래밍
 1) 정의: 데이터를 객체로 취급하여 프로그램에 반영한 것이며, 순차적으로 프로그램이 동작하는 기존의 방식과는 다르게 객체와 객체의 상호작용을 통해 프로그램이 동작하는 것을 말한다.  
@@ -34,7 +34,7 @@
 - 개발 속도가 향상된다.
 - 상속을 통한 장점이 극대화된다.
 3) 객체(Object) : 데이터(변수)와 그 데이터에 관련되는 동작(함수)를 포함. 즉 절차, 방법, 기능 모두를 포함한 개념. 같은 성질, 구조, 형태를 갖는 객체를 class로 정의하고 class에 속하는 객체를 해당 class의 인스턴스라고 한다.  
-<a href="#top">TOP</a>
+<div style="text-align:right"><a href="#top">TOP</a></div>
 
 ### Java가 지닌 변수 종류
 0) 변수(Variable): 값을 저장할 수 있는 메모리 상의 공간
@@ -52,12 +52,12 @@
   ex) Integer num = new Integer(30);  /  Integer num = 61;
 - Unboxing: 각각의 객체를 기본형으로 변경하는 과정. AutoUnBoxing 가능 (JDK 1.5 이상)  
   ex) int n = num.intValue();  /  int n = num;  
-<a href="#top">TOP</a>
+<div style="text-align:right"><a href="#top">TOP</a></div>
 
 ### Overloading과 Overriding
 1) Overloading: 같은 이름의 method를 여러 개 정의하는 것. 매개변수의 타입이 다르거나 개수가 달라야 한다. Return type과 접근제어자는 영향을 주지 않는다.
 2) Overriding: 상속에서 나온 개념. 상위 클래스의 메소드를 하위 클래스에서 재정의함. Return type과 매개변수의 타입 및 개수가 같아야 한다.  
-<a href="#top">TOP</a>
+<div style="text-align:right"><a href="#top">TOP</a></div>
 
 ### Interface와 Abstract Class  
 
