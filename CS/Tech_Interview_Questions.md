@@ -84,7 +84,6 @@
 ## 데이터베이스
 - 기본 개념: 필드, 데이터베이스, 엔티티, 스키마, DBMS
 - Connection Pool
-- 
 - RDBMS
   - 기본 개념: 테이블/ CK, PK, FK
   - 종류: Oracle, MySQL, SQLite
