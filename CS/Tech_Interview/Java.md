@@ -1,6 +1,6 @@
 
 ## Java
-- Java의 특징
+- [Java의 특징](#Java의-특징)
 - 객체 지향 프로그래밍
 - Overloading과 Overriding
 - Java가 지닌 변수 종류
@@ -15,6 +15,7 @@
 - Garbage Collection
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
+<br><br><br>
 
 ### Java의 특징
 - (C++ 대비) 간결하고, 컬렉션을 포함하며, 완전한 객체 지향 언어로서 캡슐화, 상속, 다형성이 잘 적용되어 있음
