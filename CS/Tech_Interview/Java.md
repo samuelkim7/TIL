@@ -15,93 +15,51 @@
 - Garbage Collection
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
-  
-## Spring
-- Spring의 특징
-- Spring, Spring MVC, Spring Boot
-- IoC
-- DI
-- AOP
 
-## 자료구조 & 알고리즘
-- 스택 2개를 큐처럼 구현
-- 각 정렬의 시간복잡도 비교
+### Java의 특징
+- (C++ 대비) 간결하고, 컬렉션을 포함하며, 완전한 객체 지향 언어로서 캡슐화, 상속, 다형성이 잘 적용되어 있음
+- WORA (Write once, run anywhere) : 자바가상머신(JVM)만 설치하면 컴퓨터의 운영체제에 상관없이 작동한다.
+- 원래는 컴파일러가 코드 분석 후 최적화와 기계코드로의 번역까지 모두 커버함. 그러나 자바에서는 컴파일러(JDK에 포함)가 중간코드인 바이트 코드를 만드는 일까지만 수행함. 그 이후 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 번역을 담당함
+- Garbage Collector를 통한 자동적인 메모리 관리
+- 멀티쓰레드(Multi-thread)를 지원함
 
-## 언어 공통 및 기술 일반
-- TDD
-- 웹 페이지 요청시 일어나는 일련의 과정
-- 로그를 왜 찍어야하며 어디에 저장하는 것이 좋은지
-- 로드밸런싱과 클러스터링
-- 프록시 서버
-- 컴파일러와 인터프리터
-- C와 Java의 차이
-- 자바와 자바스크립트 차이
-- 프레임워크와 라이브러리
-- MVC 패턴
-- Web Server와 WAS
-- Servlet과 JSP
-- Maven과 Gradle의 차이
-- 싱글톤패턴
-- DAO, DTO
-- call by value와 call by reference의 차이
-  
-## Hadoop & Spark
-- Hadoop의 등장 배경
-- Hadoop의 특징
-- 맵리듀스
-- HDFS
-- YARN
-- HIVE
-- spark의 등장 배경
-- spark의 특징
-- spark의 기능들
+### 객체 지향 프로그래밍 (OOP)
+1) 정의: 데이터를 객체로 취급하여 프로그램에 반영한 것이며, 순차적으로 프로그램이 동작하는 기존의 방식과는 다르게 객체와 객체의 상호작용을 통해 프로그램이 동작하는 것을 말한다.  
+2) 특징
+- 코드의 재사용성이 높다.
+- 코드의 변경이 용이하다.
+- 직관적인 코드 분석이 가능하다.
+- 개발 속도가 향상된다.
+- 상속을 통한 장점이 극대화된다.
+3) 객체(Object) : 데이터(변수)와 그 데이터에 관련되는 동작(함수)를 포함. 즉 절차, 방법, 기능 모두를 포함한 개념. 같은 성질, 구조, 형태를 갖는 객체를 class로 정의하고 class에 속하는 객체를 해당 class의 인스턴스라고 한다.
 
-## 운영체제
-- 운영체제의 역할
-- 시스템 콜
-- 프로세스 스케쥴링: 배치 처리 시스템/ 시분할 시스템/ 멀티 태스킹/ 멀티 프로그래밍
-- 스케쥴러: FIFO/ SJF/ Priority-Based/ Round Robin
-- 인터럽트
-- 프로세스
-  - 프로세스의 구조 및 실행
-  - 컨텍스트 스위칭
-  - IPC
-- 스레드
-  - 스레드의 개념 및 장단점
-  - 멀티 프로세스 대신 멀티 스레드를 사용하는 이유
-  - 스레드의 동기화 문제
-  - Mutex와 세마포어
-  - 교착상태(Deadlock)와 기아상태
-- 가상 메모리
-  - 작동 방식
-  - 페이징 시스템
-  - 페이지 폴트와 인터럽트
-- 파일 시스템
-  - inode 방식
-- 부팅
-- 가상 머신
+### Java가 지닌 변수 종류
+0) 변수(Variable): 값을 저장할 수 있는 메모리 상의 공간
+1) Primitive type: 변수에 값 자체를 저장함. 스택에 할당됨
+- 정수형(byte, short, int, long) / 실수형(float, double) / 문자형(char) / 논리형(boolean)
+- Primitive type은 Wrapper Class를 통해 객체로 변형할 수 있다.  
+  ex) int -> Integer / char -> Character / float -> Float
+2) Reference type: 변수에 객체의 주소를 저장함. 힙에 할당됨
+- array, class, interface, enum  
+  cf) Wrapper Class: 특정 primitive type을 나타내는 Class. 기본형 타입의 값을 객체가 필요한 곳에 사용 가능.
+- Wrapper Class의 생성자는 저장할 기본형 타입 값을 받는다.  
+  ex) Integer num = new Integer(30);
+- Wrapper 클래스는 산술연산을 위해 정의된 클래스가 아님. 따라서 인스턴스에 저장된 값은 변경이 불가능함. 값 변경을 위해선 다른 값을 저장하는 새로운 객체를 생성해야만 함.
+- Boxing: 기본형 변수를 Wrapper Class의 객체로 변경하는 과정. AutoBoxing 가능 (JDK 1.5 이상)  
+  ex) Integer num = new Integer(30);  /  Integer num = 61;
+- Unboxing: 각각의 객체를 기본형으로 변경하는 과정. AutoUnBoxing 가능 (JDK 1.5 이상)  
+  ex) int n = num.intValue();  /  int n = num;
 
-## 데이터베이스
-- 기본 개념: 필드, 데이터베이스, 엔티티, 스키마, DBMS
-- Connection Pool
-- RDBMS
-  - 기본 개념: 테이블/ CK, PK, FK
-  - 종류: Oracle, MySQL, SQLite
-- 조인
-- 트랜잭션
-- 정규화
-- 인덱스를 사용하는 이유와 장단점
-- ORM
-- NoSQL
-  - 기본적인 특징
-  - 종류: HBase/ Cassandra/ MongoDB
+### Overloading과 Overriding
 
-## 네트워크
-- 기본 개념: IP/ DNS/ 라우터/ ARP
-- OSI 7계층을 왜 나누었는가
-- TCP/UDP
-- HTTP
-  - GET 방식과 POST 방식의 차이
-  - REST
-  - http/https
-- Session과 Cookie
+### Interface와 Abstract Class
+### 접근제한자
+### final, static의 용도와 사용 이유
+### 왜 getter, setter 함수를 써야하는지?
+### Collections Framework에서 List, Set, Map 등의 특징
+### Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
+### Generic을 사용하는 이점
+### JVM의 5가지 메모리 구조
+### Garbage Collection
+#### Minor Garbage Collection과 Major Garbage Collection의 동작 방식
+#### JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
