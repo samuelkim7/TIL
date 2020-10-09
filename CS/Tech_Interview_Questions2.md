@@ -37,9 +37,10 @@
 
 ## 네트워크
 - 기본 개념: IP/ DNS/ 라우터/ ARP
-- OSI 모델
+- OSI 7계층을 왜 나누었는가
 - TCP/UDP
 - HTTP
   - GET 방식과 POST 방식의 차이
   - REST
+  - http/https
 - Session과 Cookie
