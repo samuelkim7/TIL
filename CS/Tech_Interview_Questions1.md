@@ -16,7 +16,7 @@
   - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
   
-### Spring
+## Spring
 - Spring의 특징
 - Spring, Spring MVC, Spring Boot
 - IoC
