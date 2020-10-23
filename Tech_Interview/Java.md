@@ -4,6 +4,7 @@
 - JVM과 JAVA 프로그램 실행 과정
 - 객체 지향 프로그래밍
 - Java가 지닌 변수 종류
+- 객체와 클래스의 차이점
 - Overloading과 Overriding
 - Interface와 Abstract Class
 - 접근제어자
@@ -47,22 +48,18 @@
 <a href="#top">TOP</a>
 
 ### Java가 지닌 변수 종류
-0) 변수(Variable): 값을 저장할 수 있는 메모리 상의 공간
 1) Primitive type: 변수에 값 자체를 저장함. 스택에 할당됨
-- 정수형(byte, short, int, long) / 실수형(float, double) / 문자형(char) / 논리형(boolean)
-- Primitive type은 Wrapper Class를 통해 객체로 변형할 수 있다.  
-  ex) int -> Integer / char -> Character / float -> Float
 2) Reference type: 변수에 객체의 주소를 저장함. 힙에 할당됨
-- array, class, interface, enum  
 3) Wrapper Class: 특정 primitive type을 나타내는 Class. 기본형 타입의 값을 객체가 필요한 곳에 사용 가능.
-- Wrapper Class의 생성자는 저장할 기본형 타입 값을 받는다.  
-  ex) Integer num = new Integer(30);
-- Wrapper 클래스는 산술연산을 위해 정의된 클래스가 아님. 따라서 인스턴스에 저장된 값은 변경이 불가능함. 값 변경을 위해선 다른 값을 저장하는 새로운 객체를 생성해야만 함.
+- Wrapper 클래스는 산술연산을 위해 정의된 클래스가 아님. 따라서 인스턴스에 저장된 값은 변경이 불가능함. 값 변경을 위해선 다른 값을 저장하는 새로운 객체를 생성해야만 함
 - Boxing: 기본형 변수를 Wrapper Class의 객체로 변경하는 과정. AutoBoxing 가능 (JDK 1.5 이상)  
   ex) Integer num = new Integer(30);  /  Integer num = 61;
 - Unboxing: 각각의 객체를 기본형으로 변경하는 과정. AutoUnBoxing 가능 (JDK 1.5 이상)  
   ex) int n = num.intValue();  /  int n = num;  
 <a href="#top">TOP</a>
+
+### 객체와 클래스의 차이점
+
 
 ### Overloading과 Overriding
 1) Overloading: 같은 이름의 method를 여러 개 정의하는 것. 매개변수의 타입이 다르거나 개수가 달라야 한다. Return type과 접근제어자는 영향을 주지 않는다.
@@ -81,7 +78,6 @@
 - 하위 일반 클래스들(추상 메서드를 무조건 overriding 해야함)의 공통된 필드와 메소드를 통일하여 일반 클래스 작성 시간 절약
 3) 공통점
 - new 연산자로 인스턴스 생성 불가능
-- 프로토타입만 있는 추상메서드를 갖는다.
 - 사용하기 위해서는 하위클래스에서 추상메서드를 overriding 해야 한다.
 4) 차이점
 - 추상클래스는 일반 메서드(하위클래스들의 공통 기능으로 정의 가능)를 가질 수 있지만, Interface는 추상 메서드만 갖는다.
