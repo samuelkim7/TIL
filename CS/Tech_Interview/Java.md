@@ -12,6 +12,7 @@
 - Collections Framework에서 List, Set, Map 등의 특징
 - Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
 - Generic을 사용하는 이점
+- 디자인 패턴과 싱글
 - JVM의 5가지 메모리 구조
 - Garbage Collection
   - 필요 이유 GC의 기반 가설
@@ -72,6 +73,7 @@
 1) Interface
 - 오직 추상메서드와 상수(public static final)만을 멤버로 갖는다.
 - 강력한 강제성으로 인터페이스를 구현하는 객체가 같은 동작을 하도록 보장하는 것이 목적 -> 다형성 극대화
+- 사용 예시) DAO를 interface로 만든 후 비즈니스 로직을 구현한 클래스에서 구현체가 아닌 interface를 참조하게 하여 유연한 연결을 갖게 함. 사용하던 DAOImpl이 아닌 새로운 방식으로 DB에 접근하는 DAOImpl을 개발하는 경우 기존의 비즈니스 로직은 변경하지 않고 DAOImpl만 개발하고 이전의 DAOImpl을 없애면 개발이 완료됨
 - JAVA8부터는 디폴트 메서드(하위 클래스에서 구현은 선택사항), 정적 메서드도 선언 가능 
 2) Abstract Class
 - 추상메서드를 하나 이상 가진 클래스
@@ -116,6 +118,10 @@
 - 컴파일 시에 객체의 타입을 체크하기 때문에 객체의 타입 안전성을 높이고 형변환의 번거로움을 줄여준다. 
 - Collection에 특정 타입의 객체만 추가될 수 있도록 제한함. 이로 인해 collection 내부로 들어온 값이 내가 원하는 타입인지 별도로 체크할 필요가 없음
 
+### 디자인 패턴과 싱글톤
+- 디자인 패턴: 공통적인 코드 작성 문제를 해결하는데 도움이 될 수 있는 코드 패턴
+- 싱글톤: 전체 프로그램에서 단 하나의 객체만을 생성하고 공유하게 하는 코드 패턴
+
 ### JVM의 5가지 메모리 구조
 
 ### Garbage Collection
@@ -135,4 +141,6 @@
 - [참조 Link](https://s2choco.tistory.com/14)
 
 #### JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
+  
+<a href="#top">TOP</a>
 
