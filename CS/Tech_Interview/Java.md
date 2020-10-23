@@ -12,10 +12,10 @@
 - Collections Framework에서 List, Set, Map 등의 특징
 - Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
 - Generic을 사용하는 이점
-
 - JVM의 5가지 메모리 구조
 - Garbage Collection
-  - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
+  - 필요 이유
+  - Minor Garbage Collection과 Major Garbage Collection의 동작 
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
 <br><br><br>
 
@@ -25,13 +25,13 @@
 - 함수적 프로그래밍 지원: JDK 8 부터 람다식을 지원하여 간결한 코드로 함수 지향 스타일의 코딩을 지원함
 - 자동적인 메모리 관리: C 언어의 경우 malloc() 함수로 메모리 할당이 가능하고, 사용된 후 free() 함수를 통해 메모리 할당을 해제해야 함. 만약 이 작업을 잘하지 않으면 메모리가 점유되어 프로그램이 다운되기도 함. 자바에서는 개발자가 메모리에 직접 접근할 수 없도록 설계되어 있음. 객체 생성시 자동적으로 메모리의 heap 영역이 할당되며 Garbage Collector가 자동적으로 사용이 완료된 객체를 제거함
 - 멀티쓰레드(Multi-thread) 지원: 동시에 여러 작업을 수행하거나 대용량 파일에 대한 병렬 처리를 위해서 멀티 스레드 프로그래밍이 필요함. 자바는 스레드 생성 및 제어와 관련된 API를 제공하기 때문에 쉽게 멀티 스레드를 구현할 수 있음
-- 동적 로딩 지원: 애플리케이션 실행시 모든 객체가 생성되지 않고, 필요 시점에 해당 클래스가 동적으로 로딩되면서 객체가 생성됨. 개발 완료 후에도 해당 클래스만 수정하고 컴파일하면 됨 
+- 동적 로딩 지원: 애플리케이션 실행시 모든 객체가 생성되지 않고, 필요 시점에 해당 클래스가 동적으로 로딩되면서 객체가 생성됨. 개발 완료 후에도 해당 클래스만 수정하고 컴파일하면 됨   
 <a href="#top">TOP</a>
 
 ### JVM과 JAVA 프로그램 실행 과정
 - 자바 가상 기계 (JVM): 자바 프로그램 (바이트 코드)은 기계어가 아니므로 운영체제가 실행할 수 없고, 이를 해석하고 실행할 수 있는 가상의 운영체제인 JVM이 필요함. JVM은 운영체제에 맞는 JRE나 JDK를 설치하면 자동으로 설치됨
 - C 언어의 경우 소스 파일을 C 컴파일러가 기계어로 번역 후 실행파일이 만들어지면 운영체제가 이를 실행함 
-- 그러나 자바에서는 컴파일러(javac.exe, JDK에 포함)가 중간코드인 바이트 코드(.class)를 만드는 일까지만 수행함. 그 이후 java.exe 명령어에 의해 JVM이 구동되면 JVM의 class loader가 class 파일을 JVM 내로 로드함. 이것을 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 해석함. 해석된 프로그램은 run-time data area(JVM이 하나의 프로세스로 수행되기 위해 OS로 부터 할당 받은 메모리 영역)에 배치되어 실행됨. 이 과정에서 필요에 따라 JVM이 garbage collection을 수행함 
+- 그러나 자바에서는 컴파일러(javac.exe, JDK에 포함)가 중간코드인 바이트 코드(.class)를 만드는 일까지만 수행함. 그 이후 java.exe 명령어에 의해 JVM이 구동되면 JVM의 class loader가 class 파일을 JVM 내로 로드함. 이것을 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 해석함. 해석된 프로그램은 run-time data area(JVM이 하나의 프로세스로 수행되기 위해 OS로 부터 할당 받은 메모리 영역)에 배치되어 실행됨. 이 과정에서 필요에 따라 JVM이 garbage collection을 수행함  
 <a href="#top">TOP</a>
 
 ### 객체 지향 프로그래밍
@@ -119,6 +119,8 @@
 ### JVM의 5가지 메모리 구조
 
 ### Garbage Collection
+- 필요 이유: java 프로그램은 메모리를 명시적으로 지정해서 해제하지 않기 때문에 더이상 필요없는 객체를 지우는 작업인 Garbage Collection이 필요함
+- 
 
 #### Minor Garbage Collection과 Major Garbage Collection의 동작 방식
 
