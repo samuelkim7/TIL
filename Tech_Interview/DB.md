@@ -25,6 +25,10 @@
 <a href="#top">TOP</a>
 
 ### Connection Pool
+- DB와 연결된 Connection을 미리 만들어서 pool 속에 저장해두고 필요할 때 Connection을 꺼내어 쓰고 사용한 후 다시 Pool에 반환하는 기법. 동시 접속자가 가질 수 있는 Connection을 하나로 모아놓고 관리하는 개념. Pool에 남아있는 Connection이 없는 경우에 클라이언트는 대기 상태로 전환되고 여분의 Connection이 들어오면 주어짐
+- 웹 서버의 경우 컨테이너가 실행될 때 Connection 객체가 미리 생성되기 때문에, 어플리케이션 동작 동안 Connection 생성이나 삭제 시간이 들지 않아서 동시 접속자 수가 많더라도 DB에 대한 오버헤드가 방지됨. 또한 한번에 생성될 수 있는 Connection 수가 제어되기 때문에 어플리케이션이 쉽게 다운되지 않음
+- 자바 프로그램에서 DriverManager.getConnection()을 통해서 DB Connection을 얻는 경우는 사용자 요청시마다 해당 driver를 로드하고 id, pw를 통해 DB에 연결하여 하나의 Connection을 얻어오고 사용 후에 다시 연결을 해제하는 방식이기 때문에 비효율적이다. 따라서 jsp에서 context.xml 파일에 dataSource 설정을 미리해두고 (여기서 최소 유지 Connection 수나 최대 가용 Connection 수 등을 설정함), DAO에서는 커넥션 풀 관리 객체인 InitialContext 생성 후 context.lookup()으로 dataSource를 얻고 dataSource.getConnection()으로 미리 생성된 Connection을 사용하는 방식을  
+<a href="#top">TOP</a>
 
 ### RDBMS
 #### 기본 개념: 테이블/ CK, PK, FK
@@ -47,7 +51,6 @@
 	- 일반 디스크 파일을 직접 읽고 쓰는 형태
   - 가볍고 안정적으로 구동되기 때문에 모바일 환경에 많이 내장되어 사용됨  
 <a href="#top">TOP</a>
-
 
 ### 조인
 
