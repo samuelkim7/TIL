@@ -121,7 +121,7 @@
 ### JVM의 5가지 메모리 구조
 
 ### Garbage Collection
-#### 필요 이유와 기반 가설
+#### 필요 이유와 기반 가설 (weak generational hypothesis)
 - 필요 이유: java 프로그램은 메모리를 명시적으로 지정해서 해제하지 않기 때문에 사용된 후 접근 불가능한 상태가 된 객체를 지우는 작업인 Garbage Collection이 필요함
 - 기반 가설: 1) 대부분의 객체는 금방 unreachable 상태가 된다. 2) 오래된 객체에서 최근에 생긴 객체로의 참조는 거의 없다. 이 두가지 가설을 기반으로 Heap 영역은 Young 영역과 Old 영역으로 설계됨
 
@@ -129,12 +129,13 @@
 - 객체의 이동: 기본적으로 JVM의 Heap 영역 내에서 객체가 이동하면서 GC가 발생함. 새로 생성된 객체는 YOUNG generation의 Eden 영역에 들어감. Eden 영역이 다 차면 Minor GC가 발생하고, 이때 다른 곳에서 참조되지 않는 객체는 삭제됨. 살아남은 객체는 Young generation의 Survivor 영역 (1, 2가 존재)으로 이동함. Eden 영역이 다 차서 Minor GC가 발생할 때마다 객체는 Survivor1과 Survivor2 사이를 이동하게 되며 더이상 참조되지 않는 객체는 삭제됨. Minor GC에서 살아남은 횟수를 기록한 age bit 값이 임계점(tenuring threshold)을 초과한 객체의 경우 OLD generation으로 이동함 (Promotion). 또는 Survivor 영역이 다 차면 미리 OLD로 이동. OLD generation 내에서는 Major GC (full GC)가 발생하여 객체들이 제거됨. Major GC가 실행되면 GC를 실행하는 스레드 외에 나머지 모든 스레드가 멈춤(stop-the-world). 이 시간 동안 어플리케이션을 멈추기 때문에 WAS에서 문제가 될 수 있음. 이러한 Major GC에 의한 Stop-the-world의 시간을 줄이기 위한 작업이 GC 튜닝임
 - Minor GC의 동작 방식: Copy & Scavenge 알고리즘. Eden 영역이 다 차면 reachable한 객체를 식별하여 Survivor 영역으로 복제(copy)하고, Eden 영역을 비움(scavenge)
 - GC의 5가지 동작 방식
-  - Serial GC: mark-sweep-compaction 방식. Old 영역의 객체를 식별하여 참조되는 객체를 표시(mark)하고, 표시되지 않은 객체를 제거(sweep)한 후, Heap의 앞부분부터 채워나가며 정리(compaction)함
+  - Serial GC: mark-sweep-compaction 방식. Old 영역의 객체를 식별하여 참조되는 객체를 표시(mark)하고, 표시되지 않은 객체를 제거(sweep)한 후, Heap의 앞부분부터 채워나가며 정리(compaction)함. CPU 코어가 하나만 있을 경우 사용하기 위한 방식
   - Parallel GC: Serial GC와 알고르즘은 같지만 Minor GC를 멀티 스레드로 수행함. Server VM의 기본 GC
-  - Parallel Old GC: mark-summary-compaction 방식. 이전 방식들은 단일 스레드가 Old 영역 전체를 훑었지만, 여기서는 멀티 스레드가 Old 영역을 논리적으로 균일하게 나눈 Region 단위로 GC를 수행함
+  - Parallel Old GC: mark-summary-compaction 방식. 이전 방식들은 단일 스레드가 Old 영역 전체를 훑었지만, 여기서는 멀티 스레드가 Old 영역을 논리적으로 균일하게 나눈 Region 단위로 GC를 수행함 (Summary)
   - CMS GC: Concurrent Mark & Sweep. Initial Mark에서는 STW가 발생하지만, 이 때 marking된 객체를 기준으로 살아있는 객체를 추가 확인하는 Concurrent Mark는 STW가 발생하지 않음. 작업이 멀티 스레드 환경에서 동시진행되기 때문에 stop-the-world 시간이 매우 짧은 대신 memory와 CPU 를 많이 사용하고 compaction 단계가 제공되지 않는다.
   - GI GC : CMS를 개선한 GC. Heap 영역에서 young과 old의 구분을 없애고 전체를 Region으로 재편하여 Region의 상태에 따라 Eden, Survivor, Old, Humongous, Available 영역으로 동적으로 역할이 부여됨. 매우 빠르게 객체를 할당하고 GC한다.
 - [참조 Link](https://s2choco.tistory.com/14)
+- [참조 Link2](https://d2.naver.com/helloworld/1329)
 
 #### JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
 
