@@ -4,7 +4,6 @@
 - JVM과 JAVA 프로그램 실행 과정
 - 객체 지향 프로그래밍
 - Java가 지닌 변수 종류
-- 객체와 클래스의 차이점
 - Overloading과 Overriding
 - Interface와 Abstract Class
 - 접근제어자
@@ -58,9 +57,6 @@
   ex) int n = num.intValue();  /  int n = num;  
 <a href="#top">TOP</a>
 
-### 객체와 클래스의 차이점
-
-
 ### Overloading과 Overriding
 1) Overloading: 같은 이름의 method를 여러 개 정의하는 것. 매개변수의 타입이 다르거나 개수가 달라야 한다. Return type과 접근제어자는 영향을 주지 않는다.
 2) Overriding: 상속에서 나온 개념. 상위 클래스의 메소드를 하위 클래스에서 재정의함. Return type과 매개변수의 타입 및 개수가 같아야 한다.  
@@ -105,6 +101,8 @@
 <a href="#top">TOP</a>
 
 ### 왜 getter, setter 함수를 써야하는지?
+- 필드들을 private 접근 제한자로 막아두고 getter, setter로만 접근하게 함으로써 객체를 캡슐화하고 객체의 무결성을 보장하기 위해. 예를 들어서 음수의 값을 가질 수 없는 필드의 경우 setter 함수에서 음수값이 들어오면 에러를 일으키도록 할 수 있음. 또한 외부 노출을 제한할 변수들은 getter를 만들지 않고 노출시킬 변수만 getter를 만들어서 은닉성을 갖게 할 수 있음
+- 하지만 더 깊이 생각해보면 생성 이후 객체 내부의 데이터를 조작할 수 있는 단 하나의 공개된 메서드를 통한 조작만 가능해야 엄밀한 무결성 보장이 가능하다. 
 
 ### Collections Framework에서 List, Set, Map 등의 특징
 
