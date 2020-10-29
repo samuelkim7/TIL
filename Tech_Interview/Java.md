@@ -10,7 +10,7 @@
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
 - Collections Framework와 List, Set, Map의 특징
-- Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
+- Checked Exception과 Unchecked Exception
 - Generic을 사용하는 이점
 - JVM의 Runtime Data Area 내 5가지 영역
 - 디자인 패턴과 싱글톤
@@ -111,7 +111,9 @@
 - List: 순서가 있고 중복을 허용함. 배열을 기반으로 하는 ArrayList와 LinkedList가 있음. ArrayList의 경우 index를 갖기 때문에 데이터 검색시 유리하며 데이터 추가, 삭제 시에는 임시 배열을 생성해 복사하는 방식을 사용하므로 O(N)의 시간복잡도를 가짐. LinkedList의 경우 데이터 검색 시에는 처음부터 노드를 순회해야 하기 때문에 성능상 불리하지만 데이터 추가 삭제시에는 pointer만 설정하면 되기 때문에 O(1)의 시간복잡도를 가짐
 - Map: Key, Value의 쌍으로 데이터를 저장함. 이를 구현한 클래스로 HashMap, TreeMap 등이 있음
 
-### Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
+### Checked Exception과 Unchecked Exception
+- Checked Exception: 컴파일 시점에 해결되어야 하며 처리되지 않으면 프로그램이 실행될 수 없음. SQLException, IOException 등
+- Unchecked Exception: 컴파일 시점에는 확인하지 않고 어플리케이션 동작 도중 해당 Exception이 발생하면 동작이 멈추게 됨. NullpointerException, IndexOutOfBoundException 등
 
 ### Generic을 사용하는 이점
 - 컴파일 시에 객체의 타입을 체크하기 때문에 객체의 타입 안전성을 높이고 형변환의 번거로움을 줄여준다.
@@ -123,7 +125,7 @@
 
 ### JVM의 Runtime Data Area 내 5가지 영역
 - Method Area (Class Area): 클래스, 인터페이스, field, method, static 변수, 상수 등의 ByteCode가 저장되는 영역. Java ByteCode의 대부분이 Method 관련 코드이기 때문에 대부분의 코드가 이곳에 올라간다고 볼 수 있음. 모든 쓰레드가 공유함
-- Heap Area: new 명령어로 생성된 객체가 저장되는 공간. 프로그램 런타임시 동적으로 할당하여 사용됨. Garbage Collection 이슈는 이 영역에서 일어남
+- Heap Area: new 명령어로 생성된 객체가 저장되는 공간. 프로그램 런타임시 동적으로 할당하여 사용됨. Garbage Collection 이슈는 이 영역에서 일어남. 모든 쓰레드가 공유함
 - Stack: Method 안에서 사용되는 값들(매개변수, 지역변수, 리턴값 등)이 저장되는 구역. 메소드가 호출될 때마다 각 메서드를 위한 공간이 생성되고, 메소드 실행이 완료되면 LIFO로 하나씩 삭제된다. 각 Thread 별로 하나씩 생성된다.
 - PC Register: CPU의 Register와 역할이 비슷하다. 현재 수행 중인 JVM 명령의 주소값이 저장된다. 각 Thread별로 하나씩 생성된다.
 - Native Method Stack: Java 외 다른 언어로 작성된 NativeCode를 위한 Stack. C/C++ 등의 언어로 작성된 코드를 실행하기 위한 영역  
@@ -140,9 +142,9 @@
 - GC의 5가지 동작 방식
   - Serial GC: mark-sweep-compaction 방식. Old 영역의 객체를 식별하여 참조되는 객체를 표시(mark)하고, 표시되지 않은 객체를 제거(sweep)한 후, Heap의 앞부분부터 채워나가며 정리(compaction)함. CPU 코어가 하나만 있을 경우 사용하기 위한 방식
   - Parallel GC: Serial GC와 알고르즘은 같지만 Minor GC를 멀티 스레드로 수행함. Server VM의 기본 GC
-  - Parallel Old GC: mark-summary-compaction 방식. 이전 방식들은 단일 스레드가 Old 영역 전체를 훑었지만, 여기서는 멀티 스레드가 Old 영역을 논리적으로 균일하게 나눈 Region 단위로 GC를 수행함 (Summary)
+  - Parallel Old GC: mark-summary-compaction 방식. 이전 방식들은 단일 스레드가 Old 영역 전체를 훑었지만 (Sweep), 여기서는 멀티 스레드가 Old 영역을 논리적으로 균일하게 나눈 Region 단위로 GC를 수행함 (Summary)
   - CMS GC: Concurrent Mark & Sweep. Initial Mark에서는 STW가 발생하지만, 이 때 marking된 객체를 기준으로 살아있는 객체를 추가 확인하는 Concurrent Mark는 STW가 발생하지 않음. 작업이 멀티 스레드 환경에서 동시진행되기 때문에 stop-the-world 시간이 매우 짧은 대신 memory와 CPU 를 많이 사용하고 compaction 단계가 제공되지 않는다.
-  - GI GC : CMS를 개선한 GC. Heap 영역에서 young과 old의 구분을 없애고 전체를 Region으로 재편하여 Region의 상태에 따라 Eden, Survivor, Old, Humongous, Available 영역으로 동적으로 역할이 부여됨. 매우 빠르게 객체를 할당하고 GC한다.
+  - GI GC : CMS를 개선한 GC. Heap 영역에서 young과 old의 구분을 없애고 전체를 Region으로 재편하여 Region의 상태에 따라 Eden, Survivor, Old, Humongous, Available 영역으로 동적으로 역할이 부여됨. GC 수행 방식 자체는 CMS와 유사함. 매우 빠르게 객체를 할당하고 GC한다.
 - [참조 Link](https://s2choco.tistory.com/14)
 - [참조 Link2](https://d2.naver.com/helloworld/1329)
 
