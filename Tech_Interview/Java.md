@@ -9,10 +9,10 @@
 - 접근제어자
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
-- Collections Framework에서 List, Set, Map 등의 특징
+- Collections Framework와 List, Set, Map의 특징
 - Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
 - Generic을 사용하는 이점
-- JVM의 5가지 메모리 구조
+- JVM의 Runtime Data Area 내 5가지 영역
 - 디자인 패턴과 싱글톤
 - Garbage Collection
   - 필요 이유 및 GC의 기반 가설
@@ -26,13 +26,13 @@
 - 함수적 프로그래밍 지원: JDK 8 부터 람다식을 지원하여 간결한 코드로 함수 지향 스타일의 코딩을 지원함
 - 자동적인 메모리 관리: C 언어의 경우 malloc() 함수로 메모리 할당이 가능하고, 사용된 후 free() 함수를 통해 메모리 할당을 해제해야 함. 만약 이 작업을 잘하지 않으면 메모리가 점유되어 프로그램이 다운되기도 함. 자바에서는 개발자가 메모리에 직접 접근할 수 없도록 설계되어 있음. 객체 생성시 자동적으로 메모리의 heap 영역이 할당되며 Garbage Collector가 자동적으로 사용이 완료된 객체를 제거함
 - 멀티쓰레드(Multi-thread) 지원: 동시에 여러 작업을 수행하거나 대용량 파일에 대한 병렬 처리를 위해서 멀티 스레드 프로그래밍이 필요함. 자바는 스레드 생성 및 제어와 관련된 API를 제공하기 때문에 쉽게 멀티 스레드를 구현할 수 있음
-- 동적 로딩 지원: 애플리케이션 실행시 모든 객체가 생성되지 않고, 필요 시점에 해당 클래스가 동적으로 로딩되면서 객체가 생성됨. 개발 완료 후에도 해당 클래스만 수정하고 컴파일하면 됨  
+- 동적 로딩 지원: 애플리케이션 실행시 모든 객체가 생성되지 않고, 필요 시점에 해당 클래스가 동적으로 로딩되면서 객체가 생성됨. 개발 완료 후에도 해당 클래스만 수정하고 .class 파일로 컴파일하면 프로그램 수정이 완료됨
 <a href="#top">TOP</a>
 
 ### JVM과 JAVA 프로그램 실행 과정
 - 자바 가상 기계 (JVM): 자바 프로그램 (바이트 코드)은 기계어가 아니므로 운영체제가 실행할 수 없고, 이를 해석하고 실행할 수 있는 가상의 운영체제인 JVM이 필요함. JVM은 운영체제에 맞는 JRE나 JDK를 설치하면 자동으로 설치됨
-- C 언어의 경우 소스 파일을 C 컴파일러가 기계어로 번역 후 실행파일이 만들어지면 운영체제가 이를 실행함
-- 그러나 자바에서는 컴파일러(javac.exe, JDK에 포함)가 중간코드인 바이트 코드(.class)를 만드는 일까지만 수행함. 그 이후 java.exe 명령어에 의해 JVM이 구동되면 JVM의 class loader가 class 파일을 JVM 내로 로드함. 이것을 인터프리터(JIT Compiler, JRE에 포함)가 기계코드로의 해석함. 해석된 프로그램은 run-time data area(JVM이 하나의 프로세스로 수행되기 위해 OS로 부터 할당 받은 메모리 영역)에 배치되어 실행됨. 이 과정에서 필요에 따라 JVM이 garbage collection을 수행함  
+- C 프로그램의 경우 소스 파일을 C 컴파일러가 기계어로 번역 후 실행파일이 만들어지면 운영체제가 이를 실행함
+- 그러나 자바에서는 컴파일러(javac.exe, JDK에 포함)가 중간코드인 바이트 코드(.class)를 만드는 일까지만 수행함. 그 이후 java.exe 명령어에 의해 JVM이 구동되면 JVM의 Class Loader가 class 파일을 JVM 내로 동적으로 로드하고 Run-time data area(JVM이 하나의 프로세스로 수행되기 위해 OS로 부터 할당 받은 메모리 영역) 내에 배치함. 이것을 Execution Engine 내의 interpreter가 한줄씩 기계코드로 해석 후 프로그램이 실행됨. 일정 기준이 넘어가면 더 빠른 실행을 위해 JIT Compiler가 전체 ByteCode를 NativeCode로 변경하고 이후에 계속 재사용. 그리고 프로그램 실행 과정에서 필요에 따라 JVM이 garbage collection을 수행함  
 <a href="#top">TOP</a>
 
 ### 객체 지향 프로그래밍
@@ -105,7 +105,11 @@
 - 하지만 더 깊이 생각해보면 생성 이후 객체 내부의 데이터를 조작할 수 있는 단 하나의 공개된 메서드를 통한 조작만 가능해야 엄밀한 무결성 보장이 가능하다.  
 <a href="#top">TOP</a>
 
-### Collections Framework에서 List, Set, Map 등의 특징
+### Collections Framework와 List, Set, Map의 특징
+- 모든 컬렉션 프레임워크에서 구현된 클래스는 Collection (Set과 List interface) 혹은 Map interface를 구현한 것임.
+- Set: 순서가 없고 중복된 데이터를 허용하지 않음. 이를 구현한 클래스로는 HashSet, TreeSet 등이 있음. HashSet은 검색에 있어서 TreeSet 보다 빠르지만, TreeSet의 경우 데이터가 정렬되어 있으므로 정렬을 활용한 연산에서 더 유리함
+- List: 순서가 있고 중복을 허용함. 배열을 기반으로 하는 ArrayList와 LinkedList가 있음. ArrayList의 경우 index를 갖기 때문에 데이터 검색시 유리하며 데이터 추가, 삭제 시에는 임시 배열을 생성해 복사하는 방식을 사용하므로 O(N)의 시간복잡도를 가짐. LinkedList의 경우 데이터 검색 시에는 처음부터 노드를 순회해야 하기 때문에 성능상 불리하지만 데이터 추가 삭제시에는 pointer만 설정하면 되기 때문에 O(1)의 시간복잡도를 가짐
+- Map: Key, Value의 쌍으로 데이터를 저장함. 이를 구현한 클래스로 HashMap, TreeMap 등이 있음
 
 ### Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
 
@@ -117,7 +121,13 @@
 - 디자인 패턴: 공통적인 코드 작성 문제를 해결하는데 도움이 될 수 있는 코드 패턴
 - 싱글톤: 전체 프로그램에서 단 하나의 객체만을 생성하고 공유하게 하는 코드 패턴
 
-### JVM의 5가지 메모리 구조
+### JVM의 Runtime Data Area 내 5가지 영역
+- Method Area (Class Area): 클래스, 인터페이스, field, method, static 변수, 상수 등의 ByteCode가 저장되는 영역. Java ByteCode의 대부분이 Method 관련 코드이기 때문에 대부분의 코드가 이곳에 올라간다고 볼 수 있음. 모든 쓰레드가 공유함
+- Heap Area: new 명령어로 생성된 객체가 저장되는 공간. 프로그램 런타임시 동적으로 할당하여 사용됨. Garbage Collection 이슈는 이 영역에서 일어남
+- Stack: Method 안에서 사용되는 값들(매개변수, 지역변수, 리턴값 등)이 저장되는 구역. 메소드가 호출될 때마다 각 메서드를 위한 공간이 생성되고, 메소드 실행이 완료되면 LIFO로 하나씩 삭제된다. 각 Thread 별로 하나씩 생성된다.
+- PC Register: CPU의 Register와 역할이 비슷하다. 현재 수행 중인 JVM 명령의 주소값이 저장된다. 각 Thread별로 하나씩 생성된다.
+- Native Method Stack: Java 외 다른 언어로 작성된 NativeCode를 위한 Stack. C/C++ 등의 언어로 작성된 코드를 실행하기 위한 영역  
+<a href="#top">TOP</a>
 
 ### Garbage Collection
 #### 필요 이유와 기반 가설 (weak generational hypothesis)
