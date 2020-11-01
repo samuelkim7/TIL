@@ -1,19 +1,22 @@
 
 ## [Java](https://github.com/MyeongwonKim/TIL/blob/master/Tech_Interview/Java.md)
 - Java의 특징
+- JVM과 JAVA 프로그램 실행 과정
 - 객체 지향 프로그래밍
-- Overloading과 Overriding
 - Java가 지닌 변수 종류
+- Overloading과 Overriding
 - Interface와 Abstract Class
-- 접근제한자
+- 접근제어자
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
-- Collections Framework에서 List, Set, Map 등의 특징
-- Exception 발생은 컴파일 과정에서 하는가 실행 과정에서 하는가?
+- Collections Framework와 List, Set, Map의 특징
+- Checked Exception과 Unchecked Exception
 - Generic을 사용하는 이점
-- JVM의 5가지 메모리 구조
+- JVM의 Runtime Data Area 내 5가지 영역
+- 디자인 패턴과 싱글톤
 - Garbage Collection
-  - Minor Garbage Collection과 Major Garbage Collection의 동작 방식
+  - 필요 이유 및 GC의 기반 가설
+  - Heap 영역 내 객체의 이동과 Minor GC / Major GC의 동작 방식
   - JVM의 young영역에서 survivor부분이 survivor1과 survivor2로 나뉘어져있는 이유?
   
 ## [Spring](https://github.com/MyeongwonKim/TIL/blob/master/Tech_Interview/Spring.md)
