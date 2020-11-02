@@ -118,6 +118,7 @@
 - == 연산자
   - 두 대상의 주소값을 비교하는 연산자
   - 두 String의 내용이 같더라도 주소가 다르면 false임 (new String()으로 생성한 경우)
+<a href="#top">TOP</a>
 
 ### Collections Framework와 List, Set, Map의 특징
 - 모든 컬렉션 프레임워크에서 구현된 클래스는 Collection (Set과 List interface) 혹은 Map interface를 구현한 것임.
@@ -131,7 +132,8 @@
 
 ### Generic을 사용하는 이점
 - 컴파일 시에 객체의 타입을 체크하기 때문에 객체의 타입 안전성을 높이고 형변환의 번거로움을 줄여준다.
-- Collection에 특정 타입의 객체만 추가될 수 있도록 제한함. 이로 인해 collection 내부로 들어온 값이 내가 원하는 타입인지 별도로 체크할 필요가 없음
+- Collection에 특정 타입의 객체만 추가될 수 있도록 제한함. 이로 인해 collection 내부로 들어온 값이 내가 원하는 타입인지 별도로 체크할 필요가 없음  
+<a href="#top">TOP</a>
 
 ### 디자인 패턴과 싱글톤
 - 디자인 패턴: 공통적인 코드 작성 문제를 해결하는데 도움이 될 수 있는 코드 패턴
