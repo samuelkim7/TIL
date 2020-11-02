@@ -9,6 +9,7 @@
 - 접근제어자
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
+- String과 equals() / ==
 - Collections Framework와 List, Set, Map의 특징
 - Checked Exception과 Unchecked Exception
 - Generic을 사용하는 이점
@@ -104,6 +105,19 @@
 - 필드들을 private 접근 제한자로 막아두고 getter, setter로만 접근하게 함으로써 객체를 캡슐화하고 객체의 무결성을 보장하기 위해. 예를 들어서 음수의 값을 가질 수 없는 필드의 경우 setter 함수에서 음수값이 들어오면 에러를 일으키도록 할 수 있음. 또한 외부 노출을 제한할 변수들은 getter를 만들지 않고 노출시킬 변수만 getter를 만들어서 은닉성을 갖게 할 수 있음
 - 하지만 더 깊이 생각해보면 생성 이후 객체 내부의 데이터를 조작할 수 있는 단 하나의 공개된 메서드를 통한 조작만 가능해야 엄밀한 무결성 보장이 가능하다.  
 <a href="#top">TOP</a>
+
+### String과 equals() / ==
+- String
+  - = ""로 선언이 가능하며, new 생성자를 통해서 인스턴스를 만들 수도 있음 (이 경우 heap 영역에 객체가 생성됨)
+  - 다른 reference type과는 달리 immutable함. 즉 한번 생성된 객체에 저장된 값은 변하지 않음
+  - String에 + 연산을 수행할 경우 매번 새로운 객체를 생성함
+  - String Constant Pool: 이미 생성된 문자열이 저장된 pool이며, = ""로 선언한 경우 같은 값을 갖는 String은 같은 주소를 가리키게 됨. 효율적인 메모리 관리를 가능하게 함
+-  equals()
+  - 두 객체의 내용을 비교하는 메서드
+  - 두 String의 내용이 같으면 true
+- == 연산자
+  - 두 대상의 주소값을 비교하는 연산자
+  - 두 String의 내용이 같더라도 주소가 다르면 false임 (new String()으로 생성한 경우)
 
 ### Collections Framework와 List, Set, Map의 특징
 - 모든 컬렉션 프레임워크에서 구현된 클래스는 Collection (Set과 List interface) 혹은 Map interface를 구현한 것임.
