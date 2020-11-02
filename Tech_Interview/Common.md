@@ -93,5 +93,7 @@
   - 장점: Maven에 비해 설정 내용이 간결하고 가독성이 있음
 
 ### 싱글톤패턴
+https://jeong-pro.tistory.com/86?category=793347
+
 ### DAO, DTO
 ### call by value와 call by reference의 차이
