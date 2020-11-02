@@ -108,10 +108,12 @@
 
 ### String과 equals() / ==
 - String
-  - = ""로 선언이 가능하며, new 생성자를 통해서 인스턴스를 만들 수도 있음 (이 경우 heap 영역에 객체가 생성됨)
+  - literal("")로 생성이 가능하며, 또 new 생성자를 통해서 인스턴스를 만들 수도 있음 (이 경우 heap 영역에 객체가 생성됨)
   - 다른 reference type과는 달리 immutable함. 즉 한번 생성된 객체에 저장된 값은 변하지 않음
+    - 장점: 
+    - 단점: 
   - String에 + 연산을 수행할 경우 매번 새로운 객체를 생성함
-  - String Constant Pool: 이미 생성된 문자열이 저장된 pool이며, = ""로 선언한 경우 같은 값을 갖는 String은 같은 주소를 가리키게 됨. 효율적인 메모리 관리를 가능하게 함
+  - String Constant Pool: 이미 생성된 문자열이 저장된 pool이며, literal로 선언한 경우 같은 값을 갖는 String은 같은 주소를 가리키게 됨. 효율적인 메모리 관리를 가능하게 함
 -  equals()
   - 두 객체의 내용을 비교하는 메서드
   - 두 String의 내용이 같으면 true
