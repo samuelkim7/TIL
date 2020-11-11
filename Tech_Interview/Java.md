@@ -9,6 +9,7 @@
 - 접근제어자
 - final, static의 용도와 사용 이유
 - 왜 getter, setter 함수를 써야하는지?
+- String / StringBuffer와 StringBuilder / equals()와 ==
 - Collections Framework와 List, Set, Map의 특징
 - Checked Exception과 Unchecked Exception
 - Generic을 사용하는 이점
@@ -105,6 +106,26 @@
 - 하지만 더 깊이 생각해보면 생성 이후 객체 내부의 데이터를 조작할 수 있는 단 하나의 공개된 메서드를 통한 조작만 가능해야 엄밀한 무결성 보장이 가능하다.  
 <a href="#top">TOP</a>
 
+### String / StringBuffer와 StringBuilder / equals()와 ==
+#### String
+- literal("")로 생성이 가능하며, 또 new 생성자를 통해서 인스턴스를 만들 수도 있음 (이 경우 heap 영역에 객체가 생성됨)
+- 다른 reference type과는 달리 immutable함. 즉 한번 생성된 객체에 저장된 값은 변하지 않음
+  - 장점: 단순 조회 연산이 빠르게 수행됨. 멀티쓰레드 환경에서 동기화를 신경쓸 필요가 없음
+  - 단점: String에 문자열 연산을 수행할 경우 매번 새로운 객체를 생성되어서 오버헤드로 인해 성능 저하 가능성 있음
+- String Constant Pool: 이미 생성된 문자열이 저장된 pool이며, literal로 선언한 경우 같은 값을 갖는 String은 같은 주소를 가리키게 됨. 효율적인 메모리 관리를 가능하게 함
+#### StringBuffer / StringBuilder
+- 공통점: String과 달리 mutable함. 문자열 연산시 메모리 상의 값을 변경함. 따라서 문자열 연산이 많은 경우 사용하기에 적절함
+- StringBuffer: synchronized 키워드를 사용하여 멀티쓰레드 환경에서 동기화가 가능함. 즉 thread-safe함
+- StringBuilder: thread-safe하지 않음. 싱글쓰레드 환경에서 StringBuffer에 비해 연산 처리 속도가 더 빠름
+#### eqauls()와 ==
+-  equals()
+  - 두 객체의 내용을 비교하는 메서드
+  - 두 String의 내용이 같으면 true
+- == 연산자
+  - 두 대상의 주소값을 비교하는 연산자
+  - 두 String의 내용이 같더라도 주소가 다르면 false임 (new String()으로 생성한 경우)  
+<a href="#top">TOP</a>
+
 ### Collections Framework와 List, Set, Map의 특징
 - 모든 컬렉션 프레임워크에서 구현된 클래스는 Collection (Set과 List interface) 혹은 Map interface를 구현한 것임.
 - Set: 순서가 없고 중복된 데이터를 허용하지 않음. 이를 구현한 클래스로는 HashSet, TreeSet 등이 있음. HashSet은 검색에 있어서 TreeSet 보다 빠르지만, TreeSet의 경우 데이터가 정렬되어 있으므로 정렬을 활용한 연산에서 더 유리함
@@ -117,7 +138,8 @@
 
 ### Generic을 사용하는 이점
 - 컴파일 시에 객체의 타입을 체크하기 때문에 객체의 타입 안전성을 높이고 형변환의 번거로움을 줄여준다.
-- Collection에 특정 타입의 객체만 추가될 수 있도록 제한함. 이로 인해 collection 내부로 들어온 값이 내가 원하는 타입인지 별도로 체크할 필요가 없음
+- Collection에 특정 타입의 객체만 추가될 수 있도록 제한함. 이로 인해 collection 내부로 들어온 값이 내가 원하는 타입인지 별도로 체크할 필요가 없음  
+<a href="#top">TOP</a>
 
 ### 디자인 패턴과 싱글톤
 - 디자인 패턴: 공통적인 코드 작성 문제를 해결하는데 도움이 될 수 있는 코드 패턴
