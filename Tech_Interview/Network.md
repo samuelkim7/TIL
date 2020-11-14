@@ -1,8 +1,6 @@
 ## 네트워크
 - 기본 개념
 - OSI 7계층
-- TCP/UDP
-  - TCP의 3-way-handshake와 4-way-handshake의 차이점
 - HTTP
   - GET 방식과 POST 방식의 차이
   - RESTful의 개념
@@ -56,14 +54,20 @@
   - UDP (User Datagram Protocol): 비연결형 통신 프로토콜. 효율성과 속도를 우선시하여 일방적으로 데이터를 전송하는 방식
     - UDP 헤더: 출발지 및 목적지 포트 번호, 길이, 체크섬을 포함함. 데이터 -> UDP 데이터그램
     - 네트워크 내에서 빠른 속도로 브로드캐스트 방식 데이터 전송시 사용
-- 세션 계층 (Session Layer): 세션 체결, 통신 방식을 결정한다.
-- 표현 계층 (Presentation Layer): 문자 코드, 압축, 암호화 등의 데이터를 변환한다.
-- 응용 계층 (Application Layer): 이메일 & 파일 전송, 웹 사이트 조회 등 애플리케이션에 대한 서비스를 제공한다.
+- 세션 계층 (Session Layer): 세션 체결, 통신 방식을 결정한다. 응용 계층에 포함됨
+- 표현 계층 (Presentation Layer): 문자 코드, 압축, 암호화 등의 데이터를 변환한다. 응용 계층에 포함됨
+- 응용 계층 (Application Layer): 이메일, 파일 전송, 웹 사이트 조회 등 애플리케이션에 대한 서비스를 제공한다.
+  - 각각의 애플리케이션에 대응되는 데이터를 전송하는 역할을 수행함
+  - HTTP, FTP, SMTP(메일 송신), POP3(메일 수신) 등의 포로토콜에 따라 데이터 전송이 수행됨
+  - DNS: URL을 IP 주소로 변환해주는 시스템. DNS 서버가 이 기능을 담당함. 이렇게 얻은 IP를 가지고 웹 서버에 접속한다.
 
-### TCP/UDP
-  - TCP의 3-way-handshake와 4-way-handshake의 차이점
 - HTTP
+  - HTTP: 웹 서비스에서 클라이언트와 웹 서버 간에 정보를 주고받기 위해 사용되는 네트워크 프로토콜
   - GET 방식과 POST 방식의 차이
   - RESTful의 개념
   - http/https
+  - HTTP 버전
+    - HTTP/1.0: 요청을 보낼 때마다 connection을 수립하고 응답 후 coonection을 끊음
+    - HTTP/1.1: connction 한번 수립 후 데이터 교환이 끝나면 connection을 끊는 것이 가능 (keepalive 기능)
+    - HTTP/2: 요청을 보낸 순서와 상관없이 응답이 가능하여 빠르게 콘텐츠를 표시할 수 있음
 - Session과 Cookie
