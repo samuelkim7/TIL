@@ -8,7 +8,7 @@
   - GET 방식과 POST 방식의 차이
 - REST API의 개념
 - Session과 Cookie
-
+<br><br><br>
 
 ### 기본 개념
 - 패킷: 네트워크 통신 시 사용되는 작게 분할된 데이터 조각. 데이터 전송의 기본 단위
@@ -137,7 +137,9 @@ Representational State Transfer. "웹에 존재하는 모든 자원(이미지, �
 
 5.장단점
 	1) 장점: Open API를 제공하기 쉽다. 원하는 타입으로 데이터를 주고 받을 수 있다. 기존 웹 인프라 (HTTP)를 그대로 사용할 수 있다.
-단점: 사용할 수 있는 메서드가 4가지 밖에 없다. 분산환경에서는 부적합하다. HTTP 통신 모델에 대해서만 지원한다.  
+단점: 사용할 수 있는 메서드가 4가지 밖에 없다. 분산환경에서는 부적합하다. HTTP 통신 모델에 대해서만 지원한다.
+
+- [참조 링크](https://noahlogs.tistory.com/47?category=827412)  
 <a href="#top">TOP</a>
 
 ### Session과 Cookie
