@@ -64,6 +64,7 @@
 
 ### Fibonacci 공식을 recursive 방식과 DP 방식으로 구현시의 차이점
 ### DFS와 BFS
+
 #### 트리에서의 DFS
 트리에서 DFS를 사용할 경우 탐색 순서에 따라 3가지 방법으로 나뉜다.
 - 전위 순회(Preorder Traversal) : 루트 -> 왼쪽 자식 -> 오른쪽 자식순으로 순회
@@ -71,6 +72,44 @@
 - 후위 순회(Postorder Traversal): 왼쪽 자식 -> 오른쪽 자식 -> 루트순으로 순회
 
 ### 스택 2개를 큐처럼 구현
+1. inBox에 데이터를 push한다. - A,B
+2. inBox에 있는 데이터를 pop하여 outBox에 push한다. - B,A
+3. outBox에 있는 데이터를 pop한다. - A,B 순으로 출력됨
+
+```java
+public class Queue {
+
+	private Stack inBox = new Stack();
+	private Stack outBox = new Stack();
+	
+	public void enQueue(Object item) {
+		inBox.add(item);
+	}
+	
+	public Object deQueue() {
+		
+		if (outBox.isEmpty()) {
+			while(!inBox.isEmpty()) {
+				outBox.push(inBox.pop());
+			}
+		}
+		return outBox.pop();
+	}
+	
+	public static void main(String[] args) {
+		Queue queue = new Queue();
+		queue.enQueue("A");
+		queue.enQueue("B");
+		queue.enQueue("C");
+		
+		System.out.println(queue.deQueue());  // A
+		System.out.println(queue.deQueue());  // B
+		System.out.println(queue.deQueue());  // C
+	}
+}
+```
+- [출처](https://creatordev.tistory.com/83)
+
 ### 각 정렬의 시간복잡도 비교
 
 
