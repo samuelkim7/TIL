@@ -75,6 +75,8 @@
 1. inBox에 데이터를 push한다. - A,B
 2. inBox에 있는 데이터를 pop하여 outBox에 push한다. - B,A
 3. outBox에 있는 데이터를 pop한다. - A,B 순으로 출력됨
+- enQueue: inBox로 push()
+- deQueue: outBox에 요소가 있으면 pop(). 없을 경우 inBox의 요소를 모두 outBox로 옮기고(pop and push) outBox pop()
 
 ```java
 public class Queue {
