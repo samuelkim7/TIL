@@ -15,3 +15,11 @@
 - Apache Impala / Tez - only interactive processing
 - Neo4j / Giraph - only graph processing
 - Spark - Can perform all of the above
+
+### DataFrame
+- tables that store data in a column and row format
+- Partitioning: dividing the dataset into parts and save them in a storage -> optimization for selecting data
+- show() vs collect()
+  - show(): "preview"
+  - collect(): "real data for additional processing"
+
