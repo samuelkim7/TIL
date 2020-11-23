@@ -40,3 +40,20 @@ The algorithm performs gradient descent: it starts *w* at a random value, and on
 3. Alternating Leat Squares
 ALS is used for collaborative filtering problems, such as predicting users’ ratings for movies that
 they have not seen based on their movie rating history.
+
+### Implementation
+- Spark is built on top of Mesos, a “cluster operating system” that lets multiple parallel applications share a cluster in a fine-grained manner and provides an API for applications to launch tasks on a cluster.
+ 
+- When a parallel operation is invoked on a dataset, Spark creates a task to process each partition of the dataset and sends these tasks to worker nodes.
+
+### Results
+- (Logistic Regression using 29 GB dataset) With Hadoop, each iteration takes 127s, because it runs as an independent MapReduce job. With Spark, the first iteration takes 174s (likely due to using Scala instead of Java), but subsequent iterations take only 6s, each because they reuse cached data. This allows the job to run up to 10x faster.
+
+- We used the Spark interpreter to load a 39 GB dump of Wikipedia in memory across 15 “m1.xlarge” EC2 machines and query it interactively. The
+first time the dataset is queried, it takes roughly 35 seconds, comparable to running a Hadoop job on it. However, subsequent queries take only 0.5 to 1 seconds, even if they scan all the data. 
+
+### Related Work
+- Spark reconstructs lost partitions of RDDs using lineage information captured in the RDD objects.
+
+- Spark’s parallel operations fit into the MapReduce model [11]. However, they operate on RDDs that can persist across operations. ... This also
+makes Spark useful for interactive data analysis, where a user can define several datasets and then query them.
