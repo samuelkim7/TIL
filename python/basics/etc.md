@@ -91,5 +91,44 @@ tr = str.maketrans('abc', '123')
 f' ... {a} {b}'
 - 숫자 개수 맞추기: '%0개수.자릿수f' % 숫자
 ```python
-'%08.2f' % 3.6    # '00003.60'
+'%08.2f' % 3.6    # Output: '00003.60'
 ```
+
+## Dictionary
+.setdefault(key, value): 해당 key가 없는 경우에만 저장됨
+.update(key, value): 해당 value 수정
+.pop(key): 해당 key 삭제하고 value 반환
+.get(key): 해당 value 반환
+.items(): (key, value) 쌍을 모두 반환
+```python
+x = {'a': 10, 'b': 20}
+for key, value in x.items():
+  print(key, value)
+```
+Output:
+```python
+a 10
+b 20
+```
+
+.keys()
+.values()
+#### key와 value 자리 바꾸기
+```python
+{value: key for key, value in {'a': 10, 'b':20}.items()}
+```
+
+#### if조건문으로 특정 value 삭제
+```python
+x = {'a':1, 'b':2, 'c':3}
+x = {key : value for key, value in x.items() if value != 2}
+print(x)     # Output: {'a': 1, 'c': 3}
+```
+
+#### defaultdict(기본값 생성 함수)
+- dict의 경우 없는 키에 접근할 시 에러 발생
+- defaultdict은 없는 키에 접근할 시 기본값을 반환
+ex) defaultdict(int) -> 기본값 0을 반환
+
+#### 할당과 복사
+- list와 동일한 원칙을 따름
