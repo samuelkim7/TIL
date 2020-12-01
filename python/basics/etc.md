@@ -132,3 +132,48 @@ ex) defaultdict(int) -> 기본값 0을 반환
 
 #### 할당과 복사
 - list와 동일한 원칙을 따름
+
+## Set
+- 집합의 개념
+.add() / .remove(): 없으면 에러 / .discard(): 없으면 넘어감 / 
+.update(set()): 다른 set의 요소 추가
+.union(): 합집합 (|)
+.intersection(): 교집합 (&)
+.difference(): 차집합 (-)
+.symmetric_difference(): 대칭차집합 (^)
+.issubset(set()): 부분집합인지 확인 (<=)
+.isdisjoint(set()): 겹치는 요소가 없으면 True
+
+#### comprehension
+```python
+a = {i for i in 'pineapple' if i not in 'apl'}
+print(a)   # Output: {'e', 'n', 'i'}
+```
+
+#### 할당과 복사
+- list와 동일한 원칙을 따름
+
+## 파일 읽기 쓰기
+Syntax
+파일객체 = open(파일이름, 파일모드)
+파일객체.write('문자열')
+파일객체.close()
+
+#### with open
+with open(파일이름, 파일모드) as 파일객체:
+  코드
+
+- 전체를 리스트로 읽기
+```python
+with open('hello.txt', 'r', encoding="UTF-8") as file:
+    lines = file.readlines()
+    print(lines)
+```
+- 한 줄씩 읽기
+```python
+with open('hello.txt', 'r', encoding="UTF-8") as file:
+    line = None
+    while line != '':
+        line = file.readline().strip('\n')
+        print(line)
+```
