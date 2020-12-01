@@ -1,4 +1,4 @@
-### basics
+## basics
 #### map() function
 - map() function returns a map object(which is an iterator) of the results after applying the given function to each item of a given iterable (list, tuple etc.)
 - Syntax: map(fun, iter)
@@ -21,7 +21,7 @@ Output:
 ==(equals) : comparing the values of the two variables 
 is : checking if the two variables point to the same object
 
-### Sequence types
+## Sequence types
 - sequence is the generic term for an ordered set. List, tuple, range, str, bytes, bytearray are sequence types.
 - Lists are the most versatile sequence type. The elements of a list can be any object, and lists are mutable they can be changed. Elements can be reassigned or removed, and new elements can be inserted.
 - Tuples are like lists, but they are **immutable - they can't be changed.**
@@ -37,7 +37,7 @@ for i in range(1, 101):
   print('Fizz' * (i % 3 == 0) + 'Buzz' * (i % 5 == 0) or i)
 ```
 
-### list
+## list
 - 할당: 새로운 객체가 생성되지 않음
 ```python
 a = [1, 2, 3]
@@ -69,4 +69,27 @@ Output:
 x = input().split()  # 반환값: 문자열 리스트
 m = map(int, x)      # 리스트의 요소를 int로 변환. 반환값은 map 객체 (iterator)
 a, b = m             # unpacking을 통해 변수 여러개에 값을 
+```
+
+#### 2차원 리스트
+- 2차원 이상의 리스트는 완전한 복사를 위해서 copy.deepcopy()를 사용해야 함
+- copy()를 사용할 경우 내부 리스트들은 같은 객체를 가리킴
+
+## String
+'abc'.replace('a', 'd')      # 'dbc'
+tr = str.maketrans('abc', '123')  
+'abd'.translate(tr)  # '12d' (a->1, b->2, c->3 )
+.strip(): 공백 제거
+.strip('문자들'): 포함된 문자들 제거
+.strip(string.puctuation): 구두점 제거
+.find('문자열'), .index('문자열'): 해당 문자열의 인덱스 반환
+
+### 서식 지정자 및 formatting
+'%s' % '문자열'
+'%d %s' % (숫자, '문자열')
+' {인덱스} '.format(값)
+f' ... {a} {b}'
+- 숫자 개수 맞추기: '%0개수.자릿수f' % 숫자
+```python
+'%08.2f' % 3.6    # '00003.60'
 ```
