@@ -57,3 +57,27 @@ def solution(N):
         result += 1
     return result
 ```
+
+
+### MinPerimeterRectangle
+- Find the minimal perimeter of any rectangle whose area equals N.
+```python
+# find pairs of factors
+# get the min
+
+def solution(N):
+    if N == 1:
+        return 4
+
+    i = 1
+    factors = []
+    # find pairs of factors
+    while i * i < N:
+        if N % i == 0:
+            factors.append([i, N//i])
+        i += 1
+    # get the min
+    if i * i == N:
+        return 2 * (i + i)
+    return 2 * (factors[-1][0] + factors[-1][1])
+```
