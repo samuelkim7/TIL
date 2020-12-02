@@ -64,7 +64,6 @@ def solution(N):
 ```python
 # find pairs of factors
 # get the min
-
 def solution(N):
     if N == 1:
         return 4
