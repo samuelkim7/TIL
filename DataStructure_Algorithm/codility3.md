@@ -1,12 +1,11 @@
 ### Dominator
 - Find an index of an array such that its value occurs at more than half of indices in the array.
 
-- sorted() 이용 -> leader가 있다면 가운데 정렬된 수임 -> count()로 확인해서 반 이상인지 확인 -> 맞다면 index()로 return
-- 만약 아니라면 return -1
-- edge case 처리
-- O(Nlog(N))
-
 ```python
+# sorted() 이용 -> leader가 있다면 가운데 정렬된 수임 -> count()로 확인해서 반 이상인지 확인 -> 맞다면 index()로 return
+# 만약 아니라면 return -1
+# edge case 처리
+# O(Nlog(N))
 def solution(A):
     if not A:
         return -1
@@ -26,11 +25,10 @@ def solution(A):
 
 ### MaxSliceSum
 - Find a maximum sum of a compact subsequence of array elements.
-
-- 해당 원소에서 끝나는 slice의 최댓값은 자기 자신과 이전까지의 최댓값에 자기 자신을 더한 것을 비교하여 결정된다.
-- max_ending = max(a, max_ending + a)
-- 이렇게 얻은 값들 중 최댓값을 max_slice에 저장함 
 ```python
+# 해당 원소에서 끝나는 slice의 최댓값은 자기 자신과 이전까지의 최댓값에 자기 자신을 더한 것을 비교하여 결정된다.
+# max_ending = max(a, max_ending + a)
+# 이렇게 얻은 값들 중 최댓값을 max_slice에 저장함 
 def solution(A):
     if len(A) == 1:
         return A[0]
@@ -46,8 +44,8 @@ def solution(A):
 ## PrimeNumbers
 ### CountFactors
 - Count factors of given number n.
-- just count until square root of n
 ```python
+# just count until square root of n
 def solution(N):
     i = 1
     result = 0
