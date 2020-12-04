@@ -69,3 +69,6 @@ In this lesson we trained a neural network to classify images of articles of clo
 - Classification: A model that outputs a probability distribution across several categories. For example, in Fashion MNIST, the output was 10 probabilities, one for each of the different types of clothing. Remember, we use Softmax as the activation function in our last Dense layer to create this probability distribution.
 
 <img src=https://user-images.githubusercontent.com/65876994/101155450-832b0500-366a-11eb-9a92-6a9ada3b86e3.PNG height=300>
+
+## Introduction to CNNs
+
