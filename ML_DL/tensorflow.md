@@ -10,5 +10,22 @@ spyder                                  # 가상환경 내에서 spyder 실행
 ```
 
 ### 변수
-- tf.Variable: mutable. w, b 등. ResourceVariable type
-- tf.constant: immutable. dataset 등. EagerTensor type
+- tf.Variable: mutable object. w, b 등의 learnable parameter. **ResourceVariable type**
+- tf.constant: immutable object. dataset 등. **EagerTensor type**
+- Variable -> constant 로 변환할 수 없음 (.convert_to_tensor()로는 변환 가능)
+- constant -> Variable 로 변환 가능
+- Variable + constant -> constant
+
+```python
+test_list = [1, 2, 3]
+test_np = np.array([1, 2, 3])
+
+t1 = tf.constant(test_list)
+t2 = tf.constant(test_np)
+
+print(t1)
+print(t2)
+
+print(type(t1))
+print(type(t2))
+```
