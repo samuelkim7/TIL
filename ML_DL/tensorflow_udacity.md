@@ -42,3 +42,16 @@ model.predict([100.0])
 - The neurons in one layer are fully connected to the neurons in the previous layer.
 - The training process only changes the w and b variables to be able to match the input to the output. 
 - Without knowing the target algorithm, we just give a model a number of layers and weights to tune. Then the model will figure out the best algorithm that maps the input to the output.
+
+## Fashion MNIST
+### Basic terms
+- Flattening: The process of converting a 2d image into 1d vector
+- ReLU: An activation function that allows a model to solve nonlinear problems
+- Softmax: A function that provides probabilities for each possible output class
+- Classification: A machine learning model used for distinguishing among two or more output categories
+
+### The Rectified Linear Unit (ReLU)
+- ReLU stands for Rectified Linear Unit and it is a mathematical function that looks like this:
+<img src=https://user-images.githubusercontent.com/65876994/101150969-570c8580-3664-11eb-95a9-82a711092351.PNG height=300>
+- As we can see, the ReLU function gives an output of 0 if the input is negative or zero, and if input is positive, then the output will be equal to the input.
+- ReLU is a type of activation function. There several of these functions (ReLU, Sigmoid, tanh, ELU), but ReLU is used most commonly and serves as a good default. [more detail](https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning)
