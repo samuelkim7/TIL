@@ -44,6 +44,8 @@ model.predict([100.0])
 - Without knowing the target algorithm, we just give a model a number of layers and weights to tune. Then the model will figure out the best algorithm that maps the input to the output.
 
 ## Fashion MNIST
+In this lesson we trained a neural network to classify images of articles of clothing. To do this we used the Fashion MNIST dataset, which contains 70,000 greyscale images of articles of clothing. We used 60,000 of them to train our network and 10,000 of them to test its performance. In order to feed these images into our neural network we had to flatten the 28 × 28 images into 1d vectors with 784 elements. Our network consisted of a fully connected layer with 128 units (neurons) and an output layer with 10 units, corresponding to the 10 output labels. These 10 outputs represent probabilities for each class. The softmax activation function calculated the probability distribution.
+
 ### Basic terms
 - Flattening: The process of converting a 2d image into 1d vector
 - ReLU: An activation function that allows a model to solve nonlinear problems
@@ -61,3 +63,9 @@ model.predict([100.0])
 - Training Set: The data used for training the neural network.
 - Test set: The data used for testing the final performance of our neural network.
 - The test dataset was used to try the network on data it has never seen before. This enables us to see how the model generalizes beyond what it has seen during training, and that it has not simply memorized the training examples.
+
+### Classification and Regression
+- Regression: A model that outputs a single value. For example, an estimate of a house’s value.
+- Classification: A model that outputs a probability distribution across several categories. For example, in Fashion MNIST, the output was 10 probabilities, one for each of the different types of clothing. Remember, we use Softmax as the activation function in our last Dense layer to create this probability distribution.
+
+<img src=https://user-images.githubusercontent.com/65876994/101155450-832b0500-366a-11eb-9a92-6a9ada3b86e3.PNG height=300>
