@@ -38,3 +38,7 @@ model.predict([100.0])
 - Forward pass: The computation of output values from input
 - Backward pass (backpropagation): The calculation of internal variable adjustments according to the optimizer algorithm, starting from the output layer and working back through each layer to the input.
 
+### dense layer
+- The neurons in one layer are fully connected to the neurons in the previous layer.
+- The training process only changes the w and b variables to be able to match the input to the output. 
+- Without knowing the target algorithm, we just give a model a number of layers and weights to tune. Then the model will figure out the best algorithm that maps the input to the output.
