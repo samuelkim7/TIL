@@ -16,8 +16,8 @@ model.predict([100.0])
   - The value of the loss is calculated using a loss function, which we specified with the loss parameter when calling model.compile().
   - Gradient Descent: After the loss is calculated, the internal variables (weights and biases) of all the layers of the neural network are adjusted, so as to minimize this loss — that is, to make the output value closer to the correct value.
 
-![1](https://user-images.githubusercontent.com/65876994/101147914-5540c300-3660-11eb-84f9-a4ba9bf97e6e.PNG)
-![2](https://user-images.githubusercontent.com/65876994/101148028-7ef9ea00-3660-11eb-9f73-100e4b502399.PNG)
+<img src=https://user-images.githubusercontent.com/65876994/101147914-5540c300-3660-11eb-84f9-a4ba9bf97e6e.PNG height=400> <br>
+<img src=https://user-images.githubusercontent.com/65876994/101148028-7ef9ea00-3660-11eb-9f73-100e4b502399.PNG height=400> 
 
 
 ### Basic terms
