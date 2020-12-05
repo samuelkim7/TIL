@@ -36,7 +36,7 @@ cost(W, b) = mean( (H(x) - y)^2 )
 #### Gradient descent algorithm
 - For a given cost function, cost(W, b), it will find W and b to minimize cost
 - 주어진 한 지점의 W와 b에 대해 경사도를 구하고 경사도에 비례하여 한 발짝씩 움직여서 (W와 b 값을 변경하여) 최소값 지점을 찾는 방법
-- H(x) = Wx / cost(W) = mean( (Wx - y)^2 )
+- H(x) = Wx 일 때, cost(W) = mean( (Wx - y)^2 )
 - W := W - a * cost'(W)  /  W := W - a * mean ( Wx - y ) x
 - 참고: Derivative Calculator (미분 계산 사이트)
 - Convex function: cost(W, b)의 그래프가 밥그릇 형태인 경우. 이 때 gradient descent를 사용하면 최소값에 도달하는 것이 보장된다.
