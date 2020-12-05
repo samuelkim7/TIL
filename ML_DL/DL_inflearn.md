@@ -8,3 +8,24 @@
 - A regression problem is when the output variable is a **real or continuous value**, such as “salary” or “weight”.
 - A classification problem is when the output variable is **a category**, such as “red” or “blue” or “disease” and “no disease”.
 - Classification models include logistic regression, decision tree, random forest, gradient-boosted tree, multilayer perceptron, one-vs-rest, and Naive Bayes.
+
+## TensorFlow
+- TensorFlow is an open source software library for numerical computation using data flow graphs.
+- Data Flow Graph: Nodes are mathematical operations. Edges represent the multidimensional data arrays (tensors) communicated between them.
+
+- TF basic Mechanics
+  - Build graph using TF operations (with placeholder)
+  - feed data and run graph
+```python
+sess.run(op, feed_dict={x: x_data})
+```
+  - update variables in the graph (and return values)
+- placeholder: 값을 지정하지 않고 graph 내에 node만 위치시킴. 그런다음 run 시점에 값을 넘겨주어서 연산을 실행함
+- Tensor has Ranks, Shapes, and Types
+  - Ranks: Tensor array의 차수
+  - Shapes: array 내의 원소 개수와 차수
+  - Types: 주로 float32 또는 int32 사용
+  
+## Linear Regression
+- Cost function (Loss fuction): 추정치와 실제 label의 차이를 계산하는 함수. $$ (H(x) - y)^2 $$
+
