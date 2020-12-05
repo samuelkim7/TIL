@@ -27,5 +27,8 @@ sess.run(op, feed_dict={x: x_data})
   - Types: 주로 float32 또는 int32 사용
   
 ## Linear Regression
-- Cost function (Loss fuction): 추정치와 실제 label의 차이를 계산하는 함수. $$ (H(x) - y)^2 $$
+- Cost function (Loss fuction): 추정치와 실제 label의 차이를 계산하는 함수
+H(x) = Wx + b 일 때,  
+cost(W, b) = (H(x) - y)^2의 평균
+- 학습의 목표: cost 값을 최소로 만드는 W와 b를 구하는 것
 
