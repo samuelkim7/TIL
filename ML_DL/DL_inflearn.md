@@ -41,3 +41,17 @@ cost(W, b) = mean( (H(x) - y)^2 )
 - 참고: Derivative Calculator (미분 계산 사이트)
 - Convex function: cost(W, b)의 그래프가 밥그릇 형태인 경우. 이 때 gradient descent를 사용하면 최소값에 도달하는 것이 보장된다.
 
+### Multi-variable
+- H(x1, x2, x3) = w1x1 + w2x2 + w3x3 + b
+- cost(W, b) = mean ( H(x1, x2, x3) - y )^2  
+
+-> 이를 matrix의 곱으로 표현할 수 있음 (실제 Implementation에서)
+- H(X) = XW  
+
+-> 그리고 여러개의 X instacne를 한번에 계산할 수 있음
+  X    *   W    = H(X)  
+[m, n] * [n, 1] = [m * 1]  
+m: number of instance
+n: number of features
+1: number of output (can be 2 or higher)
+- Tensorflow에서는 'n개'를 표시할 때 None으로 표시함
