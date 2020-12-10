@@ -80,3 +80,8 @@ In this lesson we trained a neural network to classify images of articles of clo
 - Maxpooling: A pooling process in which many values are converted into a single value by taking the maximum value from among them.
 - Stride: the number of pixels to slide the kernel (filter) across the image.
 - Downsampling: The act of reducing the size of an image
+
+### Techniques to Prevent Overfitting
+- Early Stopping: In this method, we track the loss on the validation set during the training phase and use it to determine when to stop training such that the model is accurate but not overfitting.
+- Image Augmentation: Artificially boosting the number of images in our training set by applying random image transformations to the existing images in the training set.
+- Dropout: Removing a random selection of a fixed number of neurons in a neural network during training.
