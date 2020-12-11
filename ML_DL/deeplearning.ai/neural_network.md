@@ -35,3 +35,9 @@ Common steps for pre-processing a new dataset are:
 - tanh : dz = 1 - a^2
 - ReLU: 0 or 1 (undefined at z=0. In software, it's okay to consider it as 0.)
 - leaky ReLU: 0.01 or 1
+
+### Random initialization
+- W should be initialized as random Gaussian numbers for model's learning. And in case of using sigmoid or tanh function, w should be small (\*0.01) for better learning.
+  - np.random.randn(m,n)
+- b is okay to be initialized as zero.
+  - nmp.zeros(m,1)
