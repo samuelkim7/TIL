@@ -18,3 +18,20 @@ Common steps for pre-processing a new dataset are:
 - Figure out the dimensions and shapes of the problem (m_train, m_test, num_px, ...)
 - Reshape the datasets such that each example is now a vector of size (num_px * num_px * 3, 1)
 - "Standardize" the data
+
+### activation functions
+- tanh is always better than sigmoid. (having the mean of 0 -> centerizing data)
+- For binary classification in the output layer, we can use sigmoid function. otherwise never use it.
+- recified linear unit (ReLU): a = max(0, z). 
+  - Usually in practice, we just use the ReLU. This makes your model learn much faster.
+  - the two above makes learning slower because of the slope becomes zero as |z| becomes bigger.
+- leaky ReLU: a = max(0.01z, z). Works little bit better than ReLU. But in practice this is not that much used.
+- when you don't know what to use, then try them all and evaluate them.
+- linear activation function is never used except for the output layer in a regression problem.
+<br>
+
+#### derivaties
+- sigmoid : dz = a(1-a)
+- tanh : dz = 1 - a^2
+- ReLU: 0 or 1 (undefined at z=0. In software, it's okay to consider it as 0.)
+- leaky ReLU: 0.01 or 1
