@@ -26,3 +26,5 @@
 - "Object가 있을 만한 후보 영역을 찾자"
 - Selective Search: segment들을 컬러, 무늬, 크기, 형태에 따라 grouping 수행 -> 이에 근거하여 bounding box를 만들고 region proposal 수행
   - 1차, 2차, 3차 거듭 진행되면서 점점 더 큰 segment group을 형성하고, 점점 더 큰 bounding box를 제시함
+- IoU (Intersection over Union): 모델이 예측한 결과와 실측(Ground Truth) Box가 얼마나 정확하게 겹치는가를 나타내는 지표. 성능 평가를 위해 사용
+  - IoU = 교집합의 크기 / 합집합의 크기
