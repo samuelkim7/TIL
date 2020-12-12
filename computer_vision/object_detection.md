@@ -15,3 +15,14 @@
   - object가 명확하지 않거나 중첩되어 있거나 차지하는 비중이 높지 않은 경우들이 있음
 - detect 시간이 중요함. 실시간 영상 기반에서 detect해야하는 요구사항 증대
 - 훈련 가능한 데이터 세트의 부족. annotation을 포함한 데이터 세트를 만드는 것이 어려움
+
+### 영역 추정
+#### Sliding Window 방식
+- Window를 왼쪽 상단에서 부터 오른쪽 하단으로 이동시키면서 Object를 Detection하는 방식
+- 다양한 형태의 window 사용 / window scale 고정 후 이미지 scale를 변경하는 방식
+- Object Detection의 초기 기법. 수행 시간이 오래걸리고 검출 성능이 상대적으로 낮음
+
+#### 영역 추정 기법
+- "Object가 있을 만한 후보 영역을 찾자"
+- Selective Search: segment들을 컬러, 무늬, 크기, 형태에 따라 grouping 수행 -> 이에 근거하여 bounding box를 만들고 region proposal 수행
+  - 1차, 2차, 3차 거듭 진행되면서 점점 더 큰 segment group을 형성하고, 점점 더 큰 bounding box를 제시함
