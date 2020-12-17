@@ -47,3 +47,12 @@ early_stopping = EarlyStopping(
 - A batch normalization layer looks at each batch as it comes in, first normalizing the batch with its own mean and standard deviation, and then also putting the data on a new scale with two trainable rescaling parameters. Batchnorm, in effect, performs a kind of coordinated rescaling of its inputs.
 - Models with batchnorm tend to need **fewer epochs to complete training**. Moreover, batchnorm can also **fix various problems** that can cause the training to get "stuck".
 - You can put it after a layer or between a layer and its activation function.
+
+### Binary Classification
+#### Cross-entropy
+- use cross-entropy for a classification loss.
+- For classification, what we want instead is a distance between probabilities, and this is what cross-entropy provides. Cross-entropy is a sort of measure for the distance from one probability distribution to another.
+- Cross-entropy penalizes incorrect probability predictions.
+
+#### Sigmoid function
+- The cross-entropy and accuracy functions both require probabilities as inputs, meaning, numbers from 0 to 1. To covert the real-valued outputs produced by a dense layer into probabilities, we attach a new kind of activation function, the sigmoid activation.
