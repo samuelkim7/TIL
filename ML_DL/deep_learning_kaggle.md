@@ -13,7 +13,7 @@
 
 ### SGD
 - The optimizer is an algorithm that adjusts the weights to minimize the loss.
-- SGD: Virtually all of the optimization algorithms used in deep learning belong to a family called stochastic gradient descent. Stochastic means "determined by chance." Our training is stochastic because the minibatches are random samples from the dataset.
+- SGD: Virtually all of the optimization algorithms used in deep learning belong to a family called stochastic gradient descent. Stochastic means "determined by chance." Our training is **stochastic** because the minibatches are random samples from the dataset.
 - Adam is an SGD algorithm that has an adaptive learning rate that makes it suitable for most problems without any parameter tuning (it is "self tuning", in a sense). Adam is a great general-purpose optimizer.
 #### plotting loss
 ```python
@@ -38,3 +38,12 @@ early_stopping = EarlyStopping(
 )
 ```
 - "If there hasn't been at least an improvement of 0.001 in the validation loss over the previous 20 epochs, then stop the training and keep the best model you found."
+
+### Dropout and BatchNormalization
+#### Dropout
+- In Keras, the dropout rate argument rate defines what percentage of the input units to shut off. Put the Dropout layer just before the layer you want the dropout applied to.
+
+#### BatchNormalization
+- A batch normalization layer looks at each batch as it comes in, first normalizing the batch with its own mean and standard deviation, and then also putting the data on a new scale with two trainable rescaling parameters. Batchnorm, in effect, performs a kind of coordinated rescaling of its inputs.
+- Models with batchnorm tend to need **fewer epochs to complete training**. Moreover, batchnorm can also **fix various problems** that can cause the training to get "stuck".
+- You can put it after a layer or between a layer and its activation function.
