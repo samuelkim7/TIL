@@ -16,3 +16,8 @@
 
 ### Maximum pooling
 - When applied after the ReLU activation, it has the effect of "intensifying" features. The pooling step increases the proportion of active pixels to zero pixels.
+- The zero-pixels carry positional information. When MaxPool2D removes some of these pixels, it removes some of the positional information in the feature map. This gives a convnet a property called **translation invariance**.
+
+### Global average pooling
+- But, instead of "unstacking" the feature (like Flatten), Global average pooling simply replaces the entire feature map with its average value.
+- Global average pooling is often used in modern convnets. One big advantage is that it greatly reduces the number of parameters in a model, while still telling you if some feature was present in an image or not.
