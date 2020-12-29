@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boj_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/boj_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/input_output_setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,22 +124,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1609202606520">
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1609207811808">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609202606520" />
-    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1609202606520">
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609207811808" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1609207811808">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609202606520" />
-    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1609202606520">
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609207811808" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1609207811808">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609202606520" />
-    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1609202606520">
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609207811808" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1609207811808">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609202606520" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609207811808" />
     <state x="2797" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1608867512557">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

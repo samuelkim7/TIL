@@ -2,12 +2,14 @@ import sys
 sys.stdin = open("input.txt", "r")
 sys.stdout = open("output.txt", "w")
 
-
+###########################
 # 15969번 - 행복
 # n = int(input())
 # nums = list(map(int, input().split()))
 # print(max(nums) - min(nums))
 
+
+##########################
 # 10539번 - 수빈이와 수열
 # 해당항까지의 평균값 수열 B가 주어질 때, 이에 따라 수열 A를 구하시오.
 # 풀이1
@@ -36,7 +38,9 @@ sys.stdout = open("output.txt", "w")
 # for a in A:
 #     print(a, end=' ')
 
-# 이름 궁합 테스트
+
+###################################
+# 17269번 - 이름 궁합 테스트
 # 이름을 합친 뒤 숫자로 바꾸어서 궁합이 좋을 두자리의 확률 계산
 # 풀이1
 # n, m = map(int, input().split())
@@ -90,3 +94,82 @@ sys.stdout = open("output.txt", "w")
 #         lst[j] += lst[j+1]
 #
 # print("{}%".format(lst[0] % 10 * 10 + lst[1] % 10))
+
+
+####################################
+# 17389번 - 보너스 점수
+# OX 문제를 맞춘 것에 대한 점수 매기기
+# n = int(input())
+# S = input()
+
+# bonus = 0
+# total = 0
+# for i in range(len(S)):
+#     if S[i] == 'X':
+#         bonus = 0
+#     else:
+#         total += i + 1 + bonus
+#         bonus += 1
+#
+# print(total)
+
+
+########################################
+# 1920번 - 수 찾기
+# nums에 있는 수 들이 A 배열에 포함되면 1, 아니면 0을 출력
+# O(N^2) 풀이 -> 시간 초과
+# N = int(input())
+# A = list(map(int, input().split()))
+# M = int(input())
+# nums = list(map(int, input().split()))
+#
+# for num in nums:
+#     if num in A:
+#         print(1)
+#     else:
+#         print(0)
+
+# 최적화
+# from collections import Counter
+# N = int(input())
+# A = list(map(int, input().split()))
+# M = int(input())
+# nums = list(map(int, input().split()))
+#
+# A = Counter(set(A))
+# for num in nums:
+#     if A[num] == 1:
+#         print(1)
+#     else:
+#         print(0)
+
+# 다른 풀이
+# N = int(input())
+# A = {i : 1 for i in map(int, input().split())}
+# M = int(input())
+# nums = list(map(int, input().split()))
+#
+# for num in nums:
+#     print(A.get(num, 0))
+
+
+#############################
+# 16165번 - 걸그룹 마스터 준석이
+# 걸그룹의 팀이나 팀원을 맞추는 퀴즈 풀기
+N, M = map(int, input().split())
+
+groups = {}
+for _ in range(N):
+    group, group_num  = input(), int(input())
+    members = [input() for _ in range(group_num)]
+    groups[group] = sorted(members)
+
+for _ in range(M):
+    quiz = input()
+    if int(input()) == 0:
+        for member in groups[quiz]:
+            print(member)
+    else:
+        for group, members in groups.items():
+            if quiz in members:
+                print(group)
