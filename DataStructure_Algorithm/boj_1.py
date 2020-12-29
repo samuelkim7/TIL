@@ -156,20 +156,47 @@ sys.stdout = open("output.txt", "w")
 #############################
 # 16165번 - 걸그룹 마스터 준석이
 # 걸그룹의 팀이나 팀원을 맞추는 퀴즈 풀기
-N, M = map(int, input().split())
+# N, M = map(int, input().split())
+#
+# groups = {}
+# for _ in range(N):
+#     group, group_num  = input(), int(input())
+#     members = [input() for _ in range(group_num)]
+#     groups[group] = sorted(members)
+#
+# for _ in range(M):
+#     quiz = input()
+#     if int(input()) == 0:
+#         for member in groups[quiz]:
+#             print(member)
+#     else:
+#         for group, members in groups.items():
+#             if quiz in members:
+#                 print(group)
 
-groups = {}
-for _ in range(N):
-    group, group_num  = input(), int(input())
-    members = [input() for _ in range(group_num)]
-    groups[group] = sorted(members)
 
-for _ in range(M):
-    quiz = input()
-    if int(input()) == 0:
-        for member in groups[quiz]:
-            print(member)
-    else:
-        for group, members in groups.items():
-            if quiz in members:
-                print(group)
+####################################
+# 17413번 - 단어 뒤집기 2
+# 태그는 그대로 두고 단어만 뒤집어서 출력
+# S, tmp, ans, ck = input(), "", "", False
+#
+# for e in S:
+#     if e == ' ':
+#         if not ck:
+#             ans += tmp[::-1] + " "
+#             tmp = ""
+#         else: ans += " "
+#     elif e == '<':
+#         ck = True
+#         ans += tmp[::-1] + "<"
+#         tmp = ""
+#     elif e == '>':
+#         ans += ">"
+#         ck = False
+#     else:
+#         if ck: ans += e
+#         else: tmp += e
+#
+# ans += tmp[::-1]
+# print(ans)
+
