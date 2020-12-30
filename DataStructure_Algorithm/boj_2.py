@@ -69,3 +69,20 @@ sys.stdout = open("output.txt", "w")
 #                 dfs(i, j)
 #                 warm += 1
 #     print(warm)
+
+
+####################################################
+# 1543번 - 문서 검색
+# 문서 안에 해당 단어가 중복되지 않게 몇 번 등장하는지 출력
+# doc = input()
+# word = input()
+#
+# i = 0
+# total = 0
+# while len(doc) - i >= len(word):
+#     if word == doc[i:i+len(word)]:
+#         total += 1
+#         i += len(word)
+#     else:
+#         i += 1
+# print(total)
