@@ -62,3 +62,33 @@
 
 
 ### 모듈 ###
+## 모듈 위치 찾기
+# import random
+# import inspect
+# print(inspect.getfile(random))
+
+## 내장함수 (built-in functions)
+## dir: 어떤 객체가 지닌 멤버 변수와 함수를 표시
+# import random
+# print(dir(random))
+# lst = [1,2,3]
+# print(dir(lst))
+
+## 외장함수 (modules)
+## glob: 경로 내의 폴더, 파일 목록 조회
+# import glob
+# print(glob.glob("./basics/*.py"))
+
+## os : 운영체제와 관련된 기본 기능 제공
+# import os
+# print(os.getcwd())  # 현재 디렉토리
+# folder = "sample_dir"
+# if os.path.exists(folder):
+#     print("존재하는 폴더")
+#     os.rmdir(folder)
+#     print(folder, "폴더 삭제")
+# else:
+#     os.makedirs(folder)
+#     print(folder, "폴더 생성")
+
+## time, datetime 등등
