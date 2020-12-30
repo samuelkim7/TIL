@@ -1,2 +1,0 @@
-- A Flask application is an instance of the Flask class.
-- Instead of creating a Flask instance globally, you can create it inside a function.
