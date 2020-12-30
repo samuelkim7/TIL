@@ -2,6 +2,7 @@ import sys
 sys.stdin = open("input.txt", "r")
 sys.stdout = open("output.txt", "w")
 
+
 ######################################
 # 15969번 - 행복
 # n = int(input())
