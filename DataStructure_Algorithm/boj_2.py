@@ -89,4 +89,105 @@ sys.stdout = open("output.txt", "w")
 
 
 #####################################################
-# 1568번 - 새
+# 2747번 - 피보나치 수
+# num = int(input())
+#
+# def Fib(n):
+#     lst = [0, 1]
+#     if n <= 1:
+#         return lst[n]
+#     for i in range(2, n):
+#         fib_i = lst[i-1] + lst[i-2]
+#         lst.append(fib_i)
+#     return lst[n-1] + lst[n-2]
+#
+# print(Fib(num))
+
+# 풀이2
+# n = int(input())
+#
+# a, b = 0, 1
+#
+# while n > 0:
+#     a, b = b, a + b
+#     n -= 1
+#
+# print(a)
+
+
+#######################################################
+# 1074번 - Z
+# 방문 횟수를 result로 놓고, 2^2 * 2^2 배열 방문을 구현한 뒤 재귀 호출 시행
+# import sys
+# sys.setrecursionlimit(100000)
+# result = 0
+# N, R, C = map(int, input().split())
+#
+# def visit(N, r, c):
+#     global result
+#     if N == 2:
+#         if r == R and c == C:
+#             print(result)
+#             return
+#         result += 1
+#         if r == R and c+1 == C:
+#             print(result)
+#             return
+#         result += 1
+#         if r+1 == R and c == C:
+#             print(result)
+#             return
+#         result += 1
+#         if r+1 == R and c+1 == C:
+#             print(result)
+#             return
+#         result += 1
+#         return
+#     visit(N/2, r, c)
+#     visit(N/2, r, c + N/2)
+#     visit(N/2, r + N/2, c)
+#     visit(N/2, r + N/2, c + N/2)
+#
+# visit(2 ** N, 0, 0)
+
+
+#############################################################
+# 1260번 - DFS와 BFS
+# from collections import deque
+# n, m, v = map(int, input().split())
+# graph = [[] for _ in range(n+1)]
+#
+# for _ in range(m):
+#     v1, v2 = map(int, input().split())
+#     graph[v1].append(v2)
+#     graph[v2].append(v1)
+#
+# for e in graph:
+#     e.sort()
+#
+# def dfs(v):
+#     print(v, end=' ')
+#     visited[v] = True
+#     for e in graph[v]:
+#         if not visited[e]:
+#             dfs(e)
+#
+# def bfs(v):
+#     q = deque([v])
+#     while q:
+#         v = q.popleft()
+#         if not(visited[v]):
+#             visited[v] = True
+#             print(v, end=' ')
+#             for e in graph[v]:
+#                 if not visited[e]:
+#                     q.append(e)
+#
+#
+# visited = [False] * (n+1)
+# dfs(v)
+# print()
+# visited = [False] * (n+1)
+# bfs(v)
+# print()
+
