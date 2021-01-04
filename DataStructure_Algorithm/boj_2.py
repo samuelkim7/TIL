@@ -191,3 +191,23 @@ sys.stdout = open("output.txt", "w")
 # bfs(v)
 # print()
 
+
+#######################################################
+# 1697번 - 숨바꼭질
+from collections import deque
+n, k = map(int, input().split())
+# 시간과 방문 여부 동시 체크
+time = [0] * 100001
+
+def bfs(start, target):
+    q = deque([start])
+    while q:
+        curr = q.popleft()
+        if curr == target:
+            return time[curr]
+        for nex in (curr+1, curr-1, curr*2):
+            if 0 <= nex < 100001 and time[nex] == 0:
+                time[nex] = time[curr] + 1
+                q.append(nex)
+
+print(bfs(n, k))
