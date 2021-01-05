@@ -15,3 +15,4 @@
 - Dockerfile 수정
 - $ docker-compose build
 - app folder의 settings.py 내 DATABASES 설정 변경
+- wait_for db command
