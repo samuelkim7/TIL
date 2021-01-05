@@ -62,3 +62,70 @@ def sortList(self, head: ListNode) -> ListNode:
 
     return head
 
+
+# GroupAnagrams
+# 풀이1
+def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    # sort each str in the given list
+    dic = {}
+    for s in strs:
+        sorted_s = ''.join(sorted(s))
+        try:
+            dic[sorted_s].append(s)
+        except KeyError:
+            dic[sorted_s] = [s]
+
+    # grouping anagrams
+    result = []
+    for value in dic.values():
+        result.append(value)
+    return result
+
+# 풀이2
+# When the list class is passed as the default_factory argument,
+# then a defaultdict is created with the values that are list.
+import collections
+def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    groups = collections.defaultdict(list)
+    for word in strs:
+        sorted_word = ''.join(sorted(word))
+        groups[sorted_word].append(word)
+    return groups.values()
+
+groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+
+
+# Longest Palindromic Substring
+# Given a string s, return the longest palindromic substring in s.
+def longestPalindrome(self, s: str) -> str:
+    if len(s) <= 1:
+        return s
+
+    # find palindrome
+    i = 0
+    while i < len(s):
+        for j in range(i + 1):
+            temp = s[j:len(s) - i + j]
+            if temp == temp[::-1]:
+                return temp
+        i += 1
+
+
+# Implement Stack using Queues
+from collections import deque
+class MyStack:
+    def __init__(self):
+        self.q = deque()
+
+    def push(self, x: int) -> None:
+        temp = deque([x])
+        self.q = temp + self.q
+
+    def pop(self) -> int:
+        return self.q.popleft()
+
+    def top(self) -> int:
+        return self.q[0]
+
+    def empty(self) -> bool:
+        return len(self.q) == 0
