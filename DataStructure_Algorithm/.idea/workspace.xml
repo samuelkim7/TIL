@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ded4d4-421a-470c-9b68-3239a5ada122" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/leetcode1.py" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boj_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers_dp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boj_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/boj_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +54,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\github\TIL\DataStructure_Algorithm" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\github\TIL\DataStructure_Algorithm" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.practice">
+  <component name="RunManager" selected="Python.programmers_dp">
     <configuration name="boj_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DataStructure_Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,6 +104,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="boj_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DataStructure_Algorithm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boj_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="practice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DataStructure_Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,10 +146,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="programmers_dp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DataStructure_Algorithm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/programmers_dp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.practice" />
+        <item itemvalue="Python.programmers_dp" />
+        <item itemvalue="Python.boj_3" />
         <item itemvalue="Python.boj_2" />
+        <item itemvalue="Python.practice" />
         <item itemvalue="Python.boj_1" />
       </list>
     </recent_temporary>
@@ -149,38 +201,38 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1899" height="236" key="GridCell.Tab.0.bottom" timestamp="1609822566184">
+    <state width="1899" height="236" key="GridCell.Tab.0.bottom" timestamp="1609913886041">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="236" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609822566184" />
-    <state width="1899" height="236" key="GridCell.Tab.0.center" timestamp="1609822566184">
+    <state width="1899" height="236" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609913886041" />
+    <state width="1899" height="236" key="GridCell.Tab.0.center" timestamp="1609913886041">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="236" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609822566184" />
-    <state width="1899" height="236" key="GridCell.Tab.0.left" timestamp="1609822566184">
+    <state width="1899" height="236" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609913886041" />
+    <state width="1899" height="236" key="GridCell.Tab.0.left" timestamp="1609913886041">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="236" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609822566184" />
-    <state width="1899" height="236" key="GridCell.Tab.0.right" timestamp="1609822566184">
+    <state width="1899" height="236" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609913886041" />
+    <state width="1899" height="236" key="GridCell.Tab.0.right" timestamp="1609913886041">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="236" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609822566184" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609733316483">
+    <state width="1899" height="236" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609913886041" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609910864659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609733316483" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1609733316483">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609910864659" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1609910864659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609733316483" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1609733316483">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609910864659" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1609910864659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609733316483" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1609733316483">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609910864659" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1609910864659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609733316483" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609910864659" />
     <state x="2381" y="164" key="SettingsEditor" timestamp="1609289337658">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

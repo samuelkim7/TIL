@@ -194,20 +194,36 @@ sys.stdout = open("output.txt", "w")
 
 #######################################################
 # 1697번 - 숨바꼭질
-from collections import deque
-n, k = map(int, input().split())
-# 시간과 방문 여부 동시 체크
-time = [0] * 100001
+# from collections import deque
+# n, k = map(int, input().split())
+# # 시간과 방문 여부 동시 체크
+# time = [0] * 100001
+#
+# def bfs(start, target):
+#     q = deque([start])
+#     while q:
+#         curr = q.popleft()
+#         if curr == target:
+#             return time[curr]
+#         for nex in (curr+1, curr-1, curr*2):
+#             if 0 <= nex < 100001 and time[nex] == 0:
+#                 time[nex] = time[curr] + 1
+#                 q.append(nex)
+#
+# print(bfs(n, k))
 
-def bfs(start, target):
-    q = deque([start])
-    while q:
-        curr = q.popleft()
-        if curr == target:
-            return time[curr]
-        for nex in (curr+1, curr-1, curr*2):
-            if 0 <= nex < 100001 and time[nex] == 0:
-                time[nex] = time[curr] + 1
-                q.append(nex)
 
-print(bfs(n, k))
+##########################################################
+# DP
+# 1904번 - 01타일
+# f(n) = f(n-1) + f(n-2) * 2 - 2
+num = int(input())
+
+dp = [0] * 1000001
+dp[1] = 1
+dp[2] = 2
+
+for i in range(3, num+1):
+    dp[i] = (dp[i-1] + dp[i-2]) % 15746
+
+print(dp[num])
