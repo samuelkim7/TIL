@@ -158,6 +158,7 @@ cd /usr/local/hadoop/etc/hadoop
 - cp mapred-site.xml.template mapred-site.xml
 - mapred-site.xml 수정 (spark를 사용할 예정인 경우 설정하지 않아도 됨)
 - yarn-site.xml 수정 (아래 내용에 따라)
+```shell
 <property>
 	<name>yarn.nodemanager.aux-services</name>
 	<value>mapreduce_shuffle</value>
@@ -190,6 +191,7 @@ cd /usr/local/hadoop/etc/hadoop
 	<name>yarn.nodemanager.vmem-check-enabled</name>
 	<value>false</value>
 </property>
+```
 
 -마지막 두 설정이 들어가야만 memory 사용량 초과시 yarn 작업이 자동으로 꺼지는 것을 막을 수 있음
 $ source /etc/profile
