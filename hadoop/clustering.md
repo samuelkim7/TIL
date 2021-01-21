@@ -193,11 +193,11 @@ cd /usr/local/hadoop/etc/hadoop
 </property>
 ```
 
--마지막 두 설정이 들어가야만 memory 사용량 초과시 yarn 작업이 자동으로 꺼지는 것을 막을 수 있음
+- 마지막 두 설정이 들어가야만 memory 사용량 초과시 yarn 작업이 자동으로 꺼지는 것을 막을 수 있음 <br>
 $ source /etc/profile
 
 *참고 링크*
-- spark만 사용할 경우 위 링크와 함께 https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 참고
+- spark만 사용할 경우 위 링크와 함께 <br> https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 참고
 
 - slave들에게 하둡 디렉토리 배포
 ```shell
@@ -237,7 +237,7 @@ jps
 ## 오류 발생시
 - 실행중 일단 stop-all.sh 로 작동을 멈추고 jps 로 프로세스가 켜져있는지 확인 후 켜져있을 경우 프로세스 킬
 - 그리고 모든서버에서 logs 폴더안에 있는 log를 띄운다음 다시 start-all.sh 을 이용하여 켜준다음 에러 로그를 파악
-- 로그 확인 방법
+- 로그 확인 방법 <br>
 $ tail -10000f [log 파일명]
 
 ## 스파크 설치 on YARN
