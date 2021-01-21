@@ -24,8 +24,8 @@ https://www.centos.org/download/
 - root 계정으로 로그인
 
 *설치 관련 참고 링크*
-https://jyoondev.tistory.com/32?category=824268 : virtual box 관련된 부분
-https://lsjsj92.tistory.com/134?category=762556 : centOS7 자체 설치 관련 부분                                                                                  
+- https://jyoondev.tistory.com/32?category=824268 : virtual box 관련된 부분
+- https://lsjsj92.tistory.com/134?category=762556 : centOS7 자체 설치 관련 부분                                                                                  
                                                             
 
 ## 자바 설치
@@ -124,7 +124,7 @@ ssh-copy-id root@hadoop02
 ssh root@hadoop02 # 암호를 묻지 않고 접속된다면 잘 설정된 것임
 ```
 *참고 링크*
-https://jg-seo.tistory.com/3
+- https://jg-seo.tistory.com/3
 
 ## 하둡 설치
 - hadoop01(master)에 설치 후 나머지 서버에 배포하는 방식
@@ -195,7 +195,7 @@ cd /usr/local/hadoop/etc/hadoop
 $ source /etc/profile
 
 *참고 링크*
-spark만 사용할 경우 위 링크와 함께 https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 동시에 참고
+- spark만 사용할 경우 위 링크와 함께 https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 동시에 참고
 
 - slave들에게 하둡 디렉토리 배포
 ```shell
