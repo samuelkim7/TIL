@@ -129,8 +129,8 @@ ssh root@hadoop02 # 암호를 묻지 않고 접속된다면 잘 설정된 것임
 ## 하둡 설치
 - hadoop01(master)에 설치 후 나머지 서버에 배포하는 방식
 
-- 하둡 다운로드
-https://archive.apache.org/dist/hadoop/core/
+#### 하둡 다운로드
+- https://archive.apache.org/dist/hadoop/core/
 -해당 설정에서는 hadoop-2.7.2.tar.gz 다운 -> WinSCP로 옮김
 ``` shell
 tar xfvz hadoop-2.7.2.tar.gz
@@ -140,7 +140,7 @@ mv hadoop… /usr/local
 ln -s hadoop… hadoop
 ```
 
-- 환경 변수 설정 (https://jg-seo.tistory.com/3와 동일하게 설정)
+#### 환경 변수 설정 (https://jg-seo.tistory.com/3와 동일하게 설정)
 ```shell 
 vi /etc/profile # 해당 링크와 동일하게 설정
 
@@ -197,7 +197,7 @@ cd /usr/local/hadoop/etc/hadoop
 $ source /etc/profile
 
 *참고 링크*
-- spark만 사용할 경우 위 링크와 함께 https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 동시에 참고
+- spark만 사용할 경우 위 링크와 함께 https://m.blog.naver.com/PostView.nhn?blogId=superbag2010&logNo=220791657218&proxyReferer=https:%2F%2Fwww.google.com%2F 참고
 
 - slave들에게 하둡 디렉토리 배포
 ```shell
