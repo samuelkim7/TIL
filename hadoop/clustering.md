@@ -1,53 +1,70 @@
-1.VirtualBox 설치
+## VirtualBox 설치
 https://www.virtualbox.org/wiki/Downloads
 현 사용 버전: 6.1.12
-
 -설치 파일 실행하여 VirtualBox 설치함
 
-2.centOS7 설치
-https://www.centos.org/download/ -> 7버전 x86_64 -> mirror선택
-                                -> CentOS-7-x86_64-DVD-2003.iso 다운
+## centOS7 설치
+https://www.centos.org/download/ 
+- 7버전 x86_64 -> mirror선택
+- CentOS-7-x86_64-DVD-2003.iso 다운
 
-*VirtualBox에서 VM 만들기
--New 클릭
--Linux / Red Hat 선택 (64-bit)
--Memory 2GB -> create a virtual hard disk now -> Fixed size -> 20GB -> Create
--생성된 VM 더블클릭 -> CentOS7 이미지 파일 선택 -> start
+#### VirtualBox에서 VM 만들기
+- New 클릭
+- Linux / Red Hat 선택 (64-bit)
+- Memory 2GB -> create a virtual hard disk now -> Fixed size -> 20GB -> Create
+- 생성된 VM 더블클릭 -> CentOS7 이미지 파일 선택 -> start
 
-*CentOS7 설치
--English
--Software Selection -> Base Environment: GNOME Desktop / Add-Ons: compatibility library 선택 -> Done
-(GNOME desktop으로 하지않고 Infrastructure Server로 한 뒤, 설치 파일들을 winSCP로 옮기는 방식을 사용해도 될듯 -> bridged to adapter 선택 후 dhclient를 통해 ip를 받아야 함)
--Installation Destination -> 표시된 디스크 선택 (자동 파티션 설정됨) -> Done
--Begin Installation
--Root Password 설정
--설치 끝난 후 Reboot
--라이선스 약관 동의
--root 계정으로 로그인
+#### CentOS7 설치
+- English
+- Software Selection -> Base Environment: Infrastructure Server
+- Installation Destination -> 표시된 디스크 선택 (자동 파티션 설정됨) -> Done
+- Begin Installation
+- Root Password 설정
+- 설치 끝난 후 Reboot
+- 라이선스 약관 동의
+- root 계정으로 로그인
 
-*설치 관련 참고 페이지)
-  https://jyoondev.tistory.com/32?category=824268 : virtual box 관련된 부분은 이 링크 따름
-  https://lsjsj92.tistory.com/134?category=762556 : centOS7 자체 설치 관련 부분은 이 링크 따름                                                                                    
-                                                            *GNOME 데스크탑에서 추가 기능 중 compatibility library 선택
+*설치 관련 참고 링크*
+https://jyoondev.tistory.com/32?category=824268 : virtual box 관련된 부분
+https://lsjsj92.tistory.com/134?category=762556 : centOS7 자체 설치 관련 부분                                                                                  
+                                                            
 
-3.자바 설치
--리눅스 서버의 terminal에서 rpm -qa | grep java ==> 설치된 자바 패키지 확인
--기존에 설치된 패키지는 모두 삭제 (yum remove package명)
--리눅스 내의 firefox -> oracle.com -> jdk-1.8.0...tar.gz 다운
--tar xfvz jdk…tar.gz
--mv jdk… /usr/local
--ln -s jdk… java   ==> 편한 작업을 위하 심볼릭링크 설정
--환경 변수 등록: vi /etc/profile
-/etc/profile 맨 하단에 아래 내용 추가 후 저장 (i + 수정 후 ESC + :wq + Enter)  
+## 자바 설치
+```shell
+# 기존 패키지 확인
+$ rpm -qa | grep java
+
+# 기존 패키지 삭제
+$ yum remove package명
+```
+- 윈도우에서 jdk-1.8.0...tar.gz 다운로드 후 WinSCP로 리눅스로 옮김
+```shell
+$ tar xfvz jdk…tar.gz
+
+$ mv jdk… /usr/local
+
+# 심볼릭 링크 설정
+$ ln -s jdk… java 
+```
+```shell
+# 환경 변수 등록
+$ vi /etc/profile
+
+# 맨 하단에 아래의 내용 추가 후 저장 (i + 수정 후 ESC + :wq + Enter)
 export JAVA_HOME=/usr/local/java
 export PATH=$PATH:$JAVA_HOME/bin
 export CLASSPATH="."
--설정 적용: source /etc/profile
--설치 및 설정 확인: java -version
 
-참고 링크: https://jg-seo.tistory.com/3
+# 설정 적용
+$ source /etc/profile
+# 설치 및 설정 확인
+$ java -version
+```
 
-4.클러스터링
+*참고 링크*
+https://jg-seo.tistory.com/3
+
+## 클러스터링
 -리눅스 서버 종료. VirtualBox 내에서 해당 서버 우클릭 후 복제
 -hadoop02로 명명. MAC 주소 정책: 새 MAC 주소 생성 선택
 -복제 방식: 완전한 복제 선택
