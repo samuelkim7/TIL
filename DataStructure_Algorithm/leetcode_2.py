@@ -80,3 +80,29 @@ def maxSubArray(self, nums: List[int]) -> int:
         largest[i] = max(largest[i - 1] + nums[i], nums[i])
 
     return max(largest)
+
+
+### Design ###
+## Min Stack
+# Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min = []
+
+    def push(self, x: int) -> None:
+        self.stack.append(x)
+        if not self.min:
+            self.min.append(x)
+        else:
+            self.min.append(min(x, self.min[-1]))
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.min.pop()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.min[-1]
