@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ded4d4-421a-470c-9b68-3239a5ada122" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leetcode_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

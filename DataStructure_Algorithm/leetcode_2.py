@@ -106,3 +106,61 @@ class MinStack:
 
     def getMin(self) -> int:
         return self.min[-1]
+
+
+### Sorting and Searching
+## Merge Sorted Array
+# Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+    """
+    Do not return anything, modify nums1 in-place instead.
+    """
+    nums1[:] = nums1[:m] + nums2
+    nums1.sort()
+
+# Second answer
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        temp = nums1[:m]
+        i = j = k = 0
+        while j < m and k < n:
+            if temp[j] < nums2[k]:
+                nums1[i] = temp[j]
+                j += 1
+                i += 1
+            else:
+                nums1[i] = nums2[k]
+                k += 1
+                i += 1
+
+        while j < m:
+            nums1[i] = temp[j]
+            j += 1
+            i += 1
+        while k < n:
+            nums1[i] = nums2[k]
+            k += 1
+            i += 1
+
+## First Bad Version
+# Implement a function to find the first bad version. You should minimize the number of calls to the API.
+def isBadVersion(num):
+    pass
+
+def firstBadVersion(self, n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    left = 1
+    right = n
+    while left <= right:
+        mid = (left + right) // 2
+        if isBadVersion(mid):
+            right = mid - 1
+        else:
+            left = mid + 1
+    return left
