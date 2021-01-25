@@ -7,3 +7,6 @@
   - VM: Host OS 위에 Guest OS를 올려서 거의 의존적이지 않은 별도의 컴퓨터와 같이 사용. 새로운 OS로 존재해야하기 때문에 용량도 크고 IO 기능들은 Host OS에 의존하기 때문에 성능도 느림 점이 있음
   - Container: Guest OS 없이 도커 엔진 위에서 동작함. 성능적으로도 개선된 편이며 메모리 용량도 적게 차지함. Host OS에 대한 의존성이 존재함. 200MB 전후의 경량 컨테이너로도 배포 가능
 - 리눅스 컨테이너: 리눅스 상에서 격리된 여러 개의 시스템을 동작시키기 위한 가상화 기술
+
+### Tips
+- you can basically build images on top of other images. The benefit of this is that you can find an image that has pretty much everything that you need for your project and then you can just add the customized bits that you need just for your specific product.
