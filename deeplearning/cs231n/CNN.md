@@ -1,0 +1,11 @@
+## CNN
+- convolution: taking a filter, sliding it spatially over the image, and computiong the dot product at every location
+- keeping the image structure
+- one filter results in one activation map and represents one pattern in the input.
+- Stacked convolutional layers gradully represent more complex features in the input.
+- Output size: (N - F) / stride + 1
+- CNN layer: Each neuron looks at the local spatial region. Activation value means "how much a neuron fired in this position".
+- cf) Fully-Connected Layer: Each neuron looks at the full input volume
+-  Pooling layer
+  - down sampling
+  - Output size: (N - F) / stride + 1
