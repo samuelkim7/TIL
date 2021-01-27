@@ -1,4 +1,5 @@
-### ImageNet Classification with Deep Convolutional Neural Networks
+## ImageNet Classification with Deep Convolutional Neural Networks
+- Krizhevsky, A., Sutskever, I., and Hinton, G. E.
 
 ### Introduction
 -  Luckily, current GPUs, paired with a highly-optimized implementation of 2D convolution, are powerful enough to facilitate the training of interestingly-large CNNs, and recent datasets such as ImageNet contain enough labeled examples to train such models without severe overfitting.
