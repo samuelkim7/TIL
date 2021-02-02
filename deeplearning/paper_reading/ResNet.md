@@ -11,3 +11,4 @@ Kaiming He, ...
 - 1) Our extremely deep residual nets are easy to optimize, but the counterpart “plain” nets (that simply stack layers) exhibit higher training error when the depth increases; 
 - 2) Our deep residual nets can easily enjoy accuracy gains from greatly increased depth, producing results substantially better than previous networks.
 
+cf) summary post: https://adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html
