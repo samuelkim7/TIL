@@ -73,6 +73,7 @@
   - Almost all neurons might be saturated. Gradients will be all zero.
 - Xavier initialization
   - W = np.random.randn(fan_in, fan_out) / np.sqrt(fan_in)
+  - When it's right, you get a nice distribution of activations at all layers.
   - for ReLU: W = np.random.randn(fan_in, fan_out) / np.sqrt(fan_in/2)
 
 ### Batch Normalization
@@ -89,8 +90,11 @@
 ### Hyperparameter Optimization
 - Loss barely chaning: Learning rate is probably too low
 - Loss NaN (exploded): Too high learning rate
-- cross validation
+- coarse to fine search
   - first stage: only a few epochs -> get rough idea of what params work
   - second stage: longer running time -> finer search
 - network architecture / learning rate, its decay schedule, update type / regularization
-<img src=https://user-images.githubusercontent.com/65876994/108475564-3acbcc80-72d4-11eb-8b30-c055d76c80dd.JPG width=400>
+<img src=https://user-images.githubusercontent.com/65876994/108475564-3acbcc80-72d4-11eb-8b30-c055d76c80dd.JPG width=500>
+
+### Fancier optimization
+- 
