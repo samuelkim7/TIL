@@ -97,4 +97,3 @@
 <img src=https://user-images.githubusercontent.com/65876994/108475564-3acbcc80-72d4-11eb-8b30-c055d76c80dd.JPG width=500>
 
 ### Fancier optimization
-- 
