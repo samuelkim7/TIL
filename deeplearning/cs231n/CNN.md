@@ -80,7 +80,17 @@
 - compute the empirical mean and variance of input (based on mini-batch) for each layer -> normalize
 - usually inserted after FC or Conv layers and before nonlinearity
 - After normalization, scale and shift it by using gamma and beta (this gives an extra flexibility for learning)
+- At test time, a single fixed empirical mean of activation during training is used.
 - Pros
   - Improves gradient flow
   - Allows higher learning rates
   - Reduces the strong dependence on the weight initialization
+
+### Hyperparameter Optimization
+- Loss barely chaning: Learning rate is probably too low
+- Loss NaN (exploded): Too high learning rate
+- cross validation
+  - first stage: only a few epochs -> get rough idea of what params work
+  - second stage: longer running time -> finer search
+- network architecture / learning rate, its decay schedule, update type / regularization
+![캡처](https://user-images.githubusercontent.com/65876994/108475564-3acbcc80-72d4-11eb-8b30-c055d76c80dd.JPG)
