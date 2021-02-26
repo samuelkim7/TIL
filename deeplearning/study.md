@@ -9,7 +9,7 @@
 ### Pytorch DataParallel
 - nn.DataParallel로 model을 감싸면 학습을 할 때 다음과 같은 작업을 하는 것입니다. 위에서 언급한 대로 replicate → scatter → parallel_apply → gather 순서대로 진행합니다.
 - DataParallel
-![1_F6SXjBp6BCoFTZ26RKnz9A](https://user-images.githubusercontent.com/65876994/109257440-83870680-783b-11eb-95b8-e584aee70ed1.png)
+![1_FpDHkWJhkLL7KxU01Lf9Lw](https://user-images.githubusercontent.com/65876994/109257492-a0233e80-783b-11eb-96db-7ef73ed3a6e0.png)
 - DataParallelModel, DataParallelCriterion
 ![1_F6SXjBp6BCoFTZ26RKnz9A](https://user-images.githubusercontent.com/65876994/109256126-b2e84400-7838-11eb-8966-37e93528fe5d.png)
 - [참조링크](https://medium.com/daangn/pytorch-multi-gpu-%ED%95%99%EC%8A%B5-%EC%A0%9C%EB%8C%80%EB%A1%9C-%ED%95%98%EA%B8%B0-27270617936b)
