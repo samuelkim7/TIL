@@ -1,24 +1,17 @@
-from collections import deque
-class MyStack:
-    def __init__(self):
-        self.q = deque()
+def trace(func):
+    def wrapper(*args, **kwargs):
+        print(func.__name__, '함수 시작')
+        func(*args, **kwargs)
+        print(func.__name__, '함수 끝')
+    return wrapper
 
-    def push(self, x: int) -> None:
-        temp = deque([x])
-        self.q = temp + self.q
+@trace
+def hello(a, b):
+    print(a, b, '반갑습니다')
 
-    def pop(self) -> int:
-        return self.q.popleft()
+@trace
+def world(b):
+    print(b, '새로운 세상')
 
-    def top(self) -> int:
-        return self.q[0]
-
-    def empty(self) -> bool:
-        return len(self.q) == 0
-
-# Your MyStack object will be instantiated and called as such:
-# obj = MyStack()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.empty()
+hello('명원님', '참')
+world(b='놀라운')

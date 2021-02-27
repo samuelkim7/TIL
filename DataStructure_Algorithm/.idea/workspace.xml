@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="20ded4d4-421a-470c-9b68-3239a5ada122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/basics/numpy_tutorial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../python/basics/numpy_tutorial.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +47,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../workspace/flask_practice" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -56,7 +58,7 @@
       <recent name="C:\github\TIL\DataStructure_Algorithm" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.programmers_dp">
+  <component name="RunManager" selected="Python.practice">
     <configuration name="boj_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DataStructure_Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,10 +166,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.practice" />
         <item itemvalue="Python.programmers_dp" />
         <item itemvalue="Python.boj_3" />
         <item itemvalue="Python.boj_2" />
-        <item itemvalue="Python.practice" />
         <item itemvalue="Python.boj_1" />
       </list>
     </recent_temporary>
@@ -196,25 +198,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1610110991253">
+    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1614419366874">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1610110991253" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1609914133978">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614419366874" />
+    <state width="1515" height="257" key="GridCell.Tab.0.bottom" timestamp="1614407779458">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="257" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1614407779458" />
     <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609914133978" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1609914133978">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1515" height="257" key="GridCell.Tab.0.center" timestamp="1614407779458">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="257" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1614407779458" />
     <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609914133978" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1609914133978">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1515" height="257" key="GridCell.Tab.0.left" timestamp="1614407779458">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="257" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1614407779458" />
     <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609914133978" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1609914133978">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1515" height="257" key="GridCell.Tab.0.right" timestamp="1614407779458">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="257" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1614407779458" />
     <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609914133978" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609914133978">
       <screen x="1920" y="0" width="1920" height="1040" />
