@@ -11,6 +11,9 @@
 ### Baseline architecture
 ![image](https://user-images.githubusercontent.com/65876994/110278122-fbaeb280-8019-11eb-9016-831859832cbd.png)
 
+![image](https://user-images.githubusercontent.com/65876994/110278235-387aa980-801a-11eb-9435-c0ecb99538a3.png)
+
+
 ### Conclusion
 - In this paper, we systematically study ConvNet scaling and identify that carefully balancing network width, depth, and resolution is an important but missing piece, preventing us
 from better accuracy and efficiency. 
