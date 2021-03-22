@@ -9,3 +9,7 @@
 - FCN
 - U-Net
 - DeepLab
+
+### Morphological Processing
+- Dilation
+- Erosion
