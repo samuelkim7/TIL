@@ -8,7 +8,7 @@ git remote update
 
 # github 사이트에서 issue 생성
 
-git checkout issue-x
+git checkout -b issue-x
 git push origin issue-x
 ```
 
