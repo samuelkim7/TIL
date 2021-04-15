@@ -41,3 +41,6 @@ Common steps for pre-processing a new dataset are:
   - np.random.randn(m,n)
 - b is okay to be initialized as zero.
   - nmp.zeros(m,1)
+
+### Momentum
+- There's an algorithm called momentum, or gradient descent with momentum that almost always works faster than the standard gradient descent algorithm. In one sentence, the basic idea is to compute an exponentially weighted average of your gradients, and then use that gradient to update your weights instead.
