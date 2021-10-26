@@ -76,3 +76,18 @@ while True:
 print('video writing done!!')
 writer.release()
 cap.release()
+
+
+img = Image.fromarray(img_array).convert('RGB')
+img = transform(img)
+img = img.unsqueeze(0)
+
+data = {'A': img, 'A_paths': None}
+model.set_input(data)
+model.test()
+
+img_output = model.get_current_visuals()['fake']
+img_output = util.tensor2im(img_output)
+img_output = Image.fromarray(img_output).convert('RGB')
+output_path = 'gan_output.jpg'
+img_output.save(output_path)
