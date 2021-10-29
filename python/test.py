@@ -1,96 +1,132 @@
+# import the needed packages
 import cv2
-from PIL import Image
 import numpy as np
+from PIL import Image
 import matplotlib.pyplot as plt
+from google.colab.patches import cv2_imshow
 from scipy import ndimage
-from pixellib.tune_bg import alter_bg
-from pixellib.torchbackend.instance import instanceSegmentation
+import torch
+import torchvision
+
+import detectron2
+from detectron2.utils.logger import setup_logger
+setup_logger()
+
+# import some common detectron2 utilities
+from detectron2 import model_zoo
+from detectron2.engine import DefaultPredictor
+from detectron2.config import get_cfg
+from detectron2.utils.visualizer import Visualizer, ColorMode
+from detectron2.data import MetadataCatalog
+coco_metadata = MetadataCatalog.get("coco_2017_val")
+
+# import PointRend project
+from detectron2.projects import point_rend
 
 
-ins = instanceSegmentation()
-ins.load_model("checkpoints/pointrend_resnet50.pkl")
+# getting the X101-FPN PonintRend model
+config_X101 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_X_101_32x8d_FPN_3x_coco.yaml"
+config_R50 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_coco.yaml"
+config_R101 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_101_FPN_3x_coco.yaml"
+weights_X101 = "detectron2://PointRend/InstanceSegmentation/pointrend_rcnn_X_101_32x8d_FPN_3x_coco/28119989/model_final_ba17b9.pkl"
+weights_R50 = "detectron2://PointRend/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_coco/164955410/model_final_edd263.pkl"
+weights_R101 = "detectron2://PointRend/InstanceSegmentation/pointrend_rcnn_R_101_FPN_3x_coco/28119983/model_final_3f4d2a.pkl"
 
-input_path = 'imgs/charlie_video.mp4'
-output_path = 'results/summer2winter/charlie_summer_pr.mp4'
+cfg = get_cfg()
+point_rend.add_pointrend_config(cfg)
+cfg.merge_from_file(config_R101)
+cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5
+cfg.MODEL.WEIGHTS = weights_R101
+predictor = DefaultPredictor(cfg)
 
-cap = cv2.VideoCapture(input_path)
 
-codec = cv2.VideoWriter_fourcc(*'XVID')
-width = round(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-height = round(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-vid_size = (width, height)
-vid_fps = cap.get(cv2.CAP_PROP_FPS)
-writer = cv2.VideoWriter(output_path, codec, vid_fps, vid_size)
+def get_void_from_mask(person_mask_closed, height, 
+                       void_cri_top, void_cri_bottom):
+  top_void = 0
+  bottom_void = 0
 
-frame_cnt = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-print('Number of frame: {} / FPS: {} / Frame size: {}' \
-      .format(frame_cnt, round(vid_fps), vid_size))
+  for h_count in range(height):
+    line_mask_int = person_mask_clos[h_count, :, 0].astype(int)
+    
+    if h_count < height * 0.5:
+      if np.sum(line_mask_int) <= void_cri_top:
+        top_void += 1
+    else:
+      if np.sum(line_mask_int) <= void_cri_bottom:
+        bottom_void += 1
+  
+  return top_void, bottom_void
 
-# defining closing structure and dilation mask 
-closing_ref = np.ones((2,round(width * 0.3),1), dtype='bool')
 
-dilation_mask = np.zeros((height, width), dtype='bool')
-border_height = round(height * 0.03)
-dilation_mask[:border_height, :] = True
-dilation_mask[height-border_height:, :] = True
-dilation_mask = np.expand_dims(dilation_mask, axis=-1)
+def get_dilation_mask(height, width
+                         top_void, bottom_void,  
+                         padding_top, padding_bottom):
+  dilation_mask_top = np.zeros((height, width, 1), dtype='bool')
+  dilation_mask_bottom = np.zeros((height, width, 1), dtype='bool')
+
+  dilation_mask_top[:top_void+padding_top, :, 0] = True
+  dilation_mask_bottom[height-(bottom_void+padding_bottom):, :, 0] = True
+
+  return dilation_mask_top, dilation_mask_bottom
+
 
 # generating the output video with segmentation
 bg_path = 'imgs/summer/sample_summer.png'
 bg_img = cv2.imread(bg_path)
-target_classes = {
-    'person': 'valid',
-    'tie': 'invalid'
-}
 bg_img_resized = cv2.resize(bg_img, (width, height))
 
+closing_ref = np.ones((3,round(width * 0.3),1), dtype=int)
+
+void_cri_top = 40
+void_cri_bottom = 60
+padding_top = 2
+padding_bottom = 2
 
 index = 0
 while True:
-  hasFrame, img_frame = cap.read()
-  if not hasFrame:
-    print('no more frame to be processed')
-    break
-  
-  # segment by PointRend 
-  result = ins.segmentFrame(img_frame.copy(), segment_target_classes=target_classes)
-  person_mask = result[0]['masks'][:, :, 0]
-  person_mask = np.expand_dims(person_mask, axis=-1)
-  
-  # closing and dilation
-  person_mask_clos = ndimage.binary_closing(person_mask, 
-                                           iterations=1,
-                                           structure=closing_ref)
-  
-  person_mask_dil = ndimage.binary_dilation(person_mask_clos,
-                                            iterations=2,
-                                            mask=dilation_mask)
+    hasFrame, img_frame = cap.read()
+    if not hasFrame:
+        print('no more frame to be processed')
 
-  output_dil = np.where(person_mask_dil, img_frame, bg_img_resized)
-  writer.write(output_pr)
+    # get the segmentation mask
+    output = predictor(img_frame)
+    person_mask = output['instances'].pred_masks[0, :, :].detach().cpu().numpy()
+    person_mask = np.expand_dims(person_mask, axis=-1)
 
-  index += 1
-  if index % 20 == 0:
-    print('{}th output frame processed'.format(index))
+    # apply closing
+    person_mask_closed = ndimage.binary_closing(person_mask, 
+                                              iterations=1,
+                                              structure=closing_ref)
+    
+    # apply dilation
+    void_top, void_bottom = get_void_from_mask(person_mask_closed, height,
+                                               void_cri_top, void_cri_bottom)
+
+    d_mask_top, d_mask_bottom = get_dilation_mask(height, width,
+                                                  void_top, void_bottom, 
+                                                  padding_top, padding_bottom)
+    
+    
+    person_mask_dilated = ndimage.binary_dilation(person_mask_closed,
+                                                  iterations=void_top+padding_top,
+                                                  mask=d_mask_top)
+
+    person_mask_dilated = ndimage.binary_dilation(person_mask_dilated,
+                                                  iterations=void_bottom+padding_bottom,
+                                                  mask=d_mask_bottom)
+
+    # change the background based on the mask
+    frame_bg_changed = np.where(person_mask_dilated, img_frame, bg_img_resized)
+
+    writer.write(frame_bg_changed)
+
+    index += 1
+    if index % 20 == 0:
+        print('{}th output frame processed'.format(index))
 
 print('video writing done!!')
 writer.release()
 cap.release()
-
-
-img = Image.fromarray(img_array).convert('RGB')
-img = transform(img)
-img = img.unsqueeze(0)
-
-data = {'A': img, 'A_paths': None}
-model.set_input(data)
-model.test()
-
-img_output = model.get_current_visuals()['fake']
-img_output = util.tensor2im(img_output)
-img_output = Image.fromarray(img_output).convert('RGB')
-output_path = 'gan_output.jpg'
-img_output.save(output_path)
 
 
 def get_uncertain_point_coords_with_randomness(
@@ -128,6 +164,8 @@ def get_uncertain_point_coords_with_randomness(
                   dim=1,
             )
       return point_coords
+
+
 
 
 
