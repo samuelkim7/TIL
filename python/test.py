@@ -60,13 +60,13 @@ def get_void_from_mask(person_mask_closed, height,
 def get_dilation_mask(height, width
                       void_top, void_bottom,  
                       padding_top, padding_bottom):
-dilation_mask_top = np.zeros((height, width, 1), dtype='bool')
-dilation_mask_bottom = np.zeros((height, width, 1), dtype='bool')
+    dilation_mask_top = np.zeros((height, width, 1), dtype='bool')
+    dilation_mask_bottom = np.zeros((height, width, 1), dtype='bool')
 
-dilation_mask_top[:top_void+padding_top, :, 0] = True
-dilation_mask_bottom[height-(bottom_void+padding_bottom):, :, 0] = True
+    dilation_mask_top[:top_void+padding_top, :, 0] = True
+    dilation_mask_bottom[height-(bottom_void+padding_bottom):, :, 0] = True
 
-return dilation_mask_top, dilation_mask_bottom
+    return dilation_mask_top, dilation_mask_bottom
 
 
 bg_path = 'imgs/summer/sample_summer.png'
