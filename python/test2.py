@@ -25,13 +25,14 @@ input_nc = opt.output_nc if opt.direction == 'BtoA' else opt.input_nc
 transform = get_transform(opt, grayscale=(input_nc == 1))
 
 
+index = 0
 while True:
     hasFrame, img_frame = cap.read()
     if not hasFrame:
         print('no more frame to be processed')
         break
-
-    # apply CycleGAN on the input frame
+        
+    # transform the image frame
     img = Image.fromarray(img_frame).convert('RGB')
     img = transform(img)
     img = img.unsqueeze(0)
@@ -40,7 +41,8 @@ while True:
         'A': img, 
         'A_paths': None
     }
-
+    
+    # apply CycleGAN on the transformed image frame
     model.set_input(data)
     model.test()
     img_output = model.get_current_visuals()['fake']
