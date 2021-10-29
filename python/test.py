@@ -23,7 +23,7 @@ coco_metadata = MetadataCatalog.get("coco_2017_val")
 # import PointRend project
 from detectron2.projects import point_rend
 
-
+# get the pretrained model
 config_R50 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_coco.yaml"
 config_R101 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_101_FPN_3x_coco.yaml"
 config_X101 = "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_X_101_32x8d_FPN_3x_coco.yaml"
@@ -41,40 +41,40 @@ predictor = DefaultPredictor(cfg)
 
 def get_void_from_mask(person_mask_closed, height, 
                        void_cri_top, void_cri_bottom):
-  top_void = 0
-  bottom_void = 0
+    top_void = 0
+    bottom_void = 0
 
-  for h_count in range(height):
-    line_mask_int = person_mask_clos[h_count, :, 0].astype(int)
-    
-    if h_count < height * 0.5:
-      if np.sum(line_mask_int) <= void_cri_top:
-        top_void += 1
-    else:
-      if np.sum(line_mask_int) <= void_cri_bottom:
-        bottom_void += 1
-  
-  return top_void, bottom_void
+    for h_count in range(height):
+        line_mask_int = person_mask_clos[h_count, :, 0].astype(int)
+
+        if h_count < height * 0.5:
+            if np.sum(line_mask_int) <= void_cri_top:
+                top_void += 1
+        else:
+            if np.sum(line_mask_int) <= void_cri_bottom:
+                bottom_void += 1
+
+    return top_void, bottom_void
 
 
 def get_dilation_mask(height, width
-                         top_void, bottom_void,  
-                         padding_top, padding_bottom):
-  dilation_mask_top = np.zeros((height, width, 1), dtype='bool')
-  dilation_mask_bottom = np.zeros((height, width, 1), dtype='bool')
+                      void_top, void_bottom,  
+                      padding_top, padding_bottom):
+dilation_mask_top = np.zeros((height, width, 1), dtype='bool')
+dilation_mask_bottom = np.zeros((height, width, 1), dtype='bool')
 
-  dilation_mask_top[:top_void+padding_top, :, 0] = True
-  dilation_mask_bottom[height-(bottom_void+padding_bottom):, :, 0] = True
+dilation_mask_top[:top_void+padding_top, :, 0] = True
+dilation_mask_bottom[height-(bottom_void+padding_bottom):, :, 0] = True
 
-  return dilation_mask_top, dilation_mask_bottom
+return dilation_mask_top, dilation_mask_bottom
 
 
-# generating the output video with segmentation
 bg_path = 'imgs/summer/sample_summer.png'
 bg_img = cv2.imread(bg_path)
 bg_img_resized = cv2.resize(bg_img, (width, height))
 
-closing_ref = np.ones((3,round(width * 0.3),1), dtype=int)
+# default setting for closing and dilation
+closing_str = np.ones((3,round(width * 0.3),1), dtype=int)
 
 void_cri_top = 40
 void_cri_bottom = 60
@@ -94,8 +94,8 @@ while True:
 
     # apply closing
     person_mask_closed = ndimage.binary_closing(person_mask, 
-                                              iterations=1,
-                                              structure=closing_ref)
+                                                iterations=1,
+                                                structure=closing_str)
     
     # apply dilation
     void_top, void_bottom = get_void_from_mask(person_mask_closed, height,
