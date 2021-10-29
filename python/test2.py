@@ -55,5 +55,5 @@ while True:
         print('{}th frame processed'.format(index))
 
 print('video writing finished')
-writer.release()
+video_writer.release()
 cap.release()
