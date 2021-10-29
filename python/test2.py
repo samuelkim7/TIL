@@ -50,8 +50,8 @@ while True:
 
     index += 1
     if index % 20 == 0:
-        print('{}th frame 처리 완료'.format(index))
+        print('{}th frame processed'.format(index))
 
-print('video writing 완료')
+print('video writing finished')
 writer.release()
 cap.release()
