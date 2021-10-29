@@ -138,13 +138,6 @@ class StandardPointHead(nn.Module):
     """
 
     def __init__(self, cfg, input_shape: ShapeSpec):
-        """
-        The following attributes are parsed from config:
-            fc_dim: the output dimension of each FC layers
-            num_fc: the number of FC layers
-            coarse_pred_each_layer: if True, coarse prediction features are concatenated to each
-                layer's input
-        """
         super(StandardPointHead, self).__init__()
         # fmt: off
         num_classes                 = cfg.MODEL.POINT_HEAD.NUM_CLASSES
