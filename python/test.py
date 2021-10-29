@@ -94,12 +94,12 @@ img_output.save(output_path)
 
 
 def get_uncertain_point_coords_with_randomness(
-    coarse_logits, uncertainty_func, num_points, oversample_ratio, importance_sample_ratio
+      coarse_logits, uncertainty_func, num_points, oversample_ratio, importance_sample_ratio
 ):
       """
-      Sample points in [0, 1] x [0, 1] coordinate space based on their uncertainty. The unceratinties
-        are calculated for each point using 'uncertainty_func' function that takes point's logit
-        prediction as input.
+      Sample points in [0, 1] x [0, 1] coordinate space based on their uncertainty. 
+      The unceratinties are calculated for each point using 'uncertainty_func' function 
+      that takes point's logit prediction as input.
       """
       assert oversample_ratio >= 1
       assert importance_sample_ratio <= 1 and importance_sample_ratio >= 0
