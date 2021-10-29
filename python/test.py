@@ -117,14 +117,14 @@ while True:
     # change the background based on the mask
     frame_bg_changed = np.where(person_mask_dilated, img_frame, bg_img_resized)
 
-    writer.write(frame_bg_changed)
+    video_writer.write(frame_bg_changed)
 
     index += 1
     if index % 20 == 0:
         print('{}th output frame processed'.format(index))
 
 print('video writing done!!')
-writer.release()
+video_writer.release()
 cap.release()
 
 
