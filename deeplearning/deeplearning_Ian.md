@@ -33,4 +33,8 @@
 
 ## Chapter 6 Deep Feedforward Networks
 - The model is associated with a directed acyclic graph describing how the functions are composed together.
-- 
+- The largest diﬀerence between the linear models we have seen so far and neural networks is that the **nonlinearity** of a neural network causes most interesting loss functions to become nonconvex.
+- Stochastic gradient descent applied to nonconvex loss functions has **no such convergence guarantee** and is sensitive to the values of the initial parameters.
+
+- Cost functions
+  - 
