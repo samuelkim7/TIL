@@ -28,5 +28,6 @@
 ### 머신러닝
 - Cross Validation  
 overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 검증 세트로 나누어서 모델 학습과 평가를 수행하는 것. K-fold cross validation이 대표적임. Stratified k-fold는 불균형이 큰 경우에 사용하는 방법으로서 전체 데이터셋의 레이블이 지닌 분포를 반영하여 k-fold를 나누는 것임
-- 성능 평가 metric  
-
+- 성능 평가 metric: https://velog.io/@cgotjh/%EA%B8%B0%EC%B4%88-%EA%B3%B5%EB%B6%80
+- 정규화와 표준화: feature들의 값의 범위를 비슷하게 만들어 줌으로써 더 robust한 feature extraction이 가능하게 함. 정규화는 X - Xmin / Xmax - Xmin을 통해서 값의 범위를 [0, 1] 사이로 옮김. outlier에 영향을 많이 받음. 표준화(z-score normalization)는 X - m / s을 통해 표준정규분포를 따르도록 함
+- 차원의 저주  
