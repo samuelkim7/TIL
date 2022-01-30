@@ -306,3 +306,80 @@ def solution(numbers, target):
     global answer
     dfs(0, numbers, target, 0)
     return answer
+
+# 네트워크
+from collections import deque
+def bfs(start, computers, visited, n):
+    q = deque([start])
+    visited[start] = True
+    while q:
+        curr = q.popleft()
+        for i in range(n):
+            if computers[curr][i] == 1 and not visited[i]:
+                q.append(i)
+                visited[i] = True
+
+
+def solution(n, computers):
+    answer = 0
+    visited = [False] * n
+    for i in range(n):
+        if not visited[i]:
+            bfs(i, computers, visited, n)
+            answer += 1
+    return answer
+
+# 이분탐색
+# 입국심사
+def solution(n, times):
+    answer = 0
+    left = 1
+    right = max(times) * n
+    
+    while left < right:
+        mid = (left + right) // 2
+        total = 0
+        
+        for t in times:
+            total += mid // t
+        
+        if total >= n:
+            right = mid
+        else:
+            left = mid + 1
+    answer = left
+    return answer
+
+# 그래프
+# 가장 먼 노드
+from collections import deque
+def solution(n, edge):
+    answer = 0
+    graph = [[] for _ in range(n+1)]
+    dists = [-1] * (n+1)
+    
+    # get the graph
+    for a, b in edge:
+        graph[a].append(b)
+        graph[b].append(a)
+        
+    # q with starting node 1
+    q = deque([1])
+    dists[1] = 0
+    
+    # bfs
+    while q:
+        curr = q.popleft()
+        
+        # visit all the connected nodes
+        for i in graph[curr]:
+            if dists[i] == -1:
+                q.append(i)
+                dists[i] = dists[curr] + 1
+    
+    # find nodes with farthest distance
+    for dist in dists:
+        if dist == max(dists):
+            answer += 1
+            
+    return answer
