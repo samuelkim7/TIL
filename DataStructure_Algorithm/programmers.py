@@ -329,6 +329,39 @@ def solution(n, computers):
             answer += 1
     return answer
 
+# 단어 변환
+def solution(begin, target, words):
+    # target is not in words
+    if target not in words:
+        return 0
+    
+    answer = 0
+    q = [begin]
+    
+    while True:
+        temp_q = []
+        for word_1 in q:
+            if word_1 == target:
+                return answer
+            
+            for i in range(len(words)-1, -1, -1):
+                word_2 = words[i]
+                if close_words(word_1, word_2):
+                    temp_q.append(words.pop(i))
+                    
+        if not temp_q:
+            return 0
+        q = temp_q
+        answer += 1
+
+
+def close_words(word1, word2):
+    num_same = 0
+    for ch1, ch2 in zip(word1, word2):
+        if ch1 == ch2:
+            num_same += 1
+    return len(word1) - num_same == 1
+
 # 이분탐색
 # 입국심사
 def solution(n, times):
