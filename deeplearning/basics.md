@@ -8,10 +8,11 @@
 
 
 ## Dropout
-- Overfitting에 대한 해결책으로는 학습 데이터를 늘리거나 regularization을 적용하는 방법이 있다. dropout은 regularization 기법 중 하나이다. 단순히 말해서 NN이 지닌 일부 유닛들을 생략하고 학습을 진행하는 기법이다. 이는 모델 ensemble의 장점을 취하면서 학습이나 테스트 시의 overhead를 늘리지 않는 방법이라고 할 수 있다.
+- Overfitting에 대한 해결책으로는 학습 데이터를 늘리거나 regularization을 적용하는 방법이 있다. dropout은 regularization 기법 중 하나이다. 단순히 말해서 NN이 지닌 일부 유닛들을 생략하고 학습을 진행하는 기법이다. 모델 ensemble의 장점을 취하는 방식으로 훈련하고 테스트시에는 간단한 방식으로 평균을 적용하게 된다.
 - 테스트 시에는 생략을 없애고 각각의 뉴런들이 존속할 확률을 가중치에 곱해서 (가중치는 더 작게 만들어서) inference를 수행한다.
-- dropout을 적용한다는 것은 이전 뉴런의 출력값에 bernouli 랜덤 변수를 곱해주는 것으로 볼 수 있다. 각각의 유닛에 대해 독립적으로 랜덤 변수가 곱해지기 때문에 n개의 유닛에 대해 총 2^n개의 조합이 가능하게 된다.
-- dropout을 사용할 경우 학습 중 parameter들이 서로 의지하면서 학습이 되는 co-adaptation 현상을 방지하게 되어 좀 더 선명한 (salient) 특징을 추출하게 된다. 또한 상대적으로 큰 activation을 보이는 뉴런들의 수가 줄어들게 된다.
+- dropout을 적용한다는 것은 이전 뉴런의 출력값에 bernouli 확률변수를 곱해주는 것으로 볼 수 있다. 각각의 유닛에 대해 독립적으로 랜덤 변수가 곱해지기 때문에 n개의 유닛에 대해 총 2^n개의 조합이 가능하게 된다.
+- dropout을 사용할 경우 학습 중 parameter들이 서로 의지하면서 학습이 되는 co-adaptation 현상을 방지하게 해준다. 특정 hidden unit이 다른 hidden unit들에 의존해서 실수를 바로잡을 수 없게 되기 때문이다. 이를 통해 dropout이 적용된 NN은 좀 더 선명한 (salient) 특징을 추출하게 된다. 이것이 dropout이 지난 일반화 성능 향상 효과의 주된 요인일 것이다.
+- 또한 dropout은 hidden unit들의 activation을 더 sparse하게 만든다. 
 - dropout에서 dropout의 확률이 0.6 이상으로 지나치게 커지면 underfitting을 보이기도 하며, 반대로 0.2이하인 경우에는 overfitting이 다시 관찰된다.
 - dropout을 적용할 경우 대부분의 이미지 벤치마크 데이터셋에서 신경망의 test 성능을 향상시키며 음성 및 텍스트 분야에서도 신경망의 성능을 개선시킨다. 
 - Excerpts from paper - Based on Dropout: A Simple Way to Prevent Neural Networks from Overfitting (2014, JMLR)
