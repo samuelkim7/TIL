@@ -21,8 +21,12 @@
   - At test time, it is easy to approximate the effect of averaging the predictions of all these thinned networks by simply using a single unthinned network that has smaller weights. 
   - Dropout prevents overfitting and provides a way of approximately combining exponentially many different neural network architectures efficiently.
 
-## BatchNormalization
-
+## Batch Normalization
+- layer 수가 많은 NN 모델을 학습시키는 데 있어서 vanishing / exploiding gradient는 심각한 문제이다. 이것은 활성함수로 sigmoid나 tanh와 같은 non-linear saturating function을 사용할 경우 현저하게 발생한다. ReLU 활성함수로 어느정도 이것을 해결할 수 있지만 깊은 모델의 경우 여전히 이 문제가 발생한다.
+- 따라서 성공적인 모델 학습을 위해서는 weight initialization, learning rate 선정, hyper parameter 설정에 많은 신경을 써야 한다. 
+- internal covariate shift: 이전 layer의 parameter의 변화에 의해 현 layer의 입력 분포가 바뀌는 현상. 이를 해결하기 위한 단순한 방법으로는 각 layer로 들어가는 입력을 whitening (m=0, s=1) 시키는 것이다. 그러나 이 과정은 backpropagation과 상관 없이 진행되기 때문에 여전히 특정 parameter가 커지는 현상이 발생할 수 있다.
+- BN은 mini-batch에 대하여 평뀬과 분산을 구한 뒤 정규화를 수행하고, 이를 다시 gamma와 beta를 통해 scaling과 shifting을 해주는 방식으로 수행된다. BN은 신경망에 포함되기 때문에 back propagation을 통해서 parameter와 함께 학습된다. 
+- 테스트 시에는 
 
 ## Optimizers
 
