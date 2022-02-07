@@ -32,7 +32,7 @@
 - 리샘플링일란  
 리샘플링은 내가 가지고 있는 샘플에서 다시 샘플 부분집합을 뽑아서 통계량의 변동성을 확인하는 것. 대표적인 예로 K-fold cross validation이 있음
 
-### 머신러닝
+## 머신러닝
 - Cross Validation  
 overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 검증 세트로 나누어서 모델 학습과 평가를 수행하는 것. K-fold cross validation이 대표적임. Stratified k-fold는 불균형이 큰 경우에 사용하는 방법으로서 전체 데이터셋의 레이블이 지닌 분포를 반영하여 k-fold를 나누는 것임
 - 성능 평가 metric: https://velog.io/@cgotjh/%EA%B8%B0%EC%B4%88-%EA%B3%B5%EB%B6%80
@@ -45,17 +45,116 @@ overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 
   - PCA: 주성분 추출을 통해 차원 축소를 수행하는 기법. 데이터를 축에 사영했을 때 가장 높은 분산을 가지는 데이터의 축을 찾아 그 축(주성분)으로 차원을 축소하는 것. 높은 분산을 갖는 축(주성분)을 찾는 이유는 정보의 손실을 최소화 하기 위함. 다른 의미에서 분산이 크다는 것은 그만큼 주성분이 원래 데이터의 분포를 잘 설명해줄 수 있음을 의미함
     - 추출된 변수 Z는 모든 기존 변수들의 선형결합으로 이루어짐. Z = alpha.T * X. Z의 분산을 최대화하는 alpha를 찾는 것이 PCA의 목적임
     - 고유값과 고유벡터: 특정 행렬 A에 대해 상수 lambda와 벡터 x가 다음 식을 만족할 때, lambda와 x를 각각 A의 고유값과 고유벡터라고 부름. Ax = lambda * x. 고유벡터는 선형변환 (행렬을 곱합)에 의해서 방향이 변하지 않는 벡터를 의미함
-- 선형회귀모델
-  - 정의: 출력변수 Y를 입력변수 X들의 선형결합으로 표현한 모델. E(Y) = f(X). 입력값 X와 Y의 평균과의 관계를 구함
-  - 확률오차 가정: 오차항 e는 N(0, s^2)의 정규분포를 따른다. 이에 따라 Y는 N(f(x), s^2)의 정규분포를 따르게 됨
-  - 함수식의 파라미터를 추정하는 것이 우리의 목표임. loss function (L2 loss)을 각 파라미터에 대해 편미분을 하여 이 값이 0이 되는 파라미터 값들을 구함. 이를 최소제곱법이라고 함
-- 로지스틱 회귀모델
-  - Y 값이 연속형이 아니라 범주형인 경우, 즉 분류 문제의 경우 사용. X 변수에 대한 로지스틱 함수 형태 (비선형결합)로 표현. 확률 값이 특정 기준 보다 크면 범주 1, 작으면 범주 0과 같은 식으로 최종 output 나옴
-  - 로지스틱 함수: input 값 (음의 무한대 ~ 양의 무한대)에 대해 단조증가 (혹은 단조감소) 함수. output 값의 범위는 0 ~ 1. 미분 결과를 원 함수식으로 표현 가능
-  - E(Y) = P(Y = 1|X = x) = 관축치 x의 범주가 1일 확률 = 1 / 1 + e^-(b0 + b1x)
-  - odds: 성공 확률이 p로 주어질 때, p / 1-p. log(odds) = b0 + b1x (선형식)
-  - odds ratio: 나머지 입력변수는 모두 고정시킨 상태에서 한 변수를 1 단위 증가시켰을 때 변화하는 odds (성공확률)의 비율
-  - 로지스틱 회귀모델 학습: Maximum Likelihood Estimation
-    - bernouli 확률변수 y의 확률함수는 다음과 같이 계산됨. f(y) = p(x)^y * (1-p(x))^(1-y)
-    - 여기에 log를 취하면 선형식들의 합으로 표현됨. 이 log likelihood function이 최대가 되는 parameter를 찾는 것이 학습의 과정임
-  - Cross Entropy: 두 확률 분포 (p(x), q(x))의 차이로서 음의 log likelihood fuction의 기대값이라고 할 수 있음. 따라서 log likelihood function을 최대로 한다는 것은 cross entropy를 최소로 만드는 것과 같음
+### 선형회귀모델
+- 정의: 출력변수 Y를 입력변수 X들의 선형결합으로 표현한 모델. E(Y) = f(X). 입력값 X와 Y의 평균과의 관계를 구함
+- 확률오차 가정: 오차항 e는 N(0, s^2)의 정규분포를 따른다. 이에 따라 Y는 N(f(x), s^2)의 정규분포를 따르게 됨
+- 함수식의 파라미터를 추정하는 것이 우리의 목표임. loss function (L2 loss)을 각 파라미터에 대해 편미분을 하여 이 값이 0이 되는 파라미터 값들을 구함. 이를 최소제곱법이라고 함
+### 로지스틱 회귀모델
+- Y 값이 연속형이 아니라 범주형인 경우, 즉 분류 문제의 경우 사용. X 변수에 대한 로지스틱 함수 형태 (비선형결합)로 표현. 확률 값이 특정 기준 보다 크면 범주 1, 작으면 범주 0과 같은 식으로 최종 output 나옴
+- 로지스틱 함수: input 값 (음의 무한대 ~ 양의 무한대)에 대해 단조증가 (혹은 단조감소) 함수. output 값의 범위는 0 ~ 1. 미분 결과를 원 함수식으로 표현 가능
+- E(Y) = P(Y = 1|X = x) = 관축치 x의 범주가 1일 확률 = 1 / 1 + e^-(b0 + b1x)
+- odds: 성공 확률이 p로 주어질 때, p / 1-p. log(odds) = b0 + b1x (선형식)
+- odds ratio: 나머지 입력변수는 모두 고정시킨 상태에서 한 변수를 1 단위 증가시켰을 때 변화하는 odds (성공확률)의 비율
+- 로지스틱 회귀모델 학습: Maximum Likelihood Estimation
+  - bernouli 확률변수 y의 확률함수는 다음과 같이 계산됨. f(y) = p(x)^y * (1-p(x))^(1-y)
+  - 여기에 log를 취하면 선형식들의 합으로 표현됨. 이 log likelihood function이 최대가 되는 parameter를 찾는 것이 학습의 과정임
+- Cross Entropy: 두 확률 분포 (p(x), q(x))의 차이로서 음의 log likelihood fuction의 기대값이라고 할 수 있음. 따라서 log likelihood function을 최대로 한다는 것은 cross entropy를 최소로 만드는 것과 같음
+
+### 서포트 벡터 머신
+- 분류를 위한 지도학습 모델의 한 종류로서 support vectors를 사용하여 결정 경계(Decision Boundary)을 정의하는 모델
+- Support vectors: 결정 경계와 가장 가까이에 있는 가 클래스의 데이터 포인트
+- margin: 결정 경계와 서포트 벡터 사이의 거리
+- "최적의 결졍 경계는 마진을 최대화한다."
+- SVM에서는 결정 경계를 정의하는게 결국 서포트 벡터이기 때문에 포인트 중에서 서포트 벡터만 잘 골라내면 나머지 쓸 데 없는 수많은 데이터 포인트들을 무시할 수 있다. 그래서 매우 빠르다.
+
+```python
+from sklearn.svm import SVC
+classifier = SVC(kernel = 'linear')
+
+training_points = [[1, 2], [1, 5], [2, 2], [7, 5], [9, 4], [8, 2]]
+labels = [1, 1, 1, 0, 0, 0]
+
+classifier.fit(training_points, labels)
+print(classifier.predict([[3,2]]))
+```
+
+- hard margin: outlier를 허용하지 않고 기준을 까다롭게 세운 형태. 서포트 벡터와 결정 경계 사이의 거리가 너무 가까울 수 있음. overfitting 문제가 발생할 가능성
+- soft margin: outlier를 어느정도 margin 안에 포함되도록 기준을 잡은 형태. 거리가 더 멀어짐. underfitting 문제가 발생할 수 있음
+
+```python
+classifier = SVC(C = 0.01)
+```
+
+- C 값이 클수록 hard margin, 작을 수록 softmargin임. 기본값은 1. 최적값은 데이터에 따라 다름
+
+### K-Means Clustering
+- 데이터 clustering (비슷한 속성의 데이터들을 묶음)을 위해 널리 사용되는 비지도학습 알고리즘
+- Clustering이 사용되는 예: 추천 엔진, 검색 엔진, 시장 세분화 등
+- 두 가지 질문: 몇 개의 그룹으로 나눌 것인가? / 데이터의 "유사도"를 어떻게 정의할 것인가?
+- K: 데이터 set에서 찾을 것으로 예상되는 cluster 수
+- Means: 각 데이터로부터 그것이 속한 cluster의 중심까지의 평균 거리. 이 값을 최소화하는 것이 알고리즘의 목표임
+- 원리
+    1. K개의 임의의 중심점(centroid)를 배치함
+    2. 각 데이터들을 가장 가까운 중심점으로 할당하여 군집을 형성함
+    3. 형성된 군집을 기준으로 해당 군집의 중심점을 업데이트 함
+    4. 2와 3을 반복하여서 수렴될 때 까지 수행
+
+```python
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters=k)
+model.fit(data)
+model.predict(samples)
+```
+
+- K값, 군집의 개수 정하기
+
+```python
+print (model.inertia_)
+```
+
+- inertia 값은 각 데이터로부터 군집의 중심점까지의 거리로서 응집도를 의미함. inertia 값이 낮을 수록 군집화가 잘 된 것. K 값을 바꿔가면서 inertia 값의 변화를 확인
+- 문제점
+    - 처음에 중심점을 무작위로 설정하기 때문에 최적의 클러스터로 묶는 데 한계가 있음
+    - 이를 해결하기 위해 K-Means++이 나옴
+- K-Means++
+    - 데이터 포인트 중 하나를 선택하여 중심점으로 지정
+    - 두번째 중심점은 첫번째 것으로부터 최대한 먼 곳에 있는 데이터 포인트로 선정
+    - 전통적인 K-means 보다 수렴하는 속도가 빠르다.
+
+```python
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters=k,  init='k-means++')
+```
+
+- 사실 init의 기본값이 'k-means++'임. 전통적인 k-means로 돌리려면 init='random'으로 해야함
+
+### Decision Tree
+- Tree 구조로 질문들을 구성하여 데이터를 분류하는 알고리즘. 일종의 스무고개
+- Gini 불순도: 다른 클래스의 데이터가 포함된 정도
+- Information Gain: 이전 단계의 불순도 - 다음 단계의 불순도
+- Weighted Information Gain: 분할 후 생성된 데이터의 비율을 가중치로 정하고 불순도와 가중치를 곱해서 정보 획득량을 구함
+- Information Gain이 큰 질문을 먼저 배치하는 것이 중요함. 이러한 과정을 재귀적으로 반복하면서 최적의 트리를 찾게됨
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier()
+classifier.fit(training_points, training_labels)
+
+predictions = classifier.predict(test_data)
+print(classifier.score(test_data, test_labels))
+```
+
+- 한계점
+    - 기본적으로 greedy 알고리즘을 토대로 작동하기 때문에 항상 최적의 해를 찾는 것은 아니다. 하지만 최적의 트리를 찾는 것은 어려운 일임
+    - Tree가 커질 수록 overfitting 가능성이 생김. 이것을 제한하려면 가지 치기를 하거나DecisionTreeClassifier(max_depth = n)와 같이 트리의 최대 크기를 지정할 수도 있음
+    
+
+### Random Forest
+- 훈련을 통해 구성해놓은 다수의 나무들로부터 분류 결과를 취합해서 결론을 얻는 일종의 인기투표와 같은 알고리즘. 다수의 알고리즘을 사용하는 앙상블 머신러닝 모델
+- 다수의 나무를 기반으로 예측하기 때문에 overfitting의 가능성이 낮음
+- Bagging: 전체 데이터 중 일부를 골라서 이를 기반으로 하나의 트리를 만듦. 이런 식으로 반복하여 다수의 트리를 형성 (데이터 중복 허용). 보통 전체 속성 개수의 제곱근만큼 선택하는게 일반적임. 이렇게 각 트리를 만들 때 속성들을 제한함으로써 각 나무들에 다양성을 부여함
+```python
+from sklearn.ensemble import RandomForestClassifier
+classifier = RandomForestClassifier(n_estimators = 100)
+# fit(), predict(), score()
+```
