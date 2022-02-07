@@ -26,8 +26,44 @@
 - 따라서 성공적인 모델 학습을 위해서는 weight initialization, learning rate 선정, hyper parameter 설정에 많은 신경을 써야 한다. 
 - internal covariate shift: 이전 layer의 parameter의 변화에 의해 현 layer의 입력 분포가 바뀌는 현상. 이를 해결하기 위한 단순한 방법으로는 각 layer로 들어가는 입력을 whitening (m=0, s=1) 시키는 것이다. 그러나 이 과정은 backpropagation과 상관 없이 진행되기 때문에 여전히 특정 parameter가 커지는 현상이 발생할 수 있다.
 - BN은 mini-batch에 대하여 평뀬과 분산을 구한 뒤 정규화를 수행하고, 이를 다시 gamma와 beta를 통해 scaling과 shifting을 해주는 방식으로 수행된다. BN은 신경망에 포함되기 때문에 back propagation을 통해서 parameter와 함께 학습된다. 
-- 테스트 시에는 훈련 시 계산한 모든 mini-batch들의 평균과 분산의 평균을 구해서 사용한다. 분산의 평균의 경우에는 보정을 위해서 m / m-1을 곱해준다. gamma와 beta의 경우 훈련된 값을 그래돌 가져다가 사용한다.
+- 테스트 시에는 훈련 시 계산한 모든 mini-batch들의 평균과 분산의 평균을 구해서 사용한다. 분산의 평균의 경우에는 보정을 위해서 m / m-1을 곱해준다. gamma와 beta의 경우 훈련된 값을 그대로 가져다가 사용한다.
 
 ## Optimizers
+#### Overview
+- GD: 모든 데이터를 기반으로 내 위치의 기울기를 계산해서 움직임
+- Momentum: 기울기를 기반으로 한 스텝을 움직인 후 관성을 따라서 더 움직임
+- NAG: 먼저 관성 방향을 따라 움직인 후 움직인 자리에서 기울기를 기반으로 한 스텝 움직임
+- SGD: mini-batch의 데이터를 기반으로 기울기를 산정해서 조금씩 움직임. 같은 시간에 더 많이 감
+- Adagrad: 안 가본 곳은 더 빠르게 훑어보고 가본 곳은 보폭을 줄여서 세밀하게 탐색
+- RMSProp: 이전 맥락을 고려해가면서 보폭을 줄임
+- Adam: RMSProp + Momentum
+
+#### Detail
+- SGD
+  - The most important property of SGD and related minibatch or online gradient-based optimization is that computation time per update does not grow with the number of training examples.
+  - A noise is introduced in each step's gradient because of the random sampling of m training examples. So in practice, it is necessary to gradually decrease the learning rate over time.
+  - The size of the step is simply the norm of the gradient multiplied by the learning rate.
+- Momentum
+  - The momentum algorithm accumulates an exponentially decaying moving average of past gradients and continues to move in their direction.
+  - The velocity is set to an exponentially decaying average of the negative gradient.
+  - A hyperparameter α (0 ~ 1) determines how quickly the contributions of previous gradients exponentially decay.
+  - Now, the size of the step depends on how large and how aligned a sequence of gradients are.
+- Nesterov Momentum
+  - With Nesterov momentum, the gradient is evaluated after the current velocity is applied.
+- AdaGrad
+  - The AdaGrad algorithm individually adapts the learning rates of all model parameters by scaling them inversely proportional to the square root of the sum of all the historical squared values of the gradient.
+  - The parameters with the largest partial derivative of the loss have a correspondingly rapid decrease in their learning rate, while parameters with small partial derivatives have a relatively small decrease in their learning rate.
+  - The net effect is greater progress in the more gently sloped directions of parameter space.
+  - AdaGrad shrinks the learning rate according to the entire history of the squared gradient and may have made the learning rate too small before arriving at such a convex structure.
+- RMSProp
+  - The RMSProp algorithm (Hinton, 2012) modiﬁes AdaGrad to perform better in the nonconvex setting by changing the gradient accumulation into an exponentially weighted moving average.
+  - RMSProp uses an exponentially decaying average to discard history from the extreme past so that it can converge rapidly after ﬁnding a convex bowl.
+  - Empirically, RMSProp has been shown to be an effective and practical op-timization algorithm for deep neural networks.
+- Adam
+  - The name “Adam” derives fromthe phrase “adaptive moments.” It is perhaps best seen as a variant on the combination of RMSProp and momentum with a few important distinctions.
+  - First, in Adam, momentum is incorporated directly as an estimate of the ﬁrst-order moment (with exponential weighting) ofthe gradient.
+  - Second, Adam includes bias corrections to the estimates of both the ﬁrst-order moments (the momentum term) and the (uncentered) second-order moments to account for their initialization at the origin.
+
+- [참고](https://hiddenbeginner.github.io/deeplearning/2019/09/22/optimization_algorithms_in_deep_learning.html)
 
 ## Major models
