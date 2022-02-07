@@ -54,7 +54,7 @@ overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 
   - 로지스틱 함수: input 값 (음의 무한대 ~ 양의 무한대)에 대해 단조증가 (혹은 단조감소) 함수. output 값의 범위는 0 ~ 1. 미분 결과를 원 함수식으로 표현 가능
   - E(Y) = P(Y = 1|X = x) = 관축치 x의 범주가 1일 확률 = 1 / 1 + e^-(b0 + b1x)
   - odds: 성공 확률이 p로 주어질 때, p / 1-p. log(odds) = b0 + b1x (선형식)
-  - odds ratio: 
+  - odds ratio: 나머지 입력변수는 모두 고정시킨 상태에서 한 변수를 1 단위 증가시켰을 때 변화하는 odds (성공확률)의 비율
   - 로지스틱 회귀모델 학습: Maximum Likelihood Estimation
     - bernouli 확률변수 y의 확률함수는 다음과 같이 계산됨. f(y) = p(x)^y * (1-p(x))^(1-y)
     - 여기에 log를 취하면 선형식들의 합으로 표현됨. 이 log likelihood function이 최대가 되는 parameter를 찾는 것이 학습의 과정임
