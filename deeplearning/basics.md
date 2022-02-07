@@ -63,6 +63,7 @@
   - The name “Adam” derives fromthe phrase “adaptive moments.” It is perhaps best seen as a variant on the combination of RMSProp and momentum with a few important distinctions.
   - First, in Adam, momentum is incorporated directly as an estimate of the ﬁrst-order moment (with exponential weighting) ofthe gradient.
   - Second, Adam includes bias corrections to the estimates of both the ﬁrst-order moments (the momentum term) and the (uncentered) second-order moments to account for their initialization at the origin. (학습 초기에 가중치들이 0으로 편향되는 경향을 보정함)
+
 ![image](https://user-images.githubusercontent.com/65876994/152711285-55c4adc0-a596-4f75-8bcc-8f815c356d5b.png)
 
 - [참고 링크](https://hiddenbeginner.github.io/deeplearning/2019/09/22/optimization_algorithms_in_deep_learning.html)
