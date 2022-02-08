@@ -1,3 +1,26 @@
+## Chapter 3 Probability and Information Theory
+### Basics
+- While probability theory allows us to make uncertain statements and to reasonin the presence of uncertainty, information theory enables us to quantify the amountof uncertainty in a probability distribution.
+- Random Variables
+  - A random variable is a variable that can take on different values randomly.
+  - On its own, a random variable is just a description of the states that are possible; it must be coupled with a probability distribution that speciﬁes how likely each of these states are.
+- Probability Distributions
+  - Probability mass function (PMF)
+    - For discrete random variables
+    - The probability mass function maps from a state of a random variable tothe probability of that random variable taking on that state.
+  - Probability density function (PDF)
+    - For continuous random variables
+    - The probability of landing inside an inﬁnitesimal region withvolume δx is given by p(x)δx.
+- Expectation, Variance and Covariance
+  - The expectation, or expected value, of some function f(x) with respect to a probability distribution P(x) is the average, or mean value, that f takes on when x is drawn from P. For continuous variables, it is computed with an integral.
+  - The variance gives a measure of how much the values of a function of a random variable x vary as we sample different values of x from its probability distribution.
+  - The covariance gives some sense of how much two values are linearly related to each other, as well as the scale of these variables.
+  - If the sign of the covariance is positive, then both variables tend to take on relatively high values simultaneously. If the sign of the covariance is negative, then one variable tends totake on a relatively high value at the times that the other takes on a relatively low value and vice versa.
+ ![image](https://user-images.githubusercontent.com/65876994/152912058-6c8dda4c-174f-4caa-b58d-84d60af3f0c5.png)
+
+### Common Probability Distributions
+- 
+
 ## Chapter 4 Numerical Computation
 - Gradient-Based Optimization
   - **Optimization** refers to the task of either minimizing or maximizing some functionf(x) by altering x.
