@@ -19,7 +19,8 @@
  ![image](https://user-images.githubusercontent.com/65876994/152912058-6c8dda4c-174f-4caa-b58d-84d60af3f0c5.png)
 
 ### Common Probability Distributions
-- 
+- Gaussian Distribution
+  - 
 
 ## Chapter 4 Numerical Computation
 - Gradient-Based Optimization
