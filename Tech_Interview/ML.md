@@ -53,7 +53,7 @@ overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 
 - 또는 모델 학습시 gradient descent를 통해서 parameter 업데이트를 수행하기도 함
 
 ### 로지스틱 회귀모델
-- Y 값이 연속형이 아니라 범주형인 경우, 즉 분류 문제의 경우 사용. X 변수에 대한 로지스틱 함수 형태 (비선형결합)로 표현. 확률 값이 특정 기준 보다 크면 범주 1, 작으면 범주 0과 같은 식으로 최종 output 나옴
+- Y 값이 연속형이 아니라 범주형인 경우, 즉 분류 문제의 경우 사용. X 변수의 선형결합식에 로지스틱 함수를 취한 형태(비선형결합)로 표현. 확률 값이 특정 기준 보다 크면 범주 1, 작으면 범주 0과 같은 식으로 최종 output 나옴
 - 로지스틱 함수: input 값 (음의 무한대 ~ 양의 무한대)에 대해 단조증가 (혹은 단조감소) 함수. output 값의 범위는 0 ~ 1. 미분 결과를 원 함수식으로 표현 가능
 - E(Y) = P(Y = 1|X = x) = 관축치 x의 범주가 1일 확률 = 1 / 1 + e^-(b0 + b1x)
 - odds: 성공 확률이 p로 주어질 때, p / 1-p. log(odds) = b0 + b1x (선형식)
@@ -89,6 +89,20 @@ classifier = SVC(C = 0.01)
 ```
 
 - C 값이 클수록 hard margin, 작을 수록 softmargin임. 기본값은 1. 최적값은 데이터에 따라 다름
+
+### K Nearest Neighbors
+- K개의 가장 근접한 data로부터 majority voting을 수행하여 분류 또는 예측 (이 때는 target들의 평균값을 예측값으로 output)을 수행
+- Instance-based learning: 모델이 없이 관측치 (instance) 만을 이용하여 새로운 데이터에 대한 예측을 수행
+- Memory-based learning: 모든 학습 데이터를 메모리에 저장한 후 이를 바탕으로 예측을 수행
+- Lazy learning: 모델을 별도로 학습하지 않은 채 테스트 데이터가 들어올 때에만 작동함
+- hyperparameter K
+  - K가 매우 작을 경우 데이터의 지역적 특성을 지나치게 반영하여 overfitting의 위험이 있고, 매우 클 경우 너무 많은 개체가 포함되어서 오분류할 위험 (underfitting)이 있음
+  - 일정 범위의 K 값들에 대해서 misclassification error (%)를 구하여서 최종 K 값을 결정
+- hyperparameter measure distance
+  - Euclidean Distance: 각 coordinate 값 간 차이의 제곱합의 제곱근. 두 관측치 사이의 직선거리
+  - Manhattan Distance: 각 좌표축 방향으로만 이동할 경우에 계산되는 거리
+  - Mahalanobis Distance: 변수 내 분산과 변수 간 공분산을 모두 반영한 거리. 데이터의 covariance matrix가 identity matrix인 경우에는 euclidean distance과 동일함. 해당 값의 제곱의 자취의 방정식을 그려보면 타원의 형태를 가짐
+
 
 ### K-Means Clustering
 - 데이터 clustering (비슷한 속성의 데이터들을 묶음)을 위해 널리 사용되는 비지도학습 알고리즘
