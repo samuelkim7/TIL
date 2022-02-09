@@ -25,9 +25,9 @@
 - 이항분포: 확률변수 X가 독립적인 베르누이 시행 n번에서의 총 성공 횟수로 주어질 때, 이 X의 확률함수가 생성한 패턴 / p(x) = nCx * p^x * (1-p)^(n-x) for x = 0, 1, ..., n / n과 p가 확률분포의 모양을 결정하는 모수임 / 베르누이 분포는 이항분포에서 n=1인 특수한 경우임
 - Maximum Likelihood Estimation
   - 머신러닝을 주어진 데이터를 가장 잘 설명하는 '함수'를 찾는 과정이 아니라 가장 적절한 확률 분포의 parameter를 유추하는 과정으로 생각할 수 있음
-  - 주어진 관측 데이터에 근거하여 가정된 확률 분포의 parameter를 추정하는 방법. Likelihood의 최대값을 찾는 방식으로 계산되며 여기서 likelihood는 관측 데이터가 가정된 분포로부터 나왔을 가능성을 의미한다. 결국 각 데이터 샘플에서 후보 분포에 대한 높이 (likelihood)를 계산해서 다 곱한 값이 likelihood function이 된다. 이 식의 결과 값이 가장 커지는 θ를 θ hat으로 추정하는 것이 가장 적합하다.
+  - 주어진 관측 데이터에 근거하여 가정된 확률 분포의 parameter를 추정하는 방법. Likelihood의 최대값을 찾는 방식으로 계산되며 여기서 likelihood는 관측 데이터가 가정된 분포로부터 나왔을 가능성을 의미한다. 결국 각 데이터 샘플에서 후보 분포에 대한 높이 (likelihood)를 계산해서 다 곱한 값이 likelihood function이 된다. 이 식의 결과 값이 가장 커지는 θ를 θ hat으로 추정하는 것이 가장 적합하다.  
 ![image](https://user-images.githubusercontent.com/65876994/153129441-360c14ec-1750-4f8c-81d8-a92cc93bf16f.png)
-  - 보통은 계산 상의 편의를 위해 위 식에 자연로그를 취해서 Log likelihood function의 최대값을 찾게 된다.
+  - 보통은 계산 상의 편의를 위해 위 식에 자연로그를 취해서 Log likelihood function의 최대값을 찾게 된다.  
 ![image](https://user-images.githubusercontent.com/65876994/153129669-7d1d68e3-0210-4ae1-846e-376e34afe360.png)
 
 #### 기타
