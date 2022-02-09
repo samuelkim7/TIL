@@ -19,8 +19,15 @@
  ![image](https://user-images.githubusercontent.com/65876994/152912058-6c8dda4c-174f-4caa-b58d-84d60af3f0c5.png)
 
 ### Common Probability Distributions
+- Bernoulli Distribution
+  - The Bernoulli distribution is a distribution over a single binary random variable. It is controlled by a single parameter φ  ∈ [0,1], which gives the probability of the random variable being equal to 1.
+![image](https://user-images.githubusercontent.com/65876994/153109949-7faf948c-3100-44fb-a1c8-8b0ce00fa0d3.png)
+
 - Gaussian Distribution
-  - 
+  - The two parameters µ ∈ R and σ ∈ (0, ∞) control the normal distribution.
+![image](https://user-images.githubusercontent.com/65876994/153110089-9db794ac-0199-42c3-abd7-a6585eff4caa.png)
+  - The central limit theorem shows that the sum of many independent random variables is approximately normally distributed.
+  - This means thatin practice, many complicated systems can be modeled successfully as normally distributed noise, even if the system can be decomposed into parts with more structured behavior.
 
 ## Chapter 4 Numerical Computation
 - Gradient-Based Optimization
