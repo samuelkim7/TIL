@@ -72,3 +72,6 @@
 - [참고 링크](https://hiddenbeginner.github.io/deeplearning/2019/09/22/optimization_algorithms_in_deep_learning.html)
 
 ## Major models
+
+## AE and VAE
+- [참고 링크](https://wikidocs.net/152474#:~:text=VAE%EB%8A%94%20Input%20image%20X,%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%84%20%EB%AA%A9%ED%91%9C%EB%A1%9C%20%ED%95%A9%EB%8B%88%EB%8B%A4.)
