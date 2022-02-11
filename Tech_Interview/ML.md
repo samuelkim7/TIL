@@ -34,6 +34,25 @@
 - 선형 대수: 선형성을 가지는 대수로 이루어진 방정식들의 해를 구하는 방법론 혹은 학문
 - 고유값(eigen value)와 고유벡터(eigen vector)에 대해 설명해주세요.  
 정방행렬 A를 벡터 x에 곱했을 때 변환된 전과 후가 평행할 경우 x를 고유벡터라고 한다. 이 때 변환된 크기의 정도를 고유값이라고 한다.
+- P-Value
+  - 가설검정에서 사용되는 지표. 귀무가설에서 주장한 바가 옳을 확률 (0 ~ 1). P-Value가 작다는 것은 귀무가설이 참일 확률이 적다는 의미임. 보통 0.05 또는 0.01이 채택의 기준값이 됨
+  - 검정통계량: 귀무가설이 참이라는 가정 아래 얻은 통계량. 데이터에서 얻은 통계값과 귀무가설의 주장값의 차이. T = (E(X) - E_H0) * sqrt(n) / s. 샘플 수와 표준 편차로 scaling을 해줌
+  - P-Value = P(Y > T) where Y ~ t(n-1). T 값이 클 수록 P-Value가 작아지고 귀무가설이 거짓일 확률이 높아진다.
+- 불균형 데이터를 위한 샘플링 기법
+  - undersampling
+    - Random undersampling: sampling 시 마다 성능에 fluctuation이 좀 있기는 하지만 잘 작동하는 경우도 많음
+    - Tomek links: 두 데이터 포인트 사이에 더 가까운 데이터가 없는 경우 이 연결을 tomek link라고 부름. tomek link 형성 후 연결된 데이터 포인트들 중 다수 범주에 속한 것들을 제거함
+    - CNN (condensed nearest neighbor): 소수 범주 전체와 다수 범주에서 무작위로 하나의 관측치를 선택하여 서브데이터를 구성. 1-NN 알고리즘을 통해 원데이터를 분류. 그런 다음 정상 분류된 다수범주의 데이터를 제거하고 남은 데이터들로 분류 수행
+    - OSS (one-side selection): Tomek links + CNN
+  - Oversampling
+    - 대부분의 경우 undersampling에 비해 더 높은 분류 정확도를 보임. 그러나 overfitting의 가능성이 커지고 노이즈나 이상치에 대해 더 민감해지는 단점이 있음
+    - Resampling: 소수 범주 내 관측치를 복제해서 증폭시킴. 소수 범주에 대한 과적합이 발생할 가능성이 있음
+    - SMOTE (synthetic minority oversampling technique): 소수 범주에서 가상의 데이터를 생성하는 방법. Synthetic = X + u * (X(nn) - X). X(nn)은 K개의 NN 중에서 랜덤으로 선택된 하나의 관측치를 가리킴. K >= 2이어야 함
+    - Borderline SMOTE - Borderline 부분에서만 oversampling을 수행. K-NN을 확인하여서 다수 클래스의 개수를 확인하여서 borderline을 결정함. 다수 클래스의 비율이 반 이상인 경우가 borderline에 속하게 되고 전체가 되면 이는 noise로 간주하여 제외시킴
+    - ADASYN (adaptive synthetic sampling approach): 소수 클래스 주변 다수 클래스의 수에 따라서 샘플링하는 개수를 유동적으로 계산하여 oversampling. 모든 소수 클래스 관측치에 대해 주변 K개를 탐색하고 그 중 다수 클래스 관측치의 비율을 계산 (r_i). r_i / sigma(r_i)로 스케일링 한 후에 생성하고자 하는 개수만큼 곱한다.
+    - GAN
+  - Cost sensitive learning: cost에 대한 가중치를 다르게 주는 모델링 방식
+  - 단일 클래스 분류 기법: 중심을 기준으로 다수 범주를 잘 설명하는 경계선 생성하고 그 경계선을 기준으로 클래스 분류 수행
 
 - 리샘플링일란  
 리샘플링은 내가 가지고 있는 샘플에서 다시 샘플 부분집합을 뽑아서 통계량의 변동성을 확인하는 것. 대표적인 예로 K-fold cross validation이 있음
