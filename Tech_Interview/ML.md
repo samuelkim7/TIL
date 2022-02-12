@@ -138,6 +138,7 @@ classifier = SVC(C = 0.01)
   - Euclidean Distance: 각 coordinate 값 간 차이의 제곱합의 제곱근. 두 관측치 사이의 직선거리
   - Manhattan Distance: 각 좌표축 방향으로만 이동할 경우에 계산되는 거리
   - Mahalanobis Distance: 변수 내 분산과 변수 간 공분산을 모두 반영한 거리. 데이터의 covariance matrix가 identity matrix인 경우에는 euclidean distance과 동일함. 해당 값의 제곱의 자취의 방정식을 그려보면 타원의 형태를 가짐
+  - Correlation Distance: 
 
 
 ### K-Means Clustering
