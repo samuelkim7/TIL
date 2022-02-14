@@ -101,7 +101,7 @@ overfitting을 막기 위해서 데이터 세트를 여러 조합의 훈련 및 
 
 ### 서포트 벡터 머신
 - 분류를 위한 지도학습 모델의 한 종류로서 support vectors를 사용하여 결정 경계(Decision Boundary)을 정의하는 모델
-- Support vectors: 결정 경계와 가장 가까이에 있는 가 클래스의 데이터 포인트
+- Support vectors: 결정 경계와 가장 가까이에 있는 각 클래스의 데이터 포인트들
 - margin: 결정 경계와 서포트 벡터 사이의 거리
 - "최적의 결졍 경계는 마진을 최대화한다."
 - SVM에서는 결정 경계를 정의하는게 결국 서포트 벡터이기 때문에 포인트 중에서 서포트 벡터만 잘 골라내면 나머지 쓸 데 없는 수많은 데이터 포인트들을 무시할 수 있다. 그래서 매우 빠르다.
@@ -200,7 +200,7 @@ print(classifier.score(test_data, test_labels))
 
 - 한계점
     - 기본적으로 greedy 알고리즘을 토대로 작동하기 때문에 항상 최적의 해를 찾는 것은 아니다. 하지만 최적의 트리를 찾는 것은 어려운 일임
-    - Tree가 커질 수록 overfitting 가능성이 생김. 이것을 제한하려면 가지 치기를 하거나DecisionTreeClassifier(max_depth = n)와 같이 트리의 최대 크기를 지정할 수도 있음
+    - Tree가 커질 수록 overfitting 가능성이 생김. 이것을 제한하려면 가지 치기를 하거나 DecisionTreeClassifier(max_depth = n)와 같이 트리의 최대 크기를 지정할 수도 있음
     
 
 ### Random Forest
