@@ -71,6 +71,11 @@
 
 - [참고 링크](https://hiddenbeginner.github.io/deeplearning/2019/09/22/optimization_algorithms_in_deep_learning.html)
 
+## CNN
+- Convolution leverages three important ideas: sparse interactions, parameter sharing and equivariant representations.
+  - Sparse Interactions: Traditional neural network layers use matrix multiplication by a matrix of parameters with a separate parameter describing the interaction between each input unit and each output unit. This means that every output unit interacts with every input unit. Convolutional networks, however, typically have sparse interactions.
+  - 
+
 ## Major models
 
 ## AE and VAE
