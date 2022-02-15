@@ -73,8 +73,8 @@
 
 ## CNN
 - Convolution leverages three important ideas: sparse interactions, parameter sharing and equivariant representations.
-  - Sparse Interactions: Traditional neural network layers use matrix multiplication by a matrix of parameters with a separate parameter describing the interaction between each input unit and each output unit. This means that every output unit interacts with every input unit. Convolutional networks, however, typically have sparse interactions.
-  - 
+  - Sparse Interactions: Traditional neural network layers use matrix multiplication by a matrix of parameters with a separate parameter describing the interaction between each input unit and each output unit. This means that every output unit interacts with every input unit. Convolutional networks, however, typically have sparse interactions. ... even though direct connections in a convolutional net are very sparse, units in the deeper layers can be indirectly connected to all or most of the input image.
+  - Parameter Sharing: refers to using the same parameter for more than one function in a model.
 
 ## Major models
 
