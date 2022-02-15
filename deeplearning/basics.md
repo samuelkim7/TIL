@@ -74,7 +74,24 @@
 ## CNN
 - Convolution leverages three important ideas: sparse interactions, parameter sharing and equivariant representations.
   - Sparse Interactions: Traditional neural network layers use matrix multiplication by a matrix of parameters with a separate parameter describing the interaction between each input unit and each output unit. This means that every output unit interacts with every input unit. Convolutional networks, however, typically have sparse interactions. ... even though direct connections in a convolutional net are very sparse, units in the deeper layers can be indirectly connected to all or most of the input image.
-  - Parameter Sharing: refers to using the same parameter for more than one function in a model.
+  - Parameter Sharing: refers to using the same parameter for more than one function in a model. The value of the weight applied to one input is tied to the value of a weight applied elsewhere.
+  - Equivariance to translation: This means that if the input changes, the output changes in the same way. With images, convolution creates a2-D map of where certain features appear in the input. If we move the object in theinput, its representation will move the same amount in the output. 
+ - Pooling
+   - Pooling helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by a small amount, the values of most of the pooled outputs do not change.
+ - Use of convolution introduces a strong prior that the function the layer should learn contains only local interactions and is equivariant to translation. Likewise, the use of pooling is an inﬁnitely strong prior that each unit should be invariant to small translations. 
+
+## Autoencoders
+- An autoencoder is a neural network that is trained to attempt to copy its input to its output. Internally, it has a hidden layer h that describes a code used to represent the input.  
+![image](https://user-images.githubusercontent.com/65876994/154011100-c5118742-3fc8-42ab-a063-5080af8362b5.png)
+- Traditionally, autoencoders were used for dimensionality reduction or feature learning. Recently, theoretical connections between autoencoders and latent variable models have brought autoencoders to the forefront of generative modeling.
+- We hope that training the autoencoder to perform the input copying task will result in h taking on useful properties. Learning an undercomplete representation forces the autoencoder to capture the most salient features of the training data.
+- When the decoder is linear and L is the mean squared error, an undercomplete autoencoder learns to span the same subspace as PCA. Autoencoders with nonlinear encoder functions f and nonlinear decoder functions g can thus learn a more powerful nonlinear generalization of PCA.
+- Denoising Autoencoders
+  - The denoising autoencoder(DAE) is an autoencoder that receives a corrupted data point as input and is trained to predict the original, uncorrupted data point as its output. But it learns a good internal representation as a side effect of learning to denoise. 
+  - ![image](https://user-images.githubusercontent.com/65876994/154011051-49c694ad-cf84-43a2-9795-1affadd52624.png)
+  - ![image](https://user-images.githubusercontent.com/65876994/154013334-ffd6cbda-6693-419e-86f8-017e8838a269.png)
+- Autoencoders aim to learn the structure of the manifold.
+  - Autoencoder can afford to represent only the variations that are needed to reconstruct training examples. Hence the encoder learns a mapping from the input space x to a representation space, a mapping that is only sensitive to changes along the manifold directions, but that is insensitive tochanges orthogonal to the manifold.
 
 ## Major models
 
