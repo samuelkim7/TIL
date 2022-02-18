@@ -31,6 +31,14 @@
 - The variables γ and β are learned parameters that allow the new variable to have any mean and standard deviation.
 - The bias term should be omitted because it becomes redundant with the β parameter applied by the batch normalization reparametrization.
 
+## Weight Initialization
+- Lecun Initialization  
+![image](https://user-images.githubusercontent.com/65876994/154641642-718516ae-638b-40e1-815d-e577535e83eb.png)
+- Xavier Initialization  
+![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
+- He Initialization  
+![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
+
 ## Optimizers
 #### Overview
 - GD: 모든 데이터를 기반으로 내 위치의 기울기를 계산해서 움직임
