@@ -15,7 +15,7 @@
   - Now, let’s assume that both the encoder and the decoder are deep and non-linear. 
   - In such case, the more complex the architecture is, the more the autoencoder can proceed to a high dimensionality reduction while keeping reconstruction loss low. 
 
-#### VAE
+### VAE
 - Autoencoder for data generation
   - it is pretty difficult (if not impossible) to ensure, a priori, that the encoder will organize the latent space in a smart way compatible with the generative process we just described.
   - The autoencoder is solely trained to encode and decode with as few loss as possible, no matter how the latent space is organised.
@@ -31,3 +31,10 @@
 - So, in order to avoid these effects we have to regularise both the covariance matrix and the mean of the distributions returned by the encoder.
 - In practice, this regularisation is done by enforcing distributions to be close to a standard normal distribution (centred and reduced).
 - With this regularisation term, we prevent the model to encode data far apart in the latent space and encourage as much as possible returned distributions to “overlap”, satisfying this way the expected continuity and completeness conditions.
+
+### Summary
+![image](https://user-images.githubusercontent.com/65876994/154874867-7d1c0f75-0d05-4375-9188-99524b5c4e89.png)
+
+
+### Reference
+[Link](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73#:~:text=In%20a%20nutshell%2C%20a%20VAE,to%20generate%20some%20new%20data.)
