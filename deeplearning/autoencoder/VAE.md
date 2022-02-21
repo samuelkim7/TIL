@@ -32,6 +32,21 @@
 - In practice, this regularisation is done by enforcing distributions to be close to a standard normal distribution (centred and reduced).
 - With this regularisation term, we prevent the model to encode data far apart in the latent space and encourage as much as possible returned distributions to “overlap”, satisfying this way the expected continuity and completeness conditions.
 
+### Probabilistic Explanation of VAE
+- Two assumptions: a latent representation z is sampled from the prior distribution p(z) / the data x is sampled from the conditional likelihood distribution p(x|z).
+- The “probabilistic decoder” is naturally defined by p(x|z), that describes the distribution of the decoded variable given the encoded one.
+- whereas the “probabilistic encoder” is defined by p(z|x), that describes the distribution of the encoded variable given the decoded one.  
+![image](https://user-images.githubusercontent.com/65876994/154876075-af8e021f-84e1-4a67-a583-3df00a61f278.png)  
+![image](https://user-images.githubusercontent.com/65876994/154876065-39d7b048-5180-4421-93a6-042014a02ec3.png)  
+- Using Bayes theorem to comput p(z|x) is often intractable (because of the integral at the denominator) and require the use of approximation techniques such as variational inference.
+
+#### Variational inference formulation
+- In statistics, variational inference (VI) is a technique to approximate complex distributions.
+- The best element in the family is one that minimise a given approximation error measurement (most of the time the Kullback-Leibler divergence between approximation and target) and is found by gradient descent over the parameters that describe the family.
+- We want to choose the function f that maximises the expected log-likelihood of x given z when z is sampled from q_x(z).
+- In other words, for a given input x, we want to maximise the probability to have x̂ = x when we sample z from the distribution q_x(z) and then sample x̂ from the distribution p(x|z).
+
+
 ### Summary
 ![image](https://user-images.githubusercontent.com/65876994/154874867-7d1c0f75-0d05-4375-9188-99524b5c4e89.png)
 
