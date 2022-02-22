@@ -38,7 +38,7 @@
 - He Initialization  
 ![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
 
-## Information entropy
+## Information theory
 - 정보량: the idea of measuring how much surprise there is in an event. The number of bits required to encode and transmit an event. Inversely proportional to probability.
   - Low Probability Event: High Information (surprising).
   - High Probability Event: Low Information (unsurprising).
