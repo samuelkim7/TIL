@@ -36,7 +36,7 @@
 - Xavier Initialization  
 ![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
 - He Initialization  
-![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
+![image](https://user-images.githubusercontent.com/65876994/155061909-157bcbe8-75cc-4f66-a702-15f82dcf35d1.png)
 
 ## Information theory
 - 정보량: the idea of measuring how much surprise there is in an event. The number of bits required to encode and transmit an event. Inversely proportional to probability.
