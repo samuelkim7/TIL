@@ -6,7 +6,6 @@
 - L1 regularization: 기존 loss function에 가중치의 절대값을 더해줌. 편미분 후에는 결국 w에서 특정 상수값을 빼주면서 업데이트를 하게 됨으로 몇몇 중요한 가중치들만 남기게 됨
 - L2 regularzation: 기존 loss function에 가중치의 제곱을 더함
 
-
 ## Dropout
 - Overfitting에 대한 해결책으로는 학습 데이터를 늘리거나 regularization을 적용하는 방법이 있다. dropout은 regularization 기법 중 하나이다. 단순히 말해서 NN이 지닌 일부 유닛들을 생략하고 학습을 진행하는 기법이다. 모델 ensemble의 장점을 취하는 방식으로 훈련하고 테스트시에는 간단한 방식으로 평균을 적용하게 된다.
 - 테스트 시에는 생략을 없애고 각각의 뉴런들이 존속할 확률을 가중치에 곱해서 (가중치는 더 작게 만들어서) inference를 수행한다.
@@ -38,6 +37,28 @@
 ![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
 - He Initialization  
 ![image](https://user-images.githubusercontent.com/65876994/154641752-1fedf5d6-69d7-41cc-83d5-b1f2cd696164.png)
+
+## Information entropy
+- 정보량: the idea of measuring how much surprise there is in an event. The number of bits required to encode and transmit an event. Inversely proportional to probability.
+  - Low Probability Event: High Information (surprising).
+  - High Probability Event: Low Information (unsurprising).
+  - information(x) = -log( p(x) ) / The negative sign ensures that the result is always positive or zero. Information will be zero when the probability of an event is 1.0 or a certainty, e.g. there is no surprise. Information will be one when p(x) is 0.5.
+- Entropy: Average amount of information for a random variable
+  - ![image](https://user-images.githubusercontent.com/65876994/155042205-40d5c895-aeaa-4756-a214-e935dd91bfad.png)
+  - Skewed Probability Distribution (unsurprising): Low entropy.
+  - Balanced Probability Distribution (surprising): High entropy.
+- Cross-entropy
+  - A measure of the difference between two probability distributions for a given random variable or set of events. Closely related to KL divergence.
+  - The number of bits required to represent or transmit an average event from one distribution compared to another distribution.
+  - The cross-entropy is the average number of bits needed to encode data coming from a source with distribution p when we use model q.
+  - H(P, Q) = – sum ( P(x) * log(Q(x)) for x in X )
+  - The result will be a positive number measured in bits and will be equal to the entropy of the distribution if the two probability distributions are identical.
+- KL divergence
+  - the KL divergence is the average number of extra bits needed to encode the data, due to the fact that we used distribution q to encode the data instead of the true distribution p.
+  - Cross-Entropy: Average number of total bits to represent an event from Q instead of P.
+  - Relative Entropy (KL Divergence): Average number of extra bits to represent an event from Q instead of P.
+  - KL(P || Q) = – sum ( P(x) * log(Q(x) / P(x)) for x in X )
+  - H(P, Q) = H(P) + KL(P || Q)
 
 ## Optimizers
 #### Overview
